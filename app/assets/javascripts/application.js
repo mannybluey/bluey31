@@ -12,10 +12,12 @@
 //= require jquery.jeditable.mini
 //= require jquery.remotipart
 //= require jquery.rotate
+//= require jquery.qtip
 
 //= require nested_form
 //= require on_the_spot
 //= require flowplayer
+
 
 //= require_tree .
 

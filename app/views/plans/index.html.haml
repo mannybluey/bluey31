@@ -47,7 +47,8 @@
 				%h2 Available Plans
 				#contentBar
 					%ul.fl
-						%li= link_to "+ Add Plan", "#"
+						%li= link_to "+ Add Plan", "#fancy_add_plan_form" , :id => "show_add_plan_form_link"
+						= render :partial => "add_plan_form"
 					#addPlanText.fl
 						%p
 							%b Available plans are listed below

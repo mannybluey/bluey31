@@ -12,6 +12,8 @@ updatePlanItems = ->
   $('.plan-item input[type=checkbox]:not(:checked)').closest('li').removeClass('completed')
 
 $(document).ready ->
+
+  $('#plan_edit').qtip({ content: 'Short hand notation'})
   
   $('#new_plan')
     .bind('nested:fieldAdded', updatePlanDays)
