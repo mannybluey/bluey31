@@ -1,0 +1,74 @@
+!!!
+%html
+  %head
+    %title Bluey Health & Fitness
+    %link{:rel => 'shortcut icon', :href=>"/favicon.ico"}
+    = yield :head
+    = stylesheet_link_tag 'application', :media => 'screen, projection'
+    /[if IE]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+    = javascript_include_tag 'application' 
+    /[if lt IE 9]
+      = javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js'
+      = javascript_include_tag 'ie' 
+    = csrf_meta_tag
+    :javascript
+       var _gaq = _gaq || [];
+       _gaq.push(['_setAccount', 'UA-3494982-5']);
+       _gaq.push(['_trackPageview']);
+       (function() {
+         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+  %body
+    #notifications
+      - if flash[:alert]
+        #alert= alert
+      - if flash[:notice]
+        #notice= notice
+    #wrapper
+      - if content_for?(:main_content)
+        = yield :main_content
+      - else
+        #left-col
+          %h1=link_to 'Bluey health & fitness', root_path
+          %nav
+            %ul
+              %li=link_to 'Plans', plans_path, :id => 'plans'
+              %li=link_to 'Community', '/coming_soon.html', :id => 'community'
+              %li=link_to 'Challenges', '/coming_soon.html', :id => 'challenges'
+              %li=link_to 'Profile', profile_edit_path, :id => 'profile'
+              %li=link_to 'Financial', '/coming_soon.html', :id => 'financial'
+          = link_to 'Help', 'http://blog.blueyfit.com', :id => 'help'
+        #right-col
+          #stats-bar
+            .coming-soon Stats coming soon
+            %ul.badges
+              %li= image_tag 'badges/ace.png', :alt => 'Ace certified'
+              %li= image_tag 'badges/stress.png', :alt => 'No stress'
+              %li= image_tag 'badges/circles.png', :alt => 'Circle'
+              %li= image_tag 'badges/flu.png', :alt => 'No flu'
+              %li= image_tag 'badges/punch.png', :alt => 'Punching'
+            %ul#stats
+              %li
+                %h2 Wellness points
+                %p 302
+              %li.meter
+                %h2 Goal
+                %span
+                  = image_tag 'meter-stick.png'
+              %li
+                %h2 Weight
+                %p
+                  174
+                  %span lbs
+              %li.meter
+                %h2 Health
+                %span
+                  = image_tag 'meter-stick.png'
+          = link_to 'Logout', destroy_user_session_path, :id => 'logout'
+          #content
+            = yield
+  = yield :foot
+  = raw(yield :extra_js)

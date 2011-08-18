@@ -1,0 +1,23 @@
+= nested_form_for [@plan, @day, @plan_item], :remote => true do |f|
+  .form-errors
+  %p
+    = f.label :name, 'Exercise'
+    = f.text_field :name
+  %p
+    %em.hint Sets: Enter reps, weight or any measurement e.g. '18 kg, 40 lbs' or '40 lengths'
+  = f.fields_for :plan_item_sets do |set_form|
+    %p
+      = set_form.label :measurements, "Set"
+      = set_form.text_field :measurements, :class => 'half-size'
+      = set_form.link_to_remove '&#x2717'.html_safe
+  = f.link_to_add 'Add another set', :plan_item_sets
+  %hr
+  %p.buttons
+    - if local_assigns[:edit_form].nil?
+      = f.submit 'Add exercise'
+      or
+      = link_to "I'm done adding exercises", '#', :class => 'cancel', :id => 'cancel-add-exercise'
+    - else
+      = f.submit 'Update'
+      or
+      = link_to "cancel", '#', :class => 'cancel', :id => 'cancel-edit-exercise'

@@ -1,0 +1,402 @@
+/*
+ * Stylesheet for Bluey health and fitness
+ * Author: Alex Duller
+ * Contents:
+ * - Variables
+ * - Colours
+ * - Mixins
+ * - Globals and wrapper
+ * - Left column
+ * - Right column
+ */
+
+@import "compass/reset"
+@import "compass/utilities/general/clearfix"
+@import "compass/css3/border-radius"
+@import "compass/css3/box-shadow"
+@import "compass/css3/text-shadow"
+@import "compass/css3/gradient"
+@import "compass/css3/opacity"
+
+/* Variables */
+$total_width : 1000px
+$left_col_width : 107px
+$right_col_width : $total_width - $left_col_width
+$stats_bar_height : 107px
+$default_border_radius : 10px
+$ctx_bar_height : 65px
+$content_width : $right_col_width - 40px
+
+/* Colours */
+$blue_border : #007cc2
+$blue_bg : #3baeee
+$light_blue_bg : #5ebdf1
+$link_colour : #5ebdf1 - #111
+$link_visited : $link_colour - #101010
+$link_hover : $link_colour - #202020
+$link_active : $link_hover - #202020
+$error_red : #900
+$subtle : #cdcdcd
+$text_colour : #414141
+$pale_green : #d8f3a6
+$pale_yellow : #fffcc3
+$green_bg : #72bc00
+$green_border : #568302
+$grey_bg : #f4f4f4
+$grey_border : #d4d4d4
+
+$nav_link_colour : $blue_bg - #777
+
+/* Font sizes */
+$tiny : 11px
+$small : 12px
+$normal : 13.34px
+$large : 18px
+
+/* Mixins */
+@mixin shiny-grey-box
+  color: #333
+  @include background-image(linear-gradient(bottom, #f4f4f4, #ececec 100%))
+  @include border-radius($default_border_radius)
+  border: 1px solid #d4d4d4
+  @include text-shadow(#fff 1px 1px 1px)
+
+@mixin shiny-red-box
+  @include background-image(linear-gradient(bottom, #990000, #990000 45%, #a3322b 45%, #a3322b 100%))
+  @include border-radius($default_border_radius)
+  border: 1px solid #666
+  @include box-shadow(#454545 0 0 2px 0px)
+
+@mixin shiny-green-box
+  @include background-image(linear-gradient(bottom, #72bc00, #90c135 100%))
+  @include border-radius(4px)
+  border: 1px solid $green_border
+  text-decoration: none
+
+@mixin shiny-blue-box
+  @include background-image(linear-gradient(bottom, #3baeee, #3baeee 45%, #5ebdf1 45%, #5ebdf1 100%))
+  @include border-radius($default_border_radius)
+  @include box-shadow(#bbb 0 0 1px 0px)
+  border: 1px solid #999
+
+@mixin green-text-shadow
+  color: white
+  @include text-shadow(#568302 1px 1px 1px)
+
+@mixin blue-text-shadow
+  color: white
+  @include text-shadow(#378cbb 1px 1px 2px)
+
+@mixin hide-text
+  text-indent: -30000px
+  outline: 0
+
+@mixin filter-icon($x-offset)
+  background-position: $x-offset -50px
+  &:hover, &.selected
+    background-position: $x-offset 0
+    
+/* Globals and wrapper */
+body
+  font: $normal Helvetica, Arial, sans-serif
+  color: $text_colour
+
+a
+  color: $link_colour
+  &:visited
+    color: $link_visited
+  &:hover
+    color: #333
+  &:active
+    color: black
+
+hr
+  border: 0
+  background: #ccc
+  height: 1px
+
+strong
+  font-weight: bold
+
+em
+  font-style: italic
+
+input, textarea
+  font: 14px Helvetica, Arial, sans-serif
+
+section
+  @include clearfix
+
+h1, h2, h3
+  font-weight: 600
+
+h1
+  font-size: 24px
+
+h2
+  font-size: $large
+  margin-bottom: 10px
+
+.button
+  font-size: 13px
+  @include border-radius(4px)
+  padding: 5px
+  text-decoration: none
+  display: inline-block
+  cursor: pointer
+  &:hover
+    background: $green_bg
+
+.green-button
+  @extend .button
+  @include green-text-shadow
+  @include shiny-green-box
+  a
+    color: white
+  &:hover
+    background: $green_bg
+
+.grey-button
+  @extend .button
+  @include shiny-grey-box
+  a
+    color: black
+  &:hover
+    background: $grey_bg
+
+    
+.cancel
+  background: none
+  border: 0
+  text-decoration: underline
+  cursor: pointer
+  padding: 0
+  color: #900 !important
+
+.badge, .large-picture, .badges li
+  background: #cdedff
+  display: block
+  float: left
+  border: 1px solid #bbb
+  padding: 1px
+  color: #eee
+  font-size: 8px
+  margin: 0 5px 5px 0
+
+.badge, .badges li
+  width: 30px
+  height: 30px
+
+.large-picture
+  width: 100px
+  height: 100px
+  margin-right: 20px !important
+
+#wrapper
+  @include clearfix
+  width: $total_width
+  margin: 0 auto
+  margin-bottom: 50px
+  padding: 0 30px 0 50px
+
+/* Notifications */
+#notifications
+  position: fixed
+  top: 20px
+  left: -1px
+  font-size: 12px
+  #alert
+    border: 1px solid $error_red
+    background: #e5b6b6
+    padding: 10px
+  #notice
+    border: 1px solid #558108
+    background: #bcdd9f
+    padding: 10px
+
+/* Left column */
+#left-col
+  width: $left_col_width
+  float: left
+
+h1
+  a
+    margin: 20px 0
+    height: $stats_bar_height
+    display: block
+    background: url(/assets/logo.png) no-repeat
+    @include hide-text
+
+nav ul
+  width: 107px
+  background: url(/assets/nav-shine.png) no-repeat 1px 1px $blue_bg
+  @include box-shadow(#bbb 0 0 2px 0px)
+  border: 1px solid #999
+  @include border-radius($default_border_radius)
+  padding: 10px 0
+  li
+    text-align: center
+    list-style: none
+    margin: 0
+    a
+      padding: 75px 0 15px 0
+      color: $nav_link_colour
+      display: block
+      text-decoration: none
+      font-weight: bold
+      &#plans
+        background: url(/assets/plans.png) no-repeat center 0
+      &#community
+        opacity: 0.65
+        background: url(/assets/community.png) no-repeat center 0
+      &#challenges
+        opacity: 0.65
+        background: url(/assets/challenges.png) no-repeat center 0
+      &#profile
+        background: url(/assets/profile.png) no-repeat center 0
+      &#financial
+        opacity: 0.65
+        background: url(/assets/financial.png) no-repeat center 0
+      &:visited
+        color: $nav_link_colour
+      &:hover, &.selected
+        color: white
+
+#help
+  display: block
+  width: 107px
+  height: 90px
+  background: url(/assets/help.png) no-repeat
+  margin-top: 15px
+  @include hide-text
+
+/* Right column */
+#right-col
+  width: $right_col_width
+  float: right
+
+#stats-bar
+  opacity: 0.2
+  float: left
+  margin: 20px 5px 19px 10px
+  padding: 15px
+  height: $stats_bar_height - 30px
+  width: 750px
+  @include shiny-blue-box
+  position: relative
+  .coming-soon
+    opacity: 20
+    position: absolute
+    bottom: 10px
+    right: 10px
+
+.badges
+  float: left
+  width: 150px
+
+#stats
+  color: white
+  float: right
+  height: $stats_bar_height
+  @include blue-text-shadow
+  h2
+    letter-spacing: 0
+    margin: 5px 0
+    font-size: 18px
+    font-weight: normal
+  li
+    float: left
+    width: 150px
+    text-align: center
+    p
+      font-size: 36px
+      span
+        font-size: 24px
+    &.meter
+      h2
+        margin-bottom: 0
+      span
+        margin-left: 52px
+        float: left
+        width: 50px
+        height: 50px
+        background: url(/assets/meter-bg.png) no-repeat
+        display: block
+      .hint
+        display: none
+
+#logout
+  display: block
+  margin-top: 20px
+  @include shiny-red-box
+  height: $stats_bar_height
+  float: left
+  margin-right: 0
+  padding: 0 23px
+  color: white
+  line-height: $stats_bar_height + 5px
+  text-decoration: none
+  font-size: $small
+
+#content
+  clear: both
+  margin: 0 10px 10px 10px
+  padding: 10px
+  @include border-radius($default_border_radius)
+  @include box-shadow(#ccc 0 0 3px 1px)
+  @include clearfix
+
+#context-bar
+  height: $ctx_bar_height
+  font-weight: 550
+  margin-bottom: 10px
+  /* Filter buttons */
+  ul
+    @include shiny-blue-box
+    float: left
+    padding: 0 10px
+    width: 225px
+    li
+      float: left
+      a
+        @include hide-text
+        background: url(/assets/plan-filter-icons.png) no-repeat 0 -50px
+        width: 55px
+        height: 50px
+        display: block
+        margin: 7px 0
+        &.profile
+          @include filter-icon(0)
+        &.community
+          @include filter-icon(-55px)
+        &.challenges
+          @include filter-icon(-110px)
+        &.financial
+          @include filter-icon(-165px)
+      
+  /* Share button */
+  #button
+    float: right
+    width: 245px
+    @include shiny-green-box
+    @include border-radius($default_border_radius)
+    &:hover
+      background: $green_bg
+    a
+      display: block
+      text-decoration: none
+      cursor: pointer
+      color: white
+      @include green-text-shadow
+  #share
+    width: 195px
+    background: url(/assets/share-icon.png) no-repeat 150px 5px
+    line-height: 40px
+    font-size: 35px
+    padding: 15px 0 0 50px
+    height: $ctx_bar_height - 15px
+  #create-plan
+    height: $ctx_bar_height
+    line-height: $ctx_bar_height
+    font-size: 30px
+    text-align: center

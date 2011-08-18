@@ -1,0 +1,16 @@
+development:
+  database: bluey
+  adapter: mysql2
+  username: root
+  password: sarah
+  host: localhost
+  encoding: utf8
+  #socket: /var/run/mysqld/mysqld.sock
+test:
+  database: bluey
+  adapter: mysql2
+  username: root
+  password: sarah
+  host: localhost
+  encoding: utf8
+  #socket: /var/run/mysqld/mysqld.sock
