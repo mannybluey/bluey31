@@ -6,3 +6,4 @@ config/database*.yml
 .sass-cache/
 .rvmrc
 *.swp
+db/schema.rb
