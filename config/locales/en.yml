@@ -7,6 +7,7 @@ en:
       short: "%d %B %Y"
       with_time: "%d %B %Y %H:%M %Z"
   activerecord:
-    attributes:
-      plan_item:
-        name: "Exercise"
+    models:
+      plan: Plan
+      user: User
+

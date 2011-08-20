@@ -43,21 +43,24 @@
 					= f.text_field :search_string
 					= f.submit "Search"
 				
-			#contentWrapper
+			#contentWrapper{:style => "position:relative;"}
 				%h2 Available Plans
 				#contentBar
 					%ul.fl
-						%li= link_to "+ Add Plan", "#"
+						%li
+							= link_to "+ Add Plan", "#fancy_new_plan_form" , :class => "fancybox"
+							= render :partial => "new_plan"
 					#addPlanText.fl
 						%p
 							%b Available plans are listed below
 						%p.small To add new plan click the link on the left
-				#plan-content
+
+				#plan-content{:style => "z-index: 0;"}
 					%ul
 						%li#plan_1.plan
 							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.day Day 1
 							%p.task Mass Gain Chest
+							%p.day 1 day
 							%p{:style => "line-height: 22px;"}
 								= image_tag "dashboard/avatar.png", :alt => "avatar"
 								= "by E. Henry"
@@ -68,10 +71,10 @@
 								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
 								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
 								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-						%li#plan_2.plan.active
+						%li#plan_2.plan.active{:style => "position: relative;"}
 							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.day Day 2
 							%p.task Mass Gain Arms
+							%p.day 2 days
 							%p
 								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
 								%small by E. Henry
@@ -79,14 +82,14 @@
 								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
 								%small 07/11/2011
 							.planActionBar{:style => "display:visible;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
+								= link_to (image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"), "#", :id => "planEditLink"
 								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
 								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
 
 						%li#plan_3.plan
 							= image_tag "dashboard/apple.png", :alt => "apple"
-							%p.day Day 4
 							%p.task Milk Diet Day
+							%p.day 4 days
 							%p
 								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
 								%small by E. Henry
@@ -100,8 +103,8 @@
 
 						%li#plan_4.plan
 							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.day Day 1
 							%p.task Mass Gain Chest
+							%p.day 1 day
 							%p
 								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
 								%small by E. Henry
@@ -115,8 +118,8 @@
 
 						%li#plan_5.plan
 							= image_tag "dashboard/pills.png", :alt => "pills"
-							%p.day Day 1
 							%p.task Vitamins Day
+							%p.day 1 day
 							%p
 								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
 								%small by E. Henry
@@ -130,8 +133,8 @@
 
 						%li#plan_6.plan
 							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.day Day 2
 							%p.task Mass Gain Back
+							%p.day 2 days
 							%p
 								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
 								%small by E. Henry
@@ -145,8 +148,8 @@
 
 						%li#plan_7.plan
 							= image_tag "dashboard/apple.png", :alt => "apple"
-							%p.day Day 7
 							%p.task Apple Diet Day
+							%p.day 1 day
 							%p
 								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
 								%small by E. Henry
@@ -160,8 +163,8 @@
 
 						%li#plan_8.plan
 							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.day Day 1
 							%p.task Mass Gain Chest
+							%p.day 1 day
 							%p
 								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
 								%small by E. Henry
@@ -175,8 +178,8 @@
 
 						%li#plan_9.plan
 							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.day Day 8
 							%p.task Mass Gain Legs
+							%p.day 8 days
 							%p
 								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
 								%small by E. Henry
@@ -190,8 +193,8 @@
 
 						%li#plan_10.plan
 							= image_tag "dashboard/heart.png", :alt => "heart"
-							%p.day Day 5
 							%p.task Visit Doctor
+							%p.day 1 day
 							%p
 								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
 								%small by E. Henry

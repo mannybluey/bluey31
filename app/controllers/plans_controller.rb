@@ -1,6 +1,5 @@
 class PlansController < ApplicationController
-before_filter :authenticate_user!
-  
+  before_filter :authenticate_user!
   can_edit_on_the_spot
   # GET /plans
   # GET /plans.xml

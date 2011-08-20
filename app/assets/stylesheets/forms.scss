@@ -1,0 +1,147 @@
+/*
+ * Form styling for Bluey health + fitness
+ * Author: Alex Duller
+ * Contents:
+ * - Global form styling
+ * - Devise forms
+ * - User profile forms
+ * - Editable fields
+ */
+@import "screen";
+
+$form_input_border: #dddddd;
+
+form {
+  display: block;
+  margin: 10px 0;
+  p {
+    margin-bottom: 15px; }
+  textarea {
+    height: 100px; }
+  textarea.small {
+    height: 60px; }
+  input[type=text], input[type=password], textarea {
+    border: 1px solid $form_input_border;
+    padding: 5px;
+    width: 300px;
+    font-size: 100%; }
+  input[type=submit], button[type=submit] {
+    @extend .button; }
+  input.number {
+    width: 50px !important; }
+  input.half-size {
+    width: 150px; }
+  p.number {
+    float: left;
+    margin-right: 50px; } }
+
+#error_explanation {
+  background: #ff9c99;
+  border: 1px solid $error_red;
+  padding: 10px;
+  margin-bottom: 10px; }
+
+.field_with_errors {
+  color: $error_red;
+  display: inline; }
+
+/* Devise forms */
+#devise {
+  padding: 0 200px;
+  #content {
+    margin: 50px 20px; } }
+
+#dialog-form {
+  #content {
+    margin: 0;
+    @include box-shadow(none); } }
+
+/* User profile forms */
+.user-form {
+  @include clearfix;
+  background: #efefef;
+  border: 1px solid #cccccc;
+  @include border-radius(4px);
+  padding: 10px;
+  margin-top: 10px;
+  h2, legend {
+    color: $text_colour;
+    font-weight: bold; }
+  fieldset {
+    padding: 10px;
+    margin: 10px 0;
+    ul {
+      margin-top: 10px;
+      li {
+        margin: 5px 0; } } }
+  input[type=text], textarea {
+    width: 400px; }
+  textarea {
+    height: 100px; } }
+
+/* Editable fields */
+.on_the_spot_editing {
+  display: block;
+  &:hover {
+    background: $pale_yellow; }
+  form {
+    padding: 10px;
+    input, textarea {
+      display: block;
+      width: 300px !important;
+      height: 14px !important;
+      padding: 5px;
+      border: 1px solid $form_input_border; }
+    textarea {
+      height: 100px !important;
+      margin-bottom: 5px; }
+    button[type=submit] {
+      font-size: 11px; }
+    button[type=cancel] {
+      @extend .cancel; } } }
+
+/* New plans form */
+#new_plan {
+  input[type=text].wide, textarea.wide {
+    // Input padding is 10px
+    width: $content_width - 10px; }
+  .add-plan-item {
+    margin: 10px 0; }
+  .remove_nested_fields {
+    display: block;
+    float: left;
+    color: $text_colour;
+    text-decoration: none;
+    margin-right: 20px;
+    &:hover {
+      color: $blue_bg; } }
+  .fields {
+    @include clearfix; }
+  .plan-item {
+    @include clearfix; }
+  .item-fields {
+    float: left; }
+  .exercise-name {
+    width: 720px; }
+  .exercise-metrics {
+    margin: 5px 0;
+    padding: 5px;
+    background: $subtle;
+    @include border-radius(4px);
+    legend {
+      @include border-radius(4px);
+      background: $subtle - #333333;
+      width: 100%;
+      padding: 5px;
+      margin: 0 -5px;
+      color: $text_colour;
+      font-size: $small; }
+    .fields {
+      margin-bottom: 5px;
+      padding: 5px;
+      background: white;
+      p {
+        float: left;
+        margin: 0 30px 0 0; } } }
+  #plan_submit {
+    width: $content_width; } }

@@ -15,7 +15,7 @@ Bluey::Application.routes.draw do
     end
   end
   devise_for :users
-
+  
   # Plans
   resources :plans, :except => [:edit] do
     collection do
