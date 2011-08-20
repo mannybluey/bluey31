@@ -1,0 +1,7 @@
+%fieldset{:style => "padding: 15px; border: solid 4px blue;"}
+	%label{:for => "Name"} Name *
+	%input{:id =>"name", :type => "text"}
+	%label{:for => "Description"} Description *
+	%textarea{:id =>"Description", :rows => "3", :cols => "20" }
+	%input{:id =>"createPlan", :type => "submit", :name => "submit", :onclick => "closeCreatePlanForm()"}
+	%span{:id => "planCreated"} Your plan has been created successfully!

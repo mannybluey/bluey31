@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    attributes:
+      plan:
+        company_name: Company Name
+        customer_type: Customer Type

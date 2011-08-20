@@ -8,6 +8,8 @@ gem 'rails', '3.1.0.rc6'
 #gem 'sqlite3'
 
 gem 'mysql2'
+gem 'will_paginate', '~> 3.0.pre4'
+
 gem 'devise'
 gem 'cancan'
 gem 'haml'
@@ -27,7 +29,6 @@ gem 'friendly_id'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass', "~> 3.1.7"
   gem 'sass-rails', "~> 3.1.0.rc.6"
   gem 'coffee-rails', "~> 3.1.0.rc"
   gem 'uglifier'
@@ -35,6 +36,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'fancybox-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
