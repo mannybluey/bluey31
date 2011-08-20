@@ -7,3 +7,4 @@ config/database*.yml
 .rvmrc
 *.swp
 db/schema.rb
+.DS_Store
