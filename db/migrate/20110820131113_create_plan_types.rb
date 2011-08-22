@@ -3,6 +3,7 @@ class CreatePlanTypes < ActiveRecord::Migration
     rename_column :plans, :type_id, :plan_type_id
     create_table :plan_types do |t|
       t.string :name
+      t.string :image_path
       t.timestamps
     end
   end

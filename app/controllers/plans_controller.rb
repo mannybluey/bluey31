@@ -1,31 +1,38 @@
 class PlansController < ApplicationController
   before_filter :authenticate_user!
   
-  respond_to :html, :xml, :js
+  respond_to :html, :js
 
   can_edit_on_the_spot
   
   # GET /plans
-  # GET /plans.xml
   def index
-    @plans = current_user.plans
+    #@plans = current_user.plans
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @plans }
+    @order = ["created_at desc", "name asc"]
+    @page_number = params[:page].nil? ? 1 : params[:page].to_i
+    @plan_type = params[:plan_type].nil? ? 0 : params[:plan_type].to_i
+  
+    case @plan_type
+      when 1
+        @plans = Plan.exercises(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+      when 2
+        @plans = Plan.nutritions(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+      when 3
+        @plans = Plan.supplements(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+      when 4
+        @plans = Plan.healths(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+      else  #  0   all plans
+        @plans = Plan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
     end
+    @total_pages = @plans.count / Plan.per_page + (@plan.count % Plan.per_page > 0 ? 1 : 0 ) if @plans.count > 0
+    
   end
 
   # GET /plans/1
-  # GET /plans/1.xml
   def show
     @plan = Plan.find(params[:id])
     authorize! :read, @plan
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @plan }
-    end
   end
 
   def change_form
@@ -33,51 +40,34 @@ class PlansController < ApplicationController
   end
   
   # GET /plans/new
-  # GET /plans/new.xml
   def new
     @plan = Plan.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @plan }
-    end
   end
 
   # POST /plans
-  # POST /plans.xml
   def create
     @plan = Plan.new(params[:plan])
     @plan.creator_id = current_user.id
 
-    respond_to do |format|
-      if @plan.save
-        format.html { redirect_to(@plan, :notice => 'Successfully created plan') }
-        format.xml  { render :xml => @plan, :status => :created, :location => @plan }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @plan.errors, :status => :unprocessable_entity }
-      end
+    if @plan.save
+      redirect_to(@plan, :notice => 'Successfully created plan')
+    else
+      render :action => "new"
     end
   end
 
   # PUT /plans/1
-  # PUT /plans/1.xml
   def update
     @plan = Plan.find(params[:id])
 
-    respond_to do |format|
-      if @plan.update_attributes(params[:plan])
-        format.html { redirect_to(@plan, :notice => 'Plan was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @plan.errors, :status => :unprocessable_entity }
-      end
+    if @plan.update_attributes(params[:plan])
+      redirect_to(@plan, :notice => 'Plan was successfully updated.')
+    else
+      render :action => "edit"
     end
   end
 
   # DELETE /plans/1
-  # DELETE /plans/1.xml
   def destroy
     @plan = Plan.find(params[:id])
     @plan.destroy

@@ -25,20 +25,15 @@
 							%p= link_to image_tag("dashboard/powerButton.png", :alt => "powerButton"), "#"
 
 					#bottomMenu
-						%ul
-							%li.active= link_to "Plans", "#"
-							%li= link_to "Fit Bar", "#"
-							%li= link_to "Challenges", "#"
-							%li= link_to "Financial", "#"
-							%li= link_to "Profile", "#"
+						= render :partial => "/shared/dashboard_menu"
 
 			#navBar
 				%ul.fl
-					%li.active= link_to "All", "#"
-					%li= link_to "Exercise", "#"
-					%li= link_to "Nutrition", "#"
-					%li= link_to "Supplement", "#"
-					%li= link_to "Health", "#"
+					%li{:class => "#{'active' if @plan_type == 0}"}= link_to "All", ""
+					%li{:class => "#{'active' if @plan_type == 1}"}= link_to "Exercise", plans_url(:plan_type => 1)
+					%li{:class => "#{'active' if @plan_type == 2}"}= link_to "Nutrition", plans_url(:plan_type => 2)
+					%li{:class => "#{'active' if @plan_type == 3}"}= link_to "Supplement", plans_url(:plan_type => 3)
+					%li{:class => "#{'active' if @plan_type == 4}"}= link_to "Health", plans_url(:plan_type => 4)
 				= form_for :query , :url => "#", :html => {:id => "searchForm", :class => "fr" } do |f|
 					= f.text_field :search_string
 					= f.submit "Search"
@@ -56,154 +51,10 @@
 						%p.small To add new plan click the link on the left
 
 				#plan-content{:style => "z-index: 0;"}
-					%ul
-						%li#plan_1.plan
-							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.task Mass Gain Chest
-							%p.day 1 day
-							%p{:style => "line-height: 22px;"}
-								= image_tag "dashboard/avatar.png", :alt => "avatar"
-								= "by E. Henry"
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:none;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-						%li#plan_2.plan.active{:style => "position: relative;"}
-							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.task Mass Gain Arms
-							%p.day 2 days
-							%p
-								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
-								%small by E. Henry
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:visible;"}
-								= link_to (image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"), "#", :id => "planEditLink"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-
-						%li#plan_3.plan
-							= image_tag "dashboard/apple.png", :alt => "apple"
-							%p.task Milk Diet Day
-							%p.day 4 days
-							%p
-								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
-								%small by E. Henry
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:none;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-
-						%li#plan_4.plan
-							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.task Mass Gain Chest
-							%p.day 1 day
-							%p
-								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
-								%small by E. Henry
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:none;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-
-						%li#plan_5.plan
-							= image_tag "dashboard/pills.png", :alt => "pills"
-							%p.task Vitamins Day
-							%p.day 1 day
-							%p
-								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
-								%small by E. Henry
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:none;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-
-						%li#plan_6.plan
-							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.task Mass Gain Back
-							%p.day 2 days
-							%p
-								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
-								%small by E. Henry
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:none;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-
-						%li#plan_7.plan
-							= image_tag "dashboard/apple.png", :alt => "apple"
-							%p.task Apple Diet Day
-							%p.day 1 day
-							%p
-								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
-								%small by E. Henry
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:none;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-
-						%li#plan_8.plan
-							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.task Mass Gain Chest
-							%p.day 1 day
-							%p
-								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
-								%small by E. Henry
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:none;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-
-						%li#plan_9.plan
-							= image_tag "dashboard/weightlifting.png", :alt => "weightlifting"
-							%p.task Mass Gain Legs
-							%p.day 8 days
-							%p
-								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
-								%small by E. Henry
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:none;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
-
-						%li#plan_10.plan
-							= image_tag "dashboard/heart.png", :alt => "heart"
-							%p.task Visit Doctor
-							%p.day 1 day
-							%p
-								= image_tag "dashboard/avatar.png", :alt => "avatar", :align => "top"
-								%small by E. Henry
-							%p
-								= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-								%small 07/11/2011
-							.planActionBar{:style => "display:none;"}
-								= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-								= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-								= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
+					- unless @plans.count > 0
+						= render :partial => "no_plan"
+					- else
+						%ul
+							= render :partial => "plan", :collection => @plans
 
 

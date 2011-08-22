@@ -41,9 +41,9 @@ UserWant.create(
 
 PlanType.create(
   [
-    {:name => "Exercise" },
-    {:name => "Nutrition" },
-    {:name => "Supplement" },
-    {:name => "Health" }
+    {:name => "Exercise" , :image_path => "dashboard/weightlifting.png"},
+    {:name => "Nutrition" , :image_path => "dashboard/apple.png"},
+    {:name => "Supplement" , :image_path => "dashboard/pills.png"},
+    {:name => "Health" , :image_path => "dashboard/heart.png"}
   ]
 )

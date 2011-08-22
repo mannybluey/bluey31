@@ -15,6 +15,11 @@ updatePlanItems = ->
 $(document).ready ->
   $("a.fancybox").fancybox()
   
+  $("#navBar ul li a").click ->
+    $( "#navBar ul li" ).removeClass( 'active' )
+    $(this).parent().addClass('active')
+
+
   $("#plan_type").change (e) ->
     choice = $(this).val()
     $.get "/plans/change_form",
