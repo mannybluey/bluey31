@@ -8,7 +8,7 @@ class PlansController < ApplicationController
   # GET /plans
   def index
     #@plans = current_user.plans
-
+debugger
     @order = ["created_at desc", "name asc"]
     @page_number = params[:page].nil? ? 1 : params[:page].to_i
     @plan_type = params[:plan_type].nil? ? 0 : params[:plan_type].to_i

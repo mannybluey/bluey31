@@ -2,7 +2,14 @@ Bluey::Application.routes.draw do
   get "pages/landing"
   #get "pages/dashboard"
   match "pages/dashboard", :to => "plans#index"
-  
+  #get "plans/:plan_type", :to => "plans#index", :as => :plan_type 
+
+  get "plans/exercises", :to => "plans#index", :as => :exercises, :plan_type => 1 
+  get "plans/nutritions", :to => "plans#index", :as => :nutritions, :plan_type => 2
+  get "plans/supplements", :to => "plans#index", :as => :supplements, :plan_type => 3
+  get "plans/healths", :to => "plans#index", :as => :healths, :plan_type => 4
+
+
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
 
   # Users and their profile management
