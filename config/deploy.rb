@@ -19,11 +19,10 @@ set :domain, "blueyfit.com"
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require "rvm/capistrano"
-set :rvm_ruby_string, 'ruby-1.9.2-p180'
-set :rvm_type, :user
-
+#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+#require "rvm/capistrano"
+#set :rvm_ruby_string, 'ruby-1.9.2-p180'
+#set :rvm_type, :user
 
 #set :default_environment, {
   #'PATH' => '/home/blueybot/.rvm/gems/ruby-1.9.2-p180/bin:$PATH',

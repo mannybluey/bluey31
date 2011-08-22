@@ -22,11 +22,10 @@ default_run_options[:pty] = true
 set :deploy_to, "/home/#{user}/#{application}/staging"
 set :rails_env, "test"
 
-set :default_environment, {
-  'PATH' => '/home/blueybot/.rvm/gems/ruby-1.9.2-p180/bin:$PATH',
-  'GEM_HOME' => '/home/blueybot/.rvm/gems/ruby-1.9.2-p180',
-  'GEM_PATH' => '/home/blueybot/.rvm/gems/ruby-1.9.2-p180'
-}
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+require "rvm/capistrano"
+set :rvm_ruby_string, '1.9.2-290@rails31'
+set :rvm_type, :user
 
 role :web, domain                          # Your HTTP server, Apache/etc
 role :app, domain                          # This may be the same as your `Web` server
