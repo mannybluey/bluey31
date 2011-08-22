@@ -1,6 +1,10 @@
 class PlansController < ApplicationController
   before_filter :authenticate_user!
+  
+  respond_to :html, :xml, :js
+
   can_edit_on_the_spot
+  
   # GET /plans
   # GET /plans.xml
   def index
@@ -24,6 +28,10 @@ class PlansController < ApplicationController
     end
   end
 
+  def change_form
+    @partial = "plans/forms/#{['exercise', 'nutrition', 'supplement', 'health'][params[:type].to_i]}_form" unless params[:type].blank? 
+  end
+  
   # GET /plans/new
   # GET /plans/new.xml
   def new
@@ -82,4 +90,5 @@ class PlansController < ApplicationController
   def undo_link
     view_context.link_to("undo", revert_version_path(@plan.versions.scoped.last), :method => :post)
   end
+
 end

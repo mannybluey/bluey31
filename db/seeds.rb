@@ -38,3 +38,12 @@ UserWant.create(
     {:name => 'Prevent or heal sickness'}
   ]
 )
+
+PlanType.create(
+  [
+    {:name => "Exercise" },
+    {:name => "Nutrition" },
+    {:name => "Supplement" },
+    {:name => "Health" }
+  ]
+)

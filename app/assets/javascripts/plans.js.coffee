@@ -14,13 +14,17 @@ updatePlanItems = ->
 
 $(document).ready ->
   $("a.fancybox").fancybox()
+  
+  $("#plan_type").change (e) ->
+    choice = $(this).val()
+    $.get "/plans/change_form",
+      {type: choice}
 
   $('#new_plan')
     .bind('nested:fieldAdded', updatePlanDays)
     .bind('nested:fieldRemoved', updatePlanDays)
 
   updatePlanItems()
-
   $('.plan-item header input[type=checkbox]').click ->
     $.ajax
       url: $(this).attr('data-url')

@@ -20,6 +20,7 @@ Bluey::Application.routes.draw do
   resources :plans, :except => [:edit] do
     collection do
       put :update_attribute_on_the_spot
+      get :change_form
     end
     resources :days, :only => [:create, :destroy] do
       resources :plan_items
