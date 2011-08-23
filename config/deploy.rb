@@ -6,10 +6,10 @@ set :application, "bluey_app"
 
 # Use Git source control
 set :scm, :git
-set :repository,   "git@github.com:mannybluey/Bluey.git"
+set :repository,   "git@github.com:mannybluey/bluey31.git"
 
 # Deploy from master branch by default
-set :branch, "master"
+set :branch, "stable"
 set :deploy_via, :remote_cache
 set :scm_verbose, true
 # 
