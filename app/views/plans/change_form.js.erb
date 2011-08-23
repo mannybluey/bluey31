@@ -1,5 +1,0 @@
-$('#plan_form').html('');
-<% unless @partial.nil? %>
-  $('#plan_form').html("<%= escape_javascript(  render :partial => @partial, :locals => {:plan => @plan, :plan_type => @plan_type} ) -%>");
-<% end %>
-$('#plan_form').show();

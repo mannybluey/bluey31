@@ -46,7 +46,6 @@ class PlansController < ApplicationController
 
   # POST /plans
   def create
-    debugger
     @plan = Plan.new(params[:plan])
     @plan_type = PlanType.find(params[:plan_type_id].to_i)
     @plan[:creator_id] = current_user.id
