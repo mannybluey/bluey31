@@ -26,6 +26,9 @@ $(document).ready ->
     $( "#navBar ul li" ).removeClass( 'active' )
     $(this).parent().addClass('active')      
 
+  $("#plan-content ul li a").click ->
+    $(this).parent().$('.planActionBar').show()     
+
 
   $('#new_plan')
     .bind('nested:fieldAdded', updatePlanDays)

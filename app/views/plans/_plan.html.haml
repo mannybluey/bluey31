@@ -7,7 +7,7 @@
 		= plan.creator.user_profile[:name]
 	%p
 		= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
-		%small= "#{I18n.l(plan[:created_at].to_date, :format => :short)}"
+		%small= "#{I18n.l(plan[:created_at].to_date, :format => :long)}"
 	.planActionBar{:style => "display:none;"}
 		= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
 		= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
