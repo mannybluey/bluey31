@@ -4,6 +4,8 @@ class CreatePlanTypes < ActiveRecord::Migration
     create_table :plan_types do |t|
       t.string :name
       t.string :image_path
+      t.integer :position
+      t.boolean :status, :default => 1  # activated : 1
       t.timestamps
     end
   end

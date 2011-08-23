@@ -1,7 +1,11 @@
 class Plan < ActiveRecord::Base
   belongs_to :creator, :class_name => 'User'
+  
+  belongs_to :plan_type
+  
   validates_presence_of :name
   attr_accessible :name, :description, :plan_items_attributes
+  
   has_many :days
   has_many :plan_items, :through => :days
   

@@ -13,17 +13,19 @@ updatePlanItems = ->
 
 
 $(document).ready ->
-  $("a.fancybox").fancybox()
-  
-  $("#navBar ul li a").click ->
-    $( "#navBar ul li" ).removeClass( 'active' )
-    $(this).parent().addClass('active')
-
-
+  $("a.fancybox").fancybox
+    'titleShow'		: false
+    'onClosed' : ->
+      $("#error_explanation").hide()
+   
   $("#plan_type").change (e) ->
     choice = $(this).val()
-    $.get "/plans/change_form",
-      {type: choice}
+    $.get "/plan/#{choice}.js"
+	  
+  $("#navBar ul li a").click ->
+    $( "#navBar ul li" ).removeClass( 'active' )
+    $(this).parent().addClass('active')      
+
 
   $('#new_plan')
     .bind('nested:fieldAdded', updatePlanDays)

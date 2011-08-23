@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(:version => 20110820131113) do
   create_table "plan_types", :force => true do |t|
     t.string   "name"
     t.string   "image_path"
+    t.integer  "position"
+    t.boolean  "status",     :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

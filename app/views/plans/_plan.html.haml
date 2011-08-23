@@ -1,5 +1,5 @@
 %li.plan{:id => "plan_#{plan[:id]}"}
-	= image_tag "#{plan[:image_path]}", :alt => "#{File.basename( plan[:image_path], '.*')}"
+	= image_tag "#{plan.plan_type[:image_path]}", :alt => "#{File.basename( plan.plan_type[:image_path], '.*')}"
 	%p.task= plan[:name]
 	%p.day= I18n.t(:day, :count => plan.days.count)
 	%p{:style => "line-height: 22px;"}

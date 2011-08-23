@@ -8,11 +8,11 @@ class PlansController < ApplicationController
   # GET /plans
   def index
     #@plans = current_user.plans
-debugger
+
     @order = ["created_at desc", "name asc"]
     @page_number = params[:page].nil? ? 1 : params[:page].to_i
-    @plan_type = params[:plan_type].nil? ? 0 : params[:plan_type].to_i
-  
+    @plan_type = params[:id].nil? ? 0 : params[:id].to_i
+
     case @plan_type
       when 1
         @plans = Plan.exercises(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
@@ -25,7 +25,7 @@ debugger
       else  #  0   all plans
         @plans = Plan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
     end
-    @total_pages = @plans.count / Plan.per_page + (@plan.count % Plan.per_page > 0 ? 1 : 0 ) if @plans.count > 0
+    @total_pages = @plans.count / Plan.per_page + (@plans.count % Plan.per_page > 0 ? 1 : 0 ) if @plans.count > 0
     
   end
 
@@ -34,24 +34,28 @@ debugger
     @plan = Plan.find(params[:id])
     authorize! :read, @plan
   end
-
-  def change_form
-    @partial = "plans/forms/#{['exercise', 'nutrition', 'supplement', 'health'][params[:type].to_i]}_form" unless params[:type].blank? 
-  end
   
   # GET /plans/new
   def new
-    @plan = Plan.new
+    unless params[:id].blank?
+      @plan = Plan.new()
+      @plan_type_id = params[:id].to_i
+      @partial = "plans/forms/#{['exercise', 'nutrition', 'supplement', 'health'][@plan_type_id  -1]}_form"
+    end
   end
 
   # POST /plans
   def create
+    debugger
     @plan = Plan.new(params[:plan])
-    @plan.creator_id = current_user.id
+    @plan_type = PlanType.find(params[:plan_type_id].to_i)
+    @plan[:creator_id] = current_user.id
 
     if @plan.save
-      redirect_to(@plan, :notice => 'Successfully created plan')
+      @plan_type.plans << @plan
+      redirect_to plans_url, :notice => 'Successfully created plan'
     else
+      
       render :action => "new"
     end
   end

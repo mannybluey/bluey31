@@ -29,11 +29,7 @@
 
 			#navBar
 				%ul.fl
-					%li{:class => "#{'active' if @plan_type == 0}"}= link_to "All", plans_path
-					%li{:class => "#{'active' if @plan_type == 1}"}= link_to "Exercise", exercises_path
-					%li{:class => "#{'active' if @plan_type == 2}"}= link_to "Nutrition", nutritions_path
-					%li{:class => "#{'active' if @plan_type == 3}"}= link_to "Supplement", supplements_path
-					%li{:class => "#{'active' if @plan_type == 4}"}= link_to "Health", healths_path
+					= render :partial => "navBar"
 				= form_for :query , :url => "#", :html => {:id => "searchForm", :class => "fr" } do |f|
 					= f.text_field :search_string
 					= f.submit "Search"
