@@ -1,2 +1,8 @@
 #new_plan{:style =>"display:none;" }
-	#fancy_new_plan_form{:style => "font-size: 1em; width: 400px;"}
+	#fancy_new_plan_form{:style => "font-size: 1em; text-align: left; width: 400px;"}
+		%fieldset{:style => "padding: 15px; border: solid 4px blue; "}
+			%p#type_selector{:style => "display:visible;"}
+				%p Plan Type
+				.styled-select
+					= select(:plan, :type, PlanType.all.collect {|pt| [ pt.name, (pt.id) ] }, {:prompt => 'Select a Plan Type'})
+			#plan_form{:style => "display:none;"}

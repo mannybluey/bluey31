@@ -1,6 +1,11 @@
 Bluey::Application.routes.draw do
   get "pages/landing"
-  get "pages/dashboard"
+  #get "pages/dashboard"
+  match "pages/dashboard", :to => "plans#index"
+  
+  get "plans/:id", :to => "plans#index", :as => "plan_type"
+  get "plan/:id", :to => "plans#new"
+
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
 
   # Users and their profile management
@@ -20,6 +25,7 @@ Bluey::Application.routes.draw do
   resources :plans, :except => [:edit] do
     collection do
       put :update_attribute_on_the_spot
+      get :change_form
     end
     resources :days, :only => [:create, :destroy] do
       resources :plan_items

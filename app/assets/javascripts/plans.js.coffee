@@ -13,14 +13,28 @@ updatePlanItems = ->
 
 
 $(document).ready ->
-  $("a.fancybox").fancybox()
+  $("a.fancybox").fancybox
+    'titleShow'		: false
+    'onClosed' : ->
+      $("#error_explanation").hide()
+   
+  $("#plan_type").change (e) ->
+    choice = $(this).val()
+    $.get "/plan/#{choice}.js"
+	  
+  $("#navBar ul li a").click ->
+    $( "#navBar ul li" ).removeClass( 'active' )
+    $(this).parent().addClass('active')      
+
+  $("#plan-content ul li a").click ->
+    $(this).parent().$('.planActionBar').show()     
+
 
   $('#new_plan')
     .bind('nested:fieldAdded', updatePlanDays)
     .bind('nested:fieldRemoved', updatePlanDays)
 
   updatePlanItems()
-
   $('.plan-item header input[type=checkbox]').click ->
     $.ajax
       url: $(this).attr('data-url')

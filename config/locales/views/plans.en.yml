@@ -1,1 +1,4 @@
 en:
+  day: 
+    one: "%{count} day"
+    other: "%{count} days"

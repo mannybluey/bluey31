@@ -46,7 +46,8 @@ gem 'capistrano'
 
 # To use debugger
 gem 'database_cleaner'
-gem 'ruby-debug19'
+gem 'ruby-debug19', :require => 'ruby-debug'
+#=> don't forget :  gem install ruby-debug19 -- --with-ruby-include=~/.rvm/src/ruby-1.9.2-p290/
 
 group :test do
   # Pretty printed test output

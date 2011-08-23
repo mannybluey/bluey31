@@ -1,4 +1,14 @@
-%li
-  = link_to plan.name, plan, :class => 'title'
-  %p.creator Created by #{plan.creator.user_profile.name}
-  = link_to 'delete', plan_path(plan), :method => :delete, :class => 'cancel'
+%li.plan{:id => "plan_#{plan[:id]}"}
+	= image_tag "#{plan.plan_type[:image_path]}", :alt => "#{File.basename( plan.plan_type[:image_path], '.*')}"
+	%p.task= plan[:name]
+	%p.day= I18n.t(:day, :count => plan.days.count)
+	%p{:style => "line-height: 22px;"}
+		= image_tag "dashboard/avatar.png", :alt => "avatar"
+		= plan.creator.user_profile[:name]
+	%p
+		= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
+		%small= "#{I18n.l(plan[:created_at].to_date, :format => :long)}"
+	.planActionBar{:style => "display:none;"}
+		= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
+		= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
+		= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"

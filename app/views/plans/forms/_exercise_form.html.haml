@@ -1,0 +1,17 @@
+#plan_form
+	= form_for :plan, :url => plans_url, :remote => true do |f|
+
+		= hidden_field_tag :plan_type_id, @plan_type_id
+
+		= render 'shared/form_errors', :object => @plan
+
+		%p
+			= f.label :name
+			%br/
+			= f.text_field :name, :class => 'wide'
+		%p
+			= f.label :description
+			%br/
+			= f.text_area :description, :class => 'small wide'
+		%p
+			= f.submit 'Create'

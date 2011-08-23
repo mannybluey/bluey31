@@ -1,7 +1,11 @@
 class Plan < ActiveRecord::Base
   belongs_to :creator, :class_name => 'User'
+  
+  belongs_to :plan_type
+  
   validates_presence_of :name
   attr_accessible :name, :description, :plan_items_attributes
+  
   has_many :days
   has_many :plan_items, :through => :days
   
@@ -18,17 +22,20 @@ class Plan < ActiveRecord::Base
   @@per_page = 12
   
   class << self
+    def all_plans_for(user)
+       where(:creator_id => user[:id])
+    end
     def exercises(user)
-       where(:type_id => 1, :user_id => user[:id])
+       where(:plan_type_id => 1, :creator_id => user[:id])
     end
     def nutritions(user)
-       where(:type_id => 2, :user_id => user[:id])
+       where(:plan_type_id => 2, :creator_id => user[:id])
     end
     def supplements(user)
-       where(:type_id => 3, :user_id => user[:id])
+       where(:plan_type_id => 3, :creator_id => user[:id])
     end
     def healths(user)
-       where(:type_id => 4, :user_id => user[:id])
+       where(:plan_type_id => 4, :creator_id => user[:id])
     end    
   end
   

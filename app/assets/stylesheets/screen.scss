@@ -98,6 +98,7 @@ $large: 18px;
 /* Globals and wrapper */
 body {
   font: $normal Helvetica, Arial, sans-serif;
+  background-color: white;
   color: $text_colour; }
 
 a {
@@ -190,8 +191,19 @@ h2 {
   height: 100px;
   margin-right: 20px !important; }
 
+
+.styled-select select {
+  background: transparent;
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px; }
+
 #wrapper {
   @include clearfix;
+  background-color: white;
+  text-align: left;
   width: $total_width;
   margin: 0 auto;
   margin-bottom: 50px;
