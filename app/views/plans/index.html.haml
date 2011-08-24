@@ -16,10 +16,10 @@
 				#rightTopBar.fr
 					#topMenu
 						%ul
-							%li= link_to image_tag("dashboard/weightButton.jpg", :alt => "weightButton"), "#"
-							%li= link_to image_tag("dashboard/appleButton.jpg", :alt => "appleButton"), "#"
-							%li= link_to image_tag("dashboard/pillsButton.jpg", :alt => "pillsButton"), "#"
-							%li= link_to image_tag("dashboard/heartButton.jpg", :alt => "heartButton"), "#"
+							%li= link_to image_tag("dashboard/weightButton.jpg", :alt => "weightButton"), plan_type_path(1)
+							%li= link_to image_tag("dashboard/appleButton.jpg", :alt => "appleButton"), plan_type_path(2)
+							%li= link_to image_tag("dashboard/pillsButton.jpg", :alt => "pillsButton"), plan_type_path(3)
+							%li= link_to image_tag("dashboard/heartButton.jpg", :alt => "heartButton"), plan_type_path(4)
 
 						#powerButton.fr
 							%p= link_to image_tag("dashboard/powerButton.png", :alt => "powerButton"), destroy_user_session_path
