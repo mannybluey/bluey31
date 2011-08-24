@@ -3,7 +3,10 @@ class Plan < ActiveRecord::Base
   
   belongs_to :plan_type
   
-  validates_presence_of :name
+  #validates_presence_of :name
+  validates :name, :presence => true, :uniqueness => true
+  validates :description, :presence => true
+  
   attr_accessible :name, :description, :plan_items_attributes
   
   has_many :days

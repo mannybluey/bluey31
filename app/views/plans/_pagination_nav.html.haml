@@ -1,0 +1,7 @@
+.pagination-nav
+	%span{:style => "float: right; border:solid 1px transparent;"}
+		%ul{:style => "float: left;"}
+			%li
+				= (pagination_entries_info @plans, :entry_name => "").html_safe
+			%li
+				= will_paginate @plans

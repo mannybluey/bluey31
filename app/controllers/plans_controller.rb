@@ -53,16 +53,11 @@ class PlansController < ApplicationController
     respond_to do |format|
         format.html     
         format.js  {
-          # render  :action => 'edit.js'
           if @plan.save
             @plan_type.plans << @plan
             flash[:notice] = "Created plan - #{undo_link}".html_safe
             render :action => 'create_plan_success.js'
-            #redirect_to plans_url, :notice => 'Successfully created plan'
           else
-            debugger
-            # display messages in fancybox
-            # render :action => "new"
              render :action => 'create_plan_error.js'
           end
         }

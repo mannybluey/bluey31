@@ -199,6 +199,8 @@ h2 {
   font-size: 16px;
   border: 1px solid #ccc;
   height: 34px; }
+  
+.clear { clear:both; }
 
 #wrapper {
   @include clearfix;

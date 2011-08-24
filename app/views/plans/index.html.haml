@@ -35,7 +35,7 @@
 					= f.submit "Search"
 				
 			#contentWrapper{:style => "position:relative;"}
-				%h2 Available Plans
+				%h2= plan_list_title(@plan_type)
 				#contentBar
 					%ul.fl
 						%li
@@ -46,7 +46,11 @@
 							%b Available plans are listed below
 						%p.small To add new plan click the link on the left
 
-				#plan-content{:style => "z-index: 0;"}
+				- if display_paginationBar(@plans)
+					#paginationBar.clear
+						= render :partial => "/plans/pagination_nav"
+
+				#plan-content.clear{:style => "z-index: 0;"}
 					- unless @plans.count > 0
 						= render :partial => "no_plan"
 					- else
