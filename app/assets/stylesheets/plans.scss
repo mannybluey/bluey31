@@ -109,28 +109,10 @@
     font-weight: bold;
     font-size: 22px; } }
 
-#newPlanForm label {
-  display: block;
-  color: #ffc400; }
 
-#newPlanForm input[type=text] {
-  display: block;
-  border: solid 1px #4d3a24;
-  width: 100%;
-  margin-bottom: 10px;
-  height: 24px; }
-
-#newPlanForm textarea {
-  display: block;
-  border: solid 1px #4d3a24;
-  width: 100%;
-  margin-bottom: 10px; }
-
-#newPlanForm input[type=submit] {
-  background-color: #4d3a24;
-  border: solid 1px #23150c;
-  color: #fecd28;
-  padding: 5px; }
+div.planActionBar img.plan_action_image{
+  margin-top: -4px;
+}
 
 
 #planCreated {

@@ -22,10 +22,10 @@ Bluey::Application.routes.draw do
   devise_for :users
   
   # Plans
-  resources :plans, :except => [:edit] do
+  #resources :plans, :except => [:edit] do
+  resources :plans do
     collection do
       put :update_attribute_on_the_spot
-      get :change_form
     end
     resources :days, :only => [:create, :destroy] do
       resources :plan_items

@@ -39,7 +39,7 @@
 				#contentBar
 					%ul.fl
 						%li
-							= link_to "+ Add Plan", "#fancy_new_plan_form" , :class => "fancybox"
+							= link_to "+ Add Plan", "#fancy_new_plan_form" , :id => "new_plan_link"
 							= render :partial => "new_plan"
 					#addPlanText.fl
 						%p
@@ -53,4 +53,6 @@
 						%ul
 							= render :partial => "plan", :collection => @plans
 
-
+		%span{:style => "display:none;"}= link_to "Edit plan" , "#fancy_edit_plan" , :id => "edit_plan_link"		
+		#edit_plan{:style =>"display:none;" }
+			#fancy_edit_plan{:style => "font-size: 1.5em; width: 600px;"}

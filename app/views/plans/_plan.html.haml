@@ -9,6 +9,6 @@
 		= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
 		%small= "#{I18n.l(plan[:created_at].to_date, :format => :long)}"
 	.planActionBar{:style => "display:none;"}
-		= image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top"
-		= image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top"
-		= image_tag "dashboard/planActionShare.png", :alt => "plan share", :align => "top"
+		= link_to (image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top", :class => "plan_action_image"), edit_plan_path(plan[:id]), :remote => true
+		= link_to (image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top", :class => "plan_action_image"), plan_path(plan[:id]), :method => :delete
+		= link_to (image_tag "dashboard/planActionShare.png", :alt => "plan share",  :align => "top",  :align => "top", :class => "plan_action_image"), "#"

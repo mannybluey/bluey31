@@ -37,10 +37,10 @@ class PlansController < ApplicationController
   
   # GET /plans/new
   def new
-    unless params[:id].blank?
-      @plan = Plan.new()
+    unless params[:id] == "0"
       @plan_type_id = params[:id].to_i
-      @partial = "plans/forms/#{['exercise', 'nutrition', 'supplement', 'health'][@plan_type_id  -1]}_form"
+      @plan = Plan.new()
+      #@partial = "plans/forms/#{['exercise', 'nutrition', 'supplement', 'health'][@plan_type_id  -1]}_form"
     end
   end
 
@@ -50,15 +50,36 @@ class PlansController < ApplicationController
     @plan_type = PlanType.find(params[:plan_type_id].to_i)
     @plan[:creator_id] = current_user.id
 
-    if @plan.save
-      @plan_type.plans << @plan
-      redirect_to plans_url, :notice => 'Successfully created plan'
-    else
-      
-      render :action => "new"
+    respond_to do |format|
+        format.html     
+        format.js  {
+          # render  :action => 'edit.js'
+          if @plan.save
+            @plan_type.plans << @plan
+            flash[:notice] = "Created plan - #{undo_link}".html_safe
+            render :action => 'create_plan_success.js'
+            #redirect_to plans_url, :notice => 'Successfully created plan'
+          else
+            debugger
+            # display messages in fancybox
+            # render :action => "new"
+             render :action => 'create_plan_error.js'
+          end
+        }
     end
   end
 
+ # POST /plans/1/edit.js 
+  def edit
+    @plan = Plan.find(params[:id])
+    respond_to do |format|
+        format.html     
+        format.js  {
+          # render  :action => 'edit.js'
+        }
+    end
+  end
+ 
   # PUT /plans/1
   def update
     @plan = Plan.find(params[:id])
@@ -75,7 +96,7 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
     @plan.destroy
 
-    redirect_to(plans_url, :notice => "Deleted plan #{undo_link}".html_safe)
+    redirect_to plans_url, :notice => "Deleted plan #{undo_link}".html_safe
   end
 
   private

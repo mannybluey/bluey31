@@ -1,0 +1,10 @@
+%h2
+	= "Edit #{plan.plan_type[:name]} plan"
+
+%p fields
+
+#cartSubmitButton
+	%span{:style => "float:left;"}= submit_tag "Edit"
+	#editPlanSubmitImage{:style => "display:none; float:left; padding-top: 7px;"}
+		= image_tag('wait16.gif', :size => "16x16")
+		%span.small= "Editing Plan..."

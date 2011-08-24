@@ -10,16 +10,37 @@ updatePlanDays = ->
 updatePlanItems = ->
   $('.plan-item input[type=checkbox]:checked').closest('li').addClass('completed')
   $('.plan-item input[type=checkbox]:not(:checked)').closest('li').removeClass('completed')
-
-
+  
+    
 $(document).ready ->
-  $("a.fancybox").fancybox
-    'titleShow'		: false
+  
+  $("a#new_plan_link").fancybox
+    'scrolling'	: 'no'
+    'showCloseButton' : true
+    'hideOnOverlayClick' : false
+    'hideOnContentClick' : false
+    'overlayOpacity' : '0.4'
+    'overlayColor' : '#000'
+    'transitionIn' : 'fade'
+    'transitionOut' : 'fade'
     'onClosed' : ->
       $("#error_explanation").hide()
-   
+
+  $('a#edit_plan_link').fancybox
+    'scrolling'	: 'no'
+    'showCloseButton' : true
+    'hideOnOverlayClick' : false
+    'hideOnContentClick' : false
+    'overlayOpacity' : '0.4'
+    'overlayColor' : '#000'
+    'transitionIn' : 'fade'
+    'transitionOut' : 'fade'
+    'onClosed' : ->
+      $("#error_explanation").hide()
+
   $("#plan_type").change (e) ->
     choice = $(this).val()
+    choice = 0 if ( $(this).val() == '')
     $.get "/plan/#{choice}.js"
 	  
   $("#navBar ul li a").click ->
@@ -51,6 +72,10 @@ $(document).ready ->
         updatePlanItems()
       error: ->
         console.log('Error')
+  
+  fancyClose = ->
+    alert 'should close the fancybox'
+    $("a#fancybox-close").trigger "click"
 
   scanMetrics = ->
     if ($(this).parent().find('.found').length == 0)

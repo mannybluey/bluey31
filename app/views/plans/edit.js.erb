@@ -1,0 +1,5 @@
+$('#fancy_edit_plan').html("<%= escape_javascript(  render :partial => '/plans/forms/edit_plan_form', :locals => {:plan => @plan}   ) -%>");
+  
+$('#editPlanSubmitButton').bind('click', function() { $('#editPlanSubmitImage').show(); });
+
+$('#edit_plan_link').trigger("click");
