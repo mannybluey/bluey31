@@ -40,7 +40,6 @@ class PlansController < ApplicationController
     unless params[:id] == "0"
       @plan_type_id = params[:id].to_i
       @plan = Plan.new()
-      #@partial = "plans/forms/#{['exercise', 'nutrition', 'supplement', 'health'][@plan_type_id  -1]}_form"
     end
   end
 
@@ -70,6 +69,7 @@ class PlansController < ApplicationController
     respond_to do |format|
         format.html     
         format.js  {
+          debugger
           # render  :action => 'edit.js'
         }
     end
