@@ -9,9 +9,15 @@
 				#top_personal_data_right{:style => "float:left;"}
 					= link_to (image_tag 'user_profile/profileEditButton.jpg', :size => "24x24"), profile_edit_path
 					= link_to (image_tag 'user_profile/profileDeleteButton.jpg', :size => "24x24"), "#"
-			#bottom_personal_dataclass.clear
-				%p 33 years - Member since July 12, 2011 - Toronto
-				
+			#bottom_personal_data_summary.clear
+				%p{:style => "font-size: 1.2em; font-style: italic;"}= @user_profile[:summary]
+			#bottom_personal_data.clear
+				%p
+					33
+					years - Member since 
+					July 12, 2011
+			#bottom_personal_data_location.clear
+				%p Toronto - Canada
 		#who_i_am{:style => "float:left; width: 33%; border: solid 1px white;"}
 			%p I am :
 			%p a trainer

@@ -6,7 +6,7 @@
 		
 			= render 'shared/form_errors', :object => @user_profile
 			
-			#foundation_left{:style => "width: 48%; float:left;"}
+			#foundation_left{:style => "width: 50%; float:left;"}
 			
 				= field_set_tag '', :style => "margin-top:0; padding:0;" do
 					.label_side{:style => "width: 190px; height: 150px; float:left; text-align: right; margin-right: 10px;"}
@@ -56,6 +56,11 @@
 						%p{:style => "font-weight:bold;"} Username
 					.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
 						= f.text_field :name
+					.clear
+					.label_side{:style => "width: 150px;  height: 112px; float:left; text-align: right; margin-right: 10px;"}
+						%p{:style => "font-weight:bold;"} Your summary
+					.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
+						= f.text_area :summary, :style => "height: 88px;"
 					.clear			
 					.label_side{:style => "width: 150px;  height: 40px; float:left; text-align: right; margin-right: 10px;"}
 						%p{:style => "font-weight:bold;"} Gym
