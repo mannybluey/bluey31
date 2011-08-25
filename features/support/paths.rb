@@ -17,7 +17,7 @@ module NavigationHelpers
     when /the edit profile page/
       profile_edit_path
     when /the dashboard page/
-      pages_dashboard_path
+      dashboard_path
     when /the user goals page/
       user_goals_path
     when /the user pictures page/
