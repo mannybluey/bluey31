@@ -13,9 +13,9 @@
 				%p{:style => "font-size: 1.2em; font-style: italic;"}= @user_profile[:summary]
 			#bottom_personal_data.clear
 				%p
-					= (Date.today() - @user_profile[:dob]).to_int / 365
-					years - Member since 
-					= I18n.l(@user_profile.user[:created_at].to_date, :format => :long)
+					- unless @user_profile[:dob].nil?
+						= "#{ Date.today() - @user_profile[:dob]).to_int / 365 } years - "
+					= "Member since #{I18n.l(@user_profile.user[:created_at].to_date, :format => :long)}"
 			#bottom_personal_data_location.clear
 				%p Toronto - Canada
 		#who_i_am{:style => "float:left; width: 33%; border: solid 1px white;"}
