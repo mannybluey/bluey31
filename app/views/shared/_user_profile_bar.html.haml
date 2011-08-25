@@ -14,7 +14,7 @@
 			#bottom_personal_data.clear
 				%p
 					- unless @user_profile[:dob].nil?
-						= "#{ Date.today() - @user_profile[:dob]).to_int / 365 } years - "
+						= "#{ (Date.today() - @user_profile[:dob]).to_int / 365 } years - "
 					= "Member since #{I18n.l(@user_profile.user[:created_at].to_date, :format => :long)}"
 			#bottom_personal_data_location.clear
 				%p Toronto - Canada
