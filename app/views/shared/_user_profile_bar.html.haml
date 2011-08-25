@@ -1,0 +1,42 @@
+#user_profile_bar{:style => "min-height:180px; background-color:#1d2429; color: white; font-size: 0.85em"}
+
+	#top_user_profile_bar{:style => "border: solid 1px red; height: 165px;"}
+	
+		#personal_data{:style => "float:left; width: 33%; border: solid 1px white;"}
+			#top_personal_data
+				#top_personal_data_left{:style => "float:left; width: 75%; border: solid 1px yellow;"}
+					#h2{:style => "font-size: 1.9em; font-weight: bold;"}= @user_profile[:name]
+				#top_personal_data_right{:style => "float:left;"}
+					= link_to (image_tag 'user_profile/profileEditButton.jpg', :size => "24x24"), profile_edit_path
+					= link_to (image_tag 'user_profile/profileDeleteButton.jpg', :size => "24x24"), "#"
+			#bottom_personal_dataclass.clear
+				%p 33 years - Member since July 12, 2011 - Toronto
+				
+		#who_i_am{:style => "float:left; width: 33%; border: solid 1px white;"}
+			%p I am :
+			%p a trainer
+			%p a health professional
+			%p Looking for trainers
+			%p Looking for training buddies
+			%p Looking for health professionals
+		
+		#what_i_want{:style => "float:left; width: 33%; border: solid 1px white;"}
+			%p I want to :
+			%p Lose weight
+			%p Gain muscle/mass
+			%p train for sport
+			%p Be fit and healthier
+			%p Transform my body
+			%p Prevent or heal sickness
+		
+	#bottom_user_profile_bar.clear{:style => "border: solid 1px red;"}
+		%p
+			%b Gym:
+			Nitro Gym
+		%p
+			%b Sports:
+			BodyBuilding
+		%p
+			%b Favorite brands
+			BSN
+		

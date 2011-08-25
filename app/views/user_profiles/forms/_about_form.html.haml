@@ -1,0 +1,77 @@
+#user-forms{:style => "width: 98%;"}
+	%h2 About
+
+	#foundation.user-form
+		= form_for @user_profile, :url => "/profile" do |f|
+		
+			= render 'shared/form_errors', :object => @user_profile
+			
+			#foundation_left{:style => "width: 48%; float:left;"}
+			
+				= field_set_tag '', :style => "margin-top:0; padding:0;" do
+					.label_side{:style => "width: 190px; height: 150px; float:left; text-align: right; margin-right: 10px;"}
+						%span{:style => "font-weight:bold;"} I am:
+						%em.hint 
+							select all that apply
+					%ul{:style => "display: block; width: 200px; float:left; margin-top: 0px;"}
+						- for user_type in UserType.all
+							%li
+								= check_box_tag "user_profile[user_type_ids][]", user_type.id, @user_profile.user_types.include?(user_type), :id => "user_type_id_#{user_type.id}"
+								= label_tag "user_type_id_#{user_type.id}", user_type.name
+							
+				= field_set_tag '', :style => "margin-top:0; padding:0;" do
+					.label_side{:style => "width: 190px; height: 160px; float:left; text-align: right; margin-right: 10px;"}
+						%span{:style => "font-weight:bold;"} I want to:
+						%em.hint select all that apply
+					%ul{:style => "display: block; width: 200px;  float:left; margin-top: 0px;"}
+						- for user_want in UserWant.all
+							%li
+								= check_box_tag "user_profile[user_want_ids][]", user_want.id, @user_profile.user_wants.include?(user_want), :id => "user_want_id_#{user_want.id}"
+								= label_tag "user_want_id_#{user_want.id}", user_want.name
+						
+				= field_set_tag '', :style => "margin-top:0; padding:0;" do
+				
+					.label_side{:style => "width: 190px; height: 40px; float:left; text-align: right; margin-right: 10px;"}
+						%p{:style => "font-weight:bold;"} Where I live:
+					.input_side.styled-select{:style => "display: block; width: 200px;  float:left; margin-top: 0px;"}
+						= f.country_select :country
+					.clear
+					
+					.label_side{:style => "width: 190px; height: 30px; float:left; text-align: right; margin-right: 10px;"}
+						%p{:style => "font-weight:bold;"} City
+					.input_side{:style => "display: block; width: 200px;  float:left; margin-top: 0px;"}
+						= f.text_field :city, :style => "width: 220px;"
+
+				.clear
+				= field_set_tag'', :style => "margin-top:0; padding:0;"   do
+					.label_side{:style => "width: 190px; height: 40px; float:left; text-align: right; margin-right: 10px;"}
+						%p{:style => "font-weight:bold;"} Birthday:
+					.input_side.styled-select{:style => "display: block; width: 230px;  float:left; margin-top: 0px;"}
+						= f.date_select :dob, :order => [:day, :month, :year], :use_month_numbers => true, :start_year => Time.now.year - 70
+
+			#foundation_right{:style => "width: 50%; float:left; "}
+			
+				= field_set_tag '', :style => "margin-top:0; padding:0;" do
+					.label_side{:style => "width: 150px;  height: 40px; float:left; text-align: right; margin-right: 10px;"}
+						%p{:style => "font-weight:bold;"} Username
+					.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
+						= f.text_field :name
+					.clear			
+					.label_side{:style => "width: 150px;  height: 40px; float:left; text-align: right; margin-right: 10px;"}
+						%p{:style => "font-weight:bold;"} Gym
+					.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
+						= f.text_field :gym
+					.clear
+						.label_side{:style => "width: 150px;  height: 140px; float:left; text-align: right; margin-right: 10px;"}
+							%p{:style => "font-weight:bold;"} Sports
+						.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
+							= f.text_area :sports
+					.clear
+						.label_side{:style => "width: 150px; height: 145px; float:left; text-align: right; margin-right: 10px;"}						
+							%p{:style => "font-weight:bold;"} Favourite brands
+						.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
+							= f.text_area :brands
+						
+					
+			#fondation_bottom.clear
+				%p= f.submit 'Save'

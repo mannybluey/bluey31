@@ -1,7 +1,7 @@
 Bluey::Application.routes.draw do
   get "pages/landing"
   #get "pages/dashboard"
-  match "pages/dashboard", :to => "plans#index", :as => "dashboard"
+  match "pages/dashboard", :to => "plans#index", :as => "dashboard", :via => 'get'
   
   get "plans/:id", :to => "plans#index", :as => "plan_type"
   get "plan/:id", :to => "plans#new"

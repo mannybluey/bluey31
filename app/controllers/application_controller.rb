@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     if resource.sign_in_count == 1
       default_path = profile_edit_path
     else
-      default_path = pages_dashboard_path
+      default_path = dashboard_path
     end
     stored_location_for(:user) || default_path
   end

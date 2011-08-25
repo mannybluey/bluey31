@@ -132,10 +132,10 @@ img {
         font-weight: bold; } } } }
 
 #contentWrapper {
+  overflow: auto;
   border: 1px transparent solid;
   background-color: white;
-  padding-top: 10px;
-  padding-left: 15px; }
+  padding: 10px 0 10px 15px;}
 
 #navBar {
   border-top: solid 1px #e0e0e0;
@@ -249,5 +249,7 @@ img {
   background-color:#F18C34 ;
   font-weight: bold;
 }
+
+
 
 
