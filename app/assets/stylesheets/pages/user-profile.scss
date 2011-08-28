@@ -42,11 +42,10 @@
       @include shiny-blue-box;
       @include blue-text-shadow; } } }
 
-#user-forms {
+#user_forms {
   display: block;
   float: left;
-  width: 650px;
-  position: relative;
+   width: 100%;
   /* Used for select all that apply */
   .hint {
     font-size: 12px; }

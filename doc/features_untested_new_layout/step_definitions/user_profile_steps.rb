@@ -19,3 +19,4 @@ Given /^I am logged in as "(.*)" with name "(.*)"$/ do |email, name|
     Then I should see "Signed in successfully"
   }
 end
+

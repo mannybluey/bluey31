@@ -51,29 +51,35 @@ form {
     width: 150px; }
   p.number {
     float: left;
-    margin-right: 50px; } }
+    margin-right: 50px; }
+}
 
 #error_explanation {
   background: #ff9c99;
   border: 1px solid $error_red;
   padding: 10px;
   margin-top: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 .field_with_errors {
   color: $error_red;
-  display: inline; }
+  display: inline;
+}
 
 /* Devise forms */
 #devise {
   padding: 0 200px;
   #content {
-    margin: 50px 20px; } }
+    margin: 50px 20px; }
+}
 
 #dialog-form {
   #content {
     margin: 0;
-    @include box-shadow(none); } }
+    text-align: left;
+    @include box-shadow(none); }
+}
 
 /* User profile forms */
 .user-form {
@@ -95,6 +101,7 @@ form {
         margin: 2px 0; } } }
   input[type=text], textarea {
     @include border-radius(5px);
+    border:solid 2px #DFDFDF;
     height: 18px;
     font-size: 13px;
     width: 270px; }
@@ -103,7 +110,9 @@ form {
     height: 115px; }
   .styled-select select {
     @include border-radius(5px);
+    border: solid 2px #DFDFDF;
     background-color: #ffffff;
+    color: #6F6F6F;
     padding: 4px;
     height: 30px;
     font-size: 13px;}
@@ -133,7 +142,8 @@ form {
     button[type=submit] {
       font-size: 13px; }
     button[type=cancel] {
-      @extend .cancel; } } }
+      @extend .cancel; } }
+}
 
 /* New plans form */
 #new_plan {
@@ -179,4 +189,6 @@ form {
         float: left;
         margin: 0 30px 0 0; } } }
   #plan_submit {
-    width: $content_width; } }
+    width: $content_width; }
+}
+

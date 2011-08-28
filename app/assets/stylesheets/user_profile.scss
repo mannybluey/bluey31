@@ -1,0 +1,103 @@
+@import "dashboard";
+
+#foundation fieldset {
+  margin-top:0; 
+  padding:0;
+}
+
+#foundation_left{  width: 50%; float:left;}
+
+.label_side {
+  float:left; 
+  text-align: right; 
+  margin-right: 10px;
+}
+
+#foundation_left .label_side {
+  width: 190px;
+}
+
+.input_side {
+  display: block;
+  float:left; 
+  margin-top: 0px;
+  width: 280px;
+}
+
+#foundation_right {
+  width: 50%; 
+  float:left;
+}
+
+
+#userProfileBarWrapper {
+  background-color: #1d2429; 
+  padding: 10px;
+}
+
+#user_profile_bar {
+  background-color:#1d2429; 
+  color: white; 
+  font-size: 0.85em
+}
+
+#top_user_profile_bar { overflow: auto;}
+
+#personal_data {
+  float:left; 
+  width: 33%; 
+}
+
+#bottom_personal_data , #bottom_personal_data_location { line-height: 14px; }
+
+#bottom_personal_data_summary p {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+#top_personal_data_left {
+  float:left; 
+  width: 75%; 
+}
+
+#top_personal_data_left h2 {
+  font-size: 1.9em; 
+  font-weight: bold;
+}
+
+#top_personal_data_right {float:left;}
+
+#bottom_personal_data_summary.clear p {
+  font-size: 1.2em; 
+  font-style: italic;
+}
+
+#who_i_am{
+  float:left; 
+  width: 33%; 
+  overflow: auto;
+}
+
+#who_i_am ul {}
+
+#who_i_am ul li {line-height: 14px;}
+
+#who_i_am ul li img {text-align: center;}
+
+#what_i_want {
+  float:left; 
+  width: 33%; 
+  overflow: auto;
+}
+
+#what_i_want ul {}
+
+#what_i_want ul li {line-height: 14px;}
+
+#what_i_want ul li img {text-align: center;}
+
+#bottom_user_profile_bar.clear {}
+
+#bottom_user_profile_bar ul {}
+
+#bottom_user_profile_bar ul li {line-height: 16px;}

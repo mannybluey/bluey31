@@ -22,8 +22,8 @@ Given /^I am a new, authenticated user$/ do
   And %{I press "Sign in"}
 end
 
-Then /^I should be already signed in$/ do
-  And %{I should see "Logout"}
+Then /^I should be already signed in with name "([^"]*)"$/ do |name|
+  And %{I should see "Hi, #{name}"}
 end
 
 Given /^I am signed up as "(.*)\/(.*)"$/ do |email, password|

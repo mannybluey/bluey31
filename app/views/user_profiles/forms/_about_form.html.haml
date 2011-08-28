@@ -1,4 +1,4 @@
-#user-forms{:style => "width: 98%;"}
+#user_forms
 	%h2 About
 
 	#foundation.user-form
@@ -6,76 +6,76 @@
 		
 			= render 'shared/form_errors', :object => @user_profile
 			
-			#foundation_left{:style => "width: 50%; float:left;"}
+			#foundation_left
 			
-				= field_set_tag '', :style => "margin-top:0; padding:0;" do
-					.label_side{:style => "width: 190px; height: 150px; float:left; text-align: right; margin-right: 10px;"}
-						%span{:style => "font-weight:bold;"} I am:
+				= field_set_tag  do
+					.label_side{:style => "height: 135px;"}
+						%span.strong I am:
 						%em.hint 
 							select all that apply
-					%ul{:style => "display: block; width: 200px; float:left; margin-top: 0px;"}
+					%ul#who_i_am{:style => "display: block; width: 200px; float:left; margin-top: 0px;"}
 						- for user_type in UserType.all
 							%li
 								= check_box_tag "user_profile[user_type_ids][]", user_type.id, @user_profile.user_types.include?(user_type), :id => "user_type_id_#{user_type.id}"
 								= label_tag "user_type_id_#{user_type.id}", user_type.name
 							
-				= field_set_tag '', :style => "margin-top:0; padding:0;" do
-					.label_side{:style => "width: 190px; height: 160px; float:left; text-align: right; margin-right: 10px;"}
-						%span{:style => "font-weight:bold;"} I want to:
+				= field_set_tag  do
+					.label_side{:style => "height: 178px;"}
+						%span.strong I want to:
 						%em.hint select all that apply
-					%ul{:style => "display: block; width: 200px;  float:left; margin-top: 0px;"}
+					%ul#what_i_want{:style => "display: block; width: 200px;  float:left; margin-top: 0px;"}
 						- for user_want in UserWant.all
 							%li
 								= check_box_tag "user_profile[user_want_ids][]", user_want.id, @user_profile.user_wants.include?(user_want), :id => "user_want_id_#{user_want.id}"
 								= label_tag "user_want_id_#{user_want.id}", user_want.name
 						
-				= field_set_tag '', :style => "margin-top:0; padding:0;" do
+				= field_set_tag  do
 				
-					.label_side{:style => "width: 190px; height: 40px; float:left; text-align: right; margin-right: 10px;"}
-						%p{:style => "font-weight:bold;"} Where I live:
-					.input_side.styled-select{:style => "display: block; width: 200px;  float:left; margin-top: 0px;"}
-						= f.country_select :country
+					.label_side{:style => "height: 40px;"}
+						%p.strong Where I live:
+					.input_side.styled-select{:style => "width: 200px; color: #aaa"}
+						= f.country_select :country, nil, :prompt => "Click & Select a country"
 					.clear
 					
-					.label_side{:style => "width: 190px; height: 30px; float:left; text-align: right; margin-right: 10px;"}
-						%p{:style => "font-weight:bold;"} City
-					.input_side{:style => "display: block; width: 200px;  float:left; margin-top: 0px;"}
-						= f.text_field :city, :style => "width: 220px;"
+					.label_side{:style => "width: 190px; height: 30px;"}
+						%p.strong City
+					.input_side{:style => "width: 200px;"}
+						= f.text_field :city, :style => "width: 220px;", :placeholder => "Enter your city…"
 
 				.clear
-				= field_set_tag'', :style => "margin-top:0; padding:0;"   do
-					.label_side{:style => "width: 190px; height: 40px; float:left; text-align: right; margin-right: 10px;"}
-						%p{:style => "font-weight:bold;"} Birthday:
-					.input_side.styled-select{:style => "display: block; width: 230px;  float:left; margin-top: 0px;"}
+				= field_set_tag  do
+					.label_side{:style => "height: 40px; "}
+						%p.strong Birthday:
+					.input_side.styled-select{:style => "width: 230px;"}
 						= f.date_select :dob, :order => [:day, :month, :year], :use_month_numbers => true, :start_year => Time.now.year - 70
 
-			#foundation_right{:style => "width: 50%; float:left; "}
+			#foundation_right
 			
-				= field_set_tag '', :style => "margin-top:0; padding:0;" do
-					.label_side{:style => "width: 150px;  height: 40px; float:left; text-align: right; margin-right: 10px;"}
-						%p{:style => "font-weight:bold;"} Username
-					.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
-						= f.text_field :name
+				= field_set_tag  do
+					.label_side{:style => "width: 150px;  height: 40px;"}
+						%p.strong Username
+					.input_side
+						= f.text_field :name, :placeholder => "Enter a username …"
 					.clear
-					.label_side{:style => "width: 150px;  height: 112px; float:left; text-align: right; margin-right: 10px;"}
-						%p{:style => "font-weight:bold;"} Your summary
-					.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
-						= f.text_area :summary, :style => "height: 88px;"
+					.label_side{:style => "width: 150px;  height: 112px;"}
+						%p.strong Your summary
+					.input_side
+						= f.text_area :summary, :style => "height: 88px;", :placeholder => "Enter a short summary about yourself…"
 					.clear			
-					.label_side{:style => "width: 150px;  height: 40px; float:left; text-align: right; margin-right: 10px;"}
-						%p{:style => "font-weight:bold;"} Gym
-					.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
-						= f.text_field :gym
+					.label_side{:style => "width: 150px;  height: 40px; "}
+						%p.strong Gym
+					.input_side
+						= f.text_field :gym, :placeholder => "Enter your favorite gym center…"
 					.clear
-						.label_side{:style => "width: 150px;  height: 140px; float:left; text-align: right; margin-right: 10px;"}
-							%p{:style => "font-weight:bold;"} Sports
-						.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
-							= f.text_area :sports
+						.label_side{:style => "width: 150px;  height: 140px; "}
+							%p.strong Sports
+						.input_side
+							= f.text_area :sports, :placeholder => "Enter your favorite sports…"
 					.clear
-						.label_side{:style => "width: 150px; height: 145px; float:left; text-align: right; margin-right: 10px;"}						
-							%p{:style => "font-weight:bold;"} Favourite brands
-						.input_side{:style => "display: block; width: 280px; float:left; margin-top: 0px;"}
-							= f.text_area :brands
+						.label_side{:style => "width: 150px; height: 145px;"}						
+							%p.strong Favourite brands
+						.input_side
+							= f.text_area :brands, :placeholder => "Enter your favorite brands…"
 						
 					
 			#fondation_bottom.clear

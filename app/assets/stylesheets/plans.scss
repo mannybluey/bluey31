@@ -11,7 +11,8 @@
   @include box-shadow(#666666 0 0 2px 0px);
   color: #7f7f7f;
   &:focus {
-    outline: none; } }
+    outline: none; }
+}
 
 #searchForm  input[type=submit] {
   @extend .grey-button;
@@ -22,19 +23,21 @@
   background: #c1c1c1;
   color: black;
   &:hover {
-    background: #c1c1c1; } }
+    background: #c1c1c1; }
+}
 
 #addPlanText {
-  margin-top: 5px;
+  margin-top: 15px;
   margin-left: 30px;
   p {
     font-size: 15px; }
   p.small {
     margin-top: 0;
     font-size: 11px;
-    color: #979ea4; } }
+    color: #979ea4; }
+}
 
-#plan-content {
+#plan_content {
   min-height: 400px;
   border: solid 1px transparent;
   margin-top: 20px;
@@ -60,7 +63,8 @@
       &:hover, &.active {
         border: solid 1px #afd8d1;
         background: #afd8d1 url(/assets/dashboard/gradient.png) repeat-x 0 -40px;
-        z-index: 20; } } } }
+        z-index: 20; } } }
+}
 
 .planActionBar {
   background: transparent url(/assets/dashboard/planActionBackground.png) no-repeat;
@@ -69,18 +73,20 @@
   position: absolute;
   margin-top: -155px;
   margin-left: 215px;
-  z-index: 20; }
+  z-index: 20;
+}
 
 #add_plan_form_container {
   height: 277px;
   width: 351px;
   margin-top: 0;
-  margin-left: 0; }
+  margin-left: 0;
+}
 
 #newPlanForm {
   height: 277px;
-  width: 351px; }
-
+  width: 351px;
+}
 
 #planEditForm {
   background: red;
@@ -89,38 +95,38 @@
   position: absolute;
   margin-top: -20px;
   margin-left: 0;
-  z-index: 300; }
+  z-index: 300;
+}
 
 #edit_plan_form_container {
   width: 215px;
   height: 202px;
   position: absolute;
-  z-index: 999; }
+  z-index: 999;
+}
 
 .plan {
   .day {
     line-height: 24px;
     font-weight: bold;
-    font-size: 15px; } }
-
-.plan {
+    font-size: 15px; }
   .task {
     line-height: 24px;
     font-weight: bold;
-    font-size: 22px; } }
+    font-size: 22px; }
+}
 
-
-div.planActionBar img.plan_action_image{
+div.planActionBar img.plan_action_image {
   text-shadow: none;
   margin-top: -4px;
 }
 
-
 #planCreated {
   color: #ff9933;
-  display: none; }
+  display: none;
+}
   
-#exercise_description{
+#exercise_description {
   height:100px;
   max-height:300px;
   width:350px;

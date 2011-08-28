@@ -1,35 +1,15 @@
-- content_for :main_content do
-	#containerWrapper
-		#container
-			#topBar
-				#leftTopBar.fl
-					.fl= image_tag "dashboard/userPicture.jpg", :alt => "userPicture"
-					#userPerformances.fl
-						#userPoints
-							320
-						%p
-							= "Hi, #{@user_profile[:name]}"
-						= image_tag "dashboard/userMedals.jpg", :id => "medals", :alt => "userMedals"
-					= image_tag "dashboard/healthMetterButton.jpg", :class => "fl", :alt => "healthMetterButton"
-					= image_tag "dashboard/goalMeterButton.jpg", :class => "fl", :alt => "goalMeterButton"
+- content_for :top_menu do
+	%ul
+		%li{:style => "margin: 0 5px 0 0;"}= link_to image_tag("user_profile/aboutButton.jpg", :alt => "about"), "#"
+		%li{:style => "margin: 0 5px 0 0;"}= link_to image_tag("user_profile/goalsButton.jpg", :alt => "goals"), "#"
+		%li{:style => "margin: 0 5px 0 0;"}= link_to image_tag("user_profile/symptomsButton.jpg", :alt => "symptoms"), "#"
+		%li{:style => "margin: 0"}= link_to image_tag("user_profile/picturesButton.jpg", :alt => "pictures"), "#"
 
-				#rightTopBar.fr
-					#topMenu
-						%ul
-							%li{:style => "margin: 0 5px 0 0;"}= link_to image_tag("user_profile/aboutButton.jpg", :alt => "about"), "#"
-							%li{:style => "margin: 0 5px 0 0;"}= link_to image_tag("user_profile/goalsButton.jpg", :alt => "goals"), "#"
-							%li{:style => "margin: 0 5px 0 0;"}= link_to image_tag("user_profile/symptomsButton.jpg", :alt => "symptoms"), "#"
-							%li{:style => "margin: 0"}= link_to image_tag("user_profile/picturesButton.jpg", :alt => "pictures"), "#"
+- content_for :bottom_menu do
+	= render :partial => "shared/dashboard_menu"
 
-						#powerButton.fr
-							%p= link_to image_tag("dashboard/powerButton.png", :alt => "powerButton"), destroy_user_session_path
-
-					#bottomMenu
-						= render :partial => "/shared/dashboard_menu"
-
-			#userProfileBarWrapper
-				= render :partial => "/shared/user_profile_bar"
-
-	
-			#contentWrapper{:style => "position:relative;min-height:600px;"}
-				= render :partial => "user_profiles/forms/about_form"
+- content_for :bottom_content_bar do
+	= render :partial => "shared/user_profile_bar"
+										
+- content_for :bottom_content do
+	= render :partial => "user_profiles/forms/about_form"

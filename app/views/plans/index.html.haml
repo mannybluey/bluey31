@@ -1,62 +1,37 @@
-- content_for :main_content do
-	#containerWrapper
-		#container
-			#topBar
-				#leftTopBar.fl
-					.fl= image_tag "dashboard/userPicture.jpg", :alt => "userPicture"
-					#userPerformances.fl
-						#userPoints
-							320
-						%p
-							Hi, Steve!
-						= image_tag "dashboard/userMedals.jpg", :id => "medals", :alt => "userMedals"
-					= image_tag "dashboard/healthMetterButton.jpg", :class => "fl", :alt => "healthMetterButton"
-					= image_tag "dashboard/goalMeterButton.jpg", :class => "fl", :alt => "goalMeterButton"
+- content_for :top_menu do
+	%ul
+		- PlanType.all.each do |plan_type|
+			%li= link_to image_tag("#{plan_type[:image_path]}", :alt => "#{File.basename( plan_type[:image_path], '.*')}"), plan_type_path(plan_type[:id])
 
-				#rightTopBar.fr
-					#topMenu
-						%ul
-							%li= link_to image_tag("dashboard/weightButton.jpg", :alt => "weightButton"), plan_type_path(1)
-							%li= link_to image_tag("dashboard/appleButton.jpg", :alt => "appleButton"), plan_type_path(2)
-							%li= link_to image_tag("dashboard/pillsButton.jpg", :alt => "pillsButton"), plan_type_path(3)
-							%li= link_to image_tag("dashboard/heartButton.jpg", :alt => "heartButton"), plan_type_path(4)
+- content_for :bottom_menu do
+	= render :partial => "shared/dashboard_menu"
+										
+- content_for :bottom_content do
+	#navBar
+		%ul.fl
+			= render :partial => "nav_bar"
+		= form_for :query , :url => "#", :html => {:id => "searchForm", :class => "fr" } do |f|
+			= f.text_field :search_string
+			= f.submit "Search"
 
-						#powerButton.fr
-							%p= link_to image_tag("dashboard/powerButton.png", :alt => "powerButton"), destroy_user_session_path
+	#contentWrapper{:style => "position:relative;"}
+		%h2= plan_list_title(@plan_type)
+		#contentBar
+			%ul.fl
+				%li
+					= link_to '+ Add Plan', new_plan_path, :id => 'add-plan', :class => 'dialog'
+			#addPlanText.fl
+				%p
+					%b Available plans are listed below
+				%p.small To add new plan click the link on the left
 
-					#bottomMenu
-						= render :partial => "/shared/dashboard_menu"
+		- if display_paginationBar(@plans)
+			#paginationBar.clear
+				= render :partial => "pagination_nav"
 
-			#navBar
-				%ul.fl
-					= render :partial => "navBar"
-				= form_for :query , :url => "#", :html => {:id => "searchForm", :class => "fr" } do |f|
-					= f.text_field :search_string
-					= f.submit "Search"
-				
-			#contentWrapper{:style => "position:relative;"}
-				%h2= plan_list_title(@plan_type)
-				#contentBar
-					%ul.fl
-						%li
-							= link_to "+ Add Plan", "#fancy_new_plan_form" , :id => "new_plan_link"
-							= render :partial => "new_plan"
-					#addPlanText.fl
-						%p
-							%b Available plans are listed below
-						%p.small To add new plan click the link on the left
-
-				- if display_paginationBar(@plans)
-					#paginationBar.clear
-						= render :partial => "/plans/pagination_nav"
-
-				#plan-content.clear{:style => "z-index: 0;"}
-					- unless @plans.count > 0
-						= render :partial => "no_plan"
-					- else
-						%ul
-							= render :partial => "plan", :collection => @plans
-
-		%span{:style => "display:none;"}= link_to "Edit plan" , "#fancy_edit_plan" , :id => "edit_plan_link"		
-		#edit_plan{:style =>"display:none;" }
-			#fancy_edit_plan{:style => "font-size: 1.5em; width: 600px;"}
+		#plan_content.clear{:style => "z-index: 0;"}
+			- unless @plans.count > 0
+				= render :partial => "no_plan"
+			- else
+				%ul
+					= render :partial => "plan", :collection => @plans

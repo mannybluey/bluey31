@@ -4,3 +4,18 @@ Run "rake doc:app" to generate API documentation for your models, controllers, h
 ========================
 CONSOLE  - url writer 
 include Rails.application.routes.url_helpers 
+
+=======================
+CUCUMBER
+rake cucumber        # Alias for cucumber:ok
+rake cucumber:all    # Run all features
+rake cucumber:ok     # Run features that should pass
+rake cucumber:rerun  # Record failing features and run only them if any exist
+rake cucumber:wip    # Run features that are being worked on
+
+
+To run scenarios with a specific tag:
+cucumber --tags @tagname
+
+To exclude scenarios with a certain tag, prefix the tag with a tilde:
+cucumber --tags ~@wip

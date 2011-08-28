@@ -1,48 +1,59 @@
-#user_profile_bar{:style => "min-height:180px; background-color:#1d2429; color: white; font-size: 0.85em"}
-
-	#top_user_profile_bar{:style => "border: solid 1px red; height: 165px;"}
-	
-		#personal_data{:style => "float:left; width: 33%; border: solid 1px white;"}
+#user_profile_bar
+	#top_user_profile_bar
+		#personal_data
 			#top_personal_data
-				#top_personal_data_left{:style => "float:left; width: 75%; border: solid 1px yellow;"}
-					#h2{:style => "font-size: 1.9em; font-weight: bold;"}= @user_profile[:name]
-				#top_personal_data_right{:style => "float:left;"}
-					= link_to (image_tag 'user_profile/profileEditButton.jpg', :size => "24x24"), profile_edit_path
-					= link_to (image_tag 'user_profile/profileDeleteButton.jpg', :size => "24x24"), "#"
-			#bottom_personal_data_summary.clear
-				%p{:style => "font-size: 1.2em; font-style: italic;"}= @user_profile[:summary]
+				#top_personal_data_left
+					- if @user_profile[:name].blank?
+						%h2.notify.small Enter a username...
+					- else
+						%h2= @user_profile[:name]
+				#top_personal_data_right
+					- unless params[:action] == "edit"
+						= link_to (image_tag 'user_profile/profileEditButton.jpg', :size => "24x24"), profile_edit_path
+					- unless @user_profile.user == current_user
+						= link_to (image_tag 'user_profile/profileDeleteButton.jpg', :size => "24x24"), "#"
+			#bottom_personal_data_summary.clear{:style => "display: #{user_profile_summary_display(@user_profile )};"}
+				%p= @user_profile[:summary]
+				
 			#bottom_personal_data.clear
-				%p
-					- unless @user_profile[:dob].nil?
-						= "#{ (Date.today() - @user_profile[:dob]).to_int / 365 } years - "
-					= "Member since #{I18n.l(@user_profile.user[:created_at].to_date, :format => :long)}"
+				%span#age{:style => "#{user_profile_age_display(@user_profile)}"}= "#{ (Date.today() - @user_profile[:dob]).to_int / 365 } years - " unless @user_profile[:dob].blank?
+				%span= "Member since #{I18n.l(@user_profile.user[:created_at].to_date, :format => :long)}"
+
 			#bottom_personal_data_location.clear
-				%p Toronto - Canada
-		#who_i_am{:style => "float:left; width: 33%; border: solid 1px white;"}
-			%p I am :
-			%p a trainer
-			%p a health professional
-			%p Looking for trainers
-			%p Looking for training buddies
-			%p Looking for health professionals
+				%span#city{:style => "display: #{user_profile_city_display(@user_profile)}"}= "#{@user_profile[:city]} - "
+				%span#country{:style => "display: #{user_profile_country_display(@user_profile)}"}= Carmen::country_name(@user_profile[:country]) unless @user_profile[:country].blank?
+		#who_i_am
+			%p.strong
+				I am :
+				- if @user_profile.user_types.count < 1
+					%span.notify{:style => "display: visible;"} ...select in the form below
+			%ul
+				- for user_type in UserType.all
+					%li{:id => "ut_#{user_type[:id]}", :style => "display: #{who_i_am_display(@user_profile, user_type )}"}
+						= image_tag 'user_profile/green_tick.jpg', :size => "16x16"
+						= user_type[:name]
 		
-		#what_i_want{:style => "float:left; width: 33%; border: solid 1px white;"}
-			%p I want to :
-			%p Lose weight
-			%p Gain muscle/mass
-			%p train for sport
-			%p Be fit and healthier
-			%p Transform my body
-			%p Prevent or heal sickness
+		#what_i_want
+			%p.strong
+				I want to :
+				- if @user_profile.user_wants.count < 1
+					%span.notify{:style => "display: visible;"} ...select in the form below
+			%ul
+				- for user_want in UserWant.all
+					%li{:id => "uw_#{user_want[:id]}", :style => "display: #{what_i_want_display(@user_profile, user_want )}"}
+						= image_tag 'user_profile/green_arrow.jpg', :size => "16x16"
+						= user_want[:name]
+
 		
-	#bottom_user_profile_bar.clear{:style => "border: solid 1px red;"}
-		%p
-			%b Gym:
-			Nitro Gym
-		%p
-			%b Sports:
-			BodyBuilding
-		%p
-			%b Favorite brands
-			BSN
+	#bottom_user_profile_bar.clear
+		%ul
+			%li.gym{:style => "display: #{bottom_user_profile_bar_gym_display(@user_profile)}"}
+				%span.strong Gym:
+				%span.gym= @user_profile[:gym]
+			%li.sports{:style => "display: #{bottom_user_profile_bar_sports_display(@user_profile)}"}
+				%span.strong Sports:
+				%span.sports= @user_profile[:sports]
+			%li.brands{:style => "display: #{bottom_user_profile_bar_brands_display(@user_profile)}"}
+				%span.strong Favorite brands:
+				%span.brands= @user_profile[:brands]
 		

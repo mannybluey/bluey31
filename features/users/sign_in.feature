@@ -53,7 +53,7 @@ Feature: Sign in
     Scenario: User signs in successfully with email first time
       Given I sign up and sign in with name "foo" and email "test@foo.com"
       When I return next time
-      Then I should be already signed in
+      Then I should be already signed in with name "foo"
 
     Scenario: User signs in successfully with email second time
       Given I sign up and sign in with name "foo" and email "test@foo.com"

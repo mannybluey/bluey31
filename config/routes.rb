@@ -3,8 +3,8 @@ Bluey::Application.routes.draw do
   #get "pages/dashboard"
   match "pages/dashboard", :to => "plans#index", :as => "dashboard", :via => 'get'
   
-  get "plans/:id", :to => "plans#index", :as => "plan_type"
-  get "plan/:id", :to => "plans#new"
+ # get "plan/:id", :to => "plans#new"
+  get "plan_type/:id", :to => "plans#index", :as => "plan_type"
 
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
 

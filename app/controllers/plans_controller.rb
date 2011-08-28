@@ -37,10 +37,16 @@ class PlansController < ApplicationController
   
   # GET /plans/new
   def new
-    unless params[:id] == "0"
-      @plan_type_id = params[:id].to_i
-      @plan = Plan.new()
+    @plan = Plan.new()
+    @plan_type_id =  params[:id].nil? ? 1 : params[:id].to_i
+    respond_to do |format|
+        format.html     
+        format.js  {
+          debugger
+          # render  :action => 'new.js'
+        }
     end
+    
   end
 
   # POST /plans

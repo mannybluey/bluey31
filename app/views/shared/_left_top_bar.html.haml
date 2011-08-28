@@ -1,0 +1,12 @@
+.fl= image_tag "dashboard/userPicture.jpg", :alt => "userPicture"
+#userPerformances.fl
+	#userPoints
+		= current_user[:id]
+	%p
+		- if current_user.user_profile[:name].blank?
+			Hi !
+		- else
+			= "Hi, #{current_user.user_profile[:name]}"
+	= image_tag "dashboard/userMedals.jpg", :id => "medals", :alt => "userMedals"
+= image_tag "dashboard/healthMetterButton.jpg", :class => "fl", :alt => "healthMetterButton"
+= image_tag "dashboard/goalMeterButton.jpg", :class => "fl", :alt => "goalMeterButton"
