@@ -249,10 +249,9 @@ a {
 #wrapper {
   @include clearfix;
   background-color: white;
-  text-align: left;
+  text-align: center;
   width: $total_width;
-  margin: 0 auto;
-  margin-bottom: 50px;
+  margin: 50px auto;
   padding: 0 30px;
 }
 

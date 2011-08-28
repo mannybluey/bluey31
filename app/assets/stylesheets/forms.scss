@@ -69,8 +69,11 @@ form {
 
 /* Devise forms */
 #devise {
-  padding: 0 200px;
+  margin: 0 auto;
+  width: 375px;
+  text-align: left;
   #content {
+    padding: 10px;
     margin: 50px 20px; }
 }
 

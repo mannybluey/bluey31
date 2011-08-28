@@ -15,7 +15,7 @@
   $(document).ready ->
     animate_progress 0, 30, true
     animate_progress 1, 50, false
-    $(".dialog").click (event) ->
+    $("#sign-up.dialog").click (event) ->
       event.preventDefault()
       url = $(this).attr("href")
       dialog_form = $("<div id=\"dialog-form\">Loading form...</div>").dialog(
