@@ -20,7 +20,7 @@
       url = $(this).attr("href")
       dialog_form = $("<div id=\"dialog-form\">Loading form...</div>").dialog(
         autoOpen: false
-        width: 360
+        width: 300
         modal: true
         open: ->
           $(this).load url + " #content"

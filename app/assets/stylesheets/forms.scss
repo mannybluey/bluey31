@@ -84,8 +84,8 @@ form {
     @include box-shadow(none); }
 }
 
-/* User profile forms */
-.user-form {
+/* User profile */
+.user-form  {
   @include clearfix;
   background: #efefef;
   border: 1px solid #cccccc;
@@ -149,10 +149,10 @@ form {
 }
 
 /* New plans form */
-#new_plan {
-  input[type=text].wide, textarea.wide {
-    // Input padding is 10px
-    width: $content_width - 10px; }
+#new_plan{
+  input[type=text], textarea {
+    width: 255px;
+    max-width: 255px; }
   .add_plan_item {
     margin: 10px 0; }
   .remove_nested_fields {
@@ -169,6 +169,15 @@ form {
     @include clearfix; }
   .item-fields {
     float: left; }
+  .styled-select select {
+    @include border-radius(5px);
+    border: solid 2px #DFDFDF;
+    background-color: #ffffff;
+    color: #6F6F6F;
+    padding: 4px;
+    margin-bottom: 10px;
+    height: 30px;
+    font-size: 13px;}
   .exercise-name {
     width: 720px; }
   .exercise-metrics {
