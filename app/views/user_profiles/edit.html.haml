@@ -9,7 +9,8 @@
 	= render :partial => "shared/dashboard_menu"
 
 - content_for :bottom_content_bar do
-	= render :partial => "shared/user_profile_bar"
+	#bottom_content_bar.plans.user_profile
+		= render :partial => "shared/user_profile_bar"
 										
 - content_for :bottom_content do
 	= render :partial => "user_profiles/forms/about_form"

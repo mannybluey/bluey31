@@ -47,8 +47,8 @@
 									= yield :bottom_menu
 									
 						- if content_for?(:bottom_content_bar)			
-							#bottom_content_bar
-								= yield :bottom_content_bar
+							= yield :bottom_content_bar
+							
 						#bottom_content
 							= yield :bottom_content
 		= yield :foot

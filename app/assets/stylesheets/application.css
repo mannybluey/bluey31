@@ -6,7 +6,6 @@
  *= require fancybox
  *= require screen
  *= require forms
- *= require pages/user-profile
  *= require pages/landing
  *= require dashboard
  *= require plans

@@ -1,5 +1,37 @@
 @import "dashboard";
 
+#bottom_content_bar.plans {
+  background: #e9e9e9 url(/assets/dashboard/gradient.png) repeat-x 0 -40px;
+  padding: 4px;
+}
+
+#navBar {
+  border: none;
+  height: 40px;
+  background: #e9e9e9 url(/assets/dashboard/gradient.png) repeat-x 0 -40px;
+  ul {
+    margin: 5px 0 0 20px;
+    width: 500px;
+    line-height: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    li {
+      @extend .grey-button;
+      display: inline;
+      line-height: 30px;
+      height: 30px;
+      margin-right: 15px;
+      padding: 5px 15px 5px 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      a {
+        text-decoration: none; }
+      &:hover, &.active {
+        background: #86ae9f; } } } 
+}
+
+
 #searchForm input[type=text] {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;

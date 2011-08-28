@@ -5,21 +5,23 @@
 
 - content_for :bottom_menu do
 	= render :partial => "shared/dashboard_menu"
+
+- content_for :bottom_content_bar do
+	#bottom_content_bar.plans
+		#navBar
+			%ul.fl
+				= render :partial => "nav_bar"
+			= form_for :query , :url => "#", :html => {:id => "searchForm", :class => "fr" } do |f|
+				= f.text_field :search_string
+				= f.submit "Search"
 										
 - content_for :bottom_content do
-	#navBar
-		%ul.fl
-			= render :partial => "nav_bar"
-		= form_for :query , :url => "#", :html => {:id => "searchForm", :class => "fr" } do |f|
-			= f.text_field :search_string
-			= f.submit "Search"
-
 	#contentWrapper{:style => "position:relative;"}
 		%h2= plan_list_title(@plan_type)
 		#contentBar
 			%ul.fl
 				%li
-					= link_to '+ Add Plan', new_plan_path, :id => 'add-plan', :class => 'dialog'
+					= link_to '+ Add Plan', new_plan_path, :id => 'add_plan', :class => ''
 			#addPlanText.fl
 				%p
 					%b Available plans are listed below
