@@ -1,17 +1,39 @@
-- content_for :main_content do
-	#new_plan
-		#content
-			%h2 New Plan
-			= form_for :plan, :url => plans_url, :remote => true do |f|
-				= hidden_field_tag :plan_type_id, @plan_type_id
-				= render 'shared/form_errors', :object => @plan
+- content_for :top_menu do
+	%ul
+		- PlanType.all.each do |plan_type|
+			%li= link_to image_tag("#{plan_type[:image_path]}", :alt => "#{File.basename( plan_type[:image_path], '.*')}"), plan_type_path(plan_type[:id])
+
+- content_for :bottom_menu do
+	= render :partial => "shared/dashboard_menu"
+
+- content_for :bottom_content_bar do
+	#bottom_content_bar.plans
+		#navBar
+			%ul.fl
+				= render :partial => "nav_bar"
+			= form_for :query , :url => "#", :html => {:id => "searchForm", :class => "fr" } do |f|
+				= f.text_field :search_string
+				= f.submit "Search"
+										
+- content_for :bottom_content do
+	#contentWrapper{:style => "position:relative;"}
+		%h2= plan_list_title(@plan_type)
+		#contentBar
+			%ul.fl
+				%li
+					= link_to '+ Add Plan', new_plan_path, :id => 'add_plan', :class => ''
+			#addPlanText.fl
 				%p
-					= f.label :name
-					%br/
-					= f.text_field :name, :class => 'wide'
-				%p
-					= f.label :description
-					%br/
-					= f.text_area :description, :class => 'small wide'
-				%p
-					= f.submit 'Create'
+					%b Available plans are listed below
+				%p.small To add new plan click the link on the left
+
+		- if display_paginationBar(@plans)
+			#paginationBar.clear
+				= render :partial => "pagination_nav"
+
+		#content.clear.dashboard{:style => "z-index: 0;"}
+			- unless @plans.count > 0
+				= render :partial => "no_plan"
+			- else
+				%ul
+					= render :partial => "plan", :collection => @plans
