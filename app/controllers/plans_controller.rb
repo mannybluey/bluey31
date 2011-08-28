@@ -37,12 +37,12 @@ class PlansController < ApplicationController
   
   # GET /plans/new
   def new
-    @plan = Plan.new()
     @plan_type_id =  params[:id].nil? ? 1 : params[:id].to_i
+    @plan = Plan.new(:plan_type_id => @plan_type_id)
+
     respond_to do |format|
         format.html     
         format.js  {
-          debugger
           # render  :action => 'new.js'
         }
     end

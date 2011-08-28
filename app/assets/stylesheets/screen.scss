@@ -406,7 +406,7 @@ nav ul {
   font-size: $small;
 }
 
-#content , #bottom_content{
+#bottom_content{
   clear: both;
   @include border-radius($default_border_radius);
   @include box-shadow(#cccccc 0 0 3px 1px);
