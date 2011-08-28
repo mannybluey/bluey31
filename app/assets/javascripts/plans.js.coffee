@@ -23,11 +23,11 @@ $(document).ready ->
     $( "#navBar ul li" ).removeClass( 'active' )
     $(this).parent().addClass('active') 
   
-  $("#plan_content ul li.plan").mouseenter ->
+  $("#content.dashboard ul li.plan").mouseenter ->
     $(this).children("div.planActionBar:first").show()
     return
     
-  $("#plan_content ul li.plan").mouseleave ->
+  $("#content.dashboard ul li.plan").mouseleave ->
     $(this).children("div.planActionBar:first").hide()
     return
 

@@ -21,7 +21,7 @@
 		#contentBar
 			%ul.fl
 				%li
-					= link_to '+ Add Plan', new_plan_path, :id => 'add_plan', :class => ''
+					= link_to '+ Add Plan', new_plan_path, :id => 'add_plan', :class => 'dialog'
 			#addPlanText.fl
 				%p
 					%b Available plans are listed below
@@ -31,7 +31,7 @@
 			#paginationBar.clear
 				= render :partial => "pagination_nav"
 
-		#plan_content.clear{:style => "z-index: 0;"}
+		#content.clear.dashboard{:style => "z-index: 0;"}
 			- unless @plans.count > 0
 				= render :partial => "no_plan"
 			- else
