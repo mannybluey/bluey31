@@ -13,5 +13,6 @@ class UserProfile < ActiveRecord::Base
   attr_accessible :summary, :gym, :sports, :brands, :dob, :symptoms, :user_type_ids, :user_want_ids, :body_part_ids, :user
   attr_accessible :name, :city, :country
 
-
+  validates :name, :presence => true, :uniqueness => true
+  
 end

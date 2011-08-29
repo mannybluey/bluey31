@@ -2,7 +2,7 @@
 	%h2 About
 
 	#foundation.user-form
-		= form_for @user_profile, :url => "/profile" do |f|
+		= form_for @user_profile, :as => :user_profile, :url => profile_path, :html => {:method => :put} do |f|
 		
 			= render 'shared/form_errors', :object => @user_profile
 			
