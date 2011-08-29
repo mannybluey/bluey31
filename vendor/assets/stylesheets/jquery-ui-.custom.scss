@@ -1,0 +1,38 @@
+@import "screen";
+
+.ui-widget { 
+  font-family: Helvetica,Arial,sans-serif; font-size: 1em; 
+}
+
+
+.ui-widget-content { 
+  border-radius: 0 0 4px 4px;
+  padding: 10px; 
+  border: 1px solid #5ebdf1; 
+  background: #ffffff; 
+  color: #414141;
+}
+
+.ui-widget-header {
+  border-radius: 4px 4px 0 0;
+  background-color: #3BAEEE;
+  background-image: none;
+  border: 1px solid #5EBDF1;
+  color: #FFFFFF;
+  font-size: 1.3em;
+  font-weight: bold;
+  height: 25px;
+  line-height: 23px;
+  padding-top: 3px;
+  text-align: center;
+}
+
+.ui-widget-header a { 
+  color: #ffffff; 
+  margin-top: 5px;
+}
+
+.ui-dialog .ui-dialog-title .ui-icon {
+    float: left;
+    margin-right: 4px;
+}

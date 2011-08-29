@@ -1,11 +1,8 @@
 - content_for :main_content do
 	#content
-		%h2 New Plan
 		#new_plan
 			= form_for :plan, :url => plans_url, :remote => true do |f|
-		
-				= render 'shared/form_errors', :object => @plan
-
+				= error_messages!(@plan)
 				.styled-select
 					= f.select( :plan_type_id, PlanType.all.collect {|pt| [ pt.name, (pt.id) ] }, {:prompt => 'Select a Plan Type'})
 			

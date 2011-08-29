@@ -18,8 +18,12 @@
     $("#add-plan.dialog").click (event) ->
       event.preventDefault()
       url = $(this).attr("href")
+      title = $(this).attr("title")
       dialog_form = $("<div id=\"dialog-form\">Loading form...</div>").dialog(
+        title: title
         autoOpen: false
+        draggable: false
+        resizable: false
         width: 300
         modal: true
         open: ->

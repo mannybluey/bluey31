@@ -15,10 +15,10 @@
         });
     #right-col
       #alpha
-      = link_to 'Sign up', new_user_registration_path, :id => 'sign-up', :class => 'dialog'
+      = link_to 'Sign up', new_user_registration_path, :id => 'sign-up', :class => 'dialog', :title => 'Sign Up'
       %p 
         Already registered?
-        = link_to 'Sign in', new_user_session_path, :id => 'sign-in'
+        = link_to 'Sign in', new_user_session_path, :id => 'sign-in', :class => 'dialog', :title => 'Sign In'
     %ol
       %li Sign up using an email address
       %li Sign in to answer a few questions about your health and fitness goals
