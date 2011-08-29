@@ -47,10 +47,15 @@ namespace :deploy do
   
   task :cold do       # Overriding the default deploy:cold
     update
+    migrate
     load_schema       # My own step, replacing migrations.
     start
   end
 
+  task :migrate, :roles => :app do
+     run "cd #{current_path}; rake db:migrate"
+  end
+   
   task :load_schema, :roles => :app do
     run "cd #{current_path}; rake db:seed"
   end
@@ -59,6 +64,10 @@ namespace :deploy do
     run "ln -sfn /home/#{user}/#{application}/shared/database.yml #{release_path}/config/database.yml"
     run "ln -sfn /home/#{user}/#{application}/shared/bluey.mov #{release_path}/public/videos/bluey.mov"
   end
+  
+  task :bundle_new_release, :roles => :app do
+     run "cd #{current_path} && bundle install --without test"
+   end
 
-  after 'deploy:update_code', 'deploy:symlink_shared'
+  after 'deploy:update_code', 'deploy:symlink_shared', 'deploy:bundle_new_release'
 end
