@@ -2,7 +2,7 @@
 	#content
 		#new_plan
 			= form_for :plan, :url => plans_url, :remote => true do |f|
-				= error_messages!(@plan)
+				#error_messages{:style => "display: none;"}
 				.styled-select
 					= f.select( :plan_type_id, PlanType.all.collect {|pt| [ pt.name, (pt.id) ] }, {:prompt => 'Select a Plan Type'})
 			

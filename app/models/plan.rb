@@ -6,8 +6,9 @@ class Plan < ActiveRecord::Base
   #validates_presence_of :name
   validates :name, :presence => true, :uniqueness => true
   validates :description, :presence => true
+  validates_associated :plan_type
   
-  attr_accessible :name, :description, :plan_items_attributes
+  attr_accessible :name, :description, :plan_items_attributes, :plan_type_id
   
   has_many :days
   has_many :plan_items, :through => :days

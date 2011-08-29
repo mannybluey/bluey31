@@ -52,17 +52,16 @@ class PlansController < ApplicationController
   # POST /plans
   def create
     @plan = Plan.new(params[:plan])
-    @plan_type = PlanType.find(params[:plan_type_id].to_i)
     @plan[:creator_id] = current_user.id
 
     respond_to do |format|
-        format.html     
+        format.html  {}
         format.js  {
           if @plan.save
-            @plan_type.plans << @plan
             flash[:notice] = "Created plan - #{undo_link}".html_safe
             render :action => 'create_plan_success.js'
           else
+             debugger
              render :action => 'create_plan_error.js'
           end
         }

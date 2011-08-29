@@ -262,6 +262,7 @@ a {
   top: 20px;
   left: -1px;
   font-size: 12px;
+  z-index: 9999;
   #alert {
     border: 1px solid $error_red;
     background: #e5b6b6;
