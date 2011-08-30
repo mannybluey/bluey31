@@ -1,7 +1,7 @@
 $(document).ready ->
 
   $("#foundation form").submit ->
-    false
+    true
   
   $("#fondation_bottom input[name=commit]").click ->
     $("#foundation form").submit()

@@ -14,6 +14,7 @@ Bluey::Application.routes.draw do
   match "profile/quickedit", :to => "user_profiles#update_attribute_on_the_spot", :via => "put"
   resources :user_goals, :only => :index
   match "user_goals", :to => "user_goals#update", :via => "put"
+    
   resources :user_images, :only => [:index, :create, :destroy] do
     member do
       get :update_profile_picture

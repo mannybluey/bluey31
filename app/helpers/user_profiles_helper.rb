@@ -17,7 +17,7 @@ module UserProfilesHelper
   end
 
   def what_i_want_display(user_profile, user_want )
-    return user_profile.user_wants.map{|ut| uw[:id]}.include?(user_want[:id]) ? 'visible' : 'none'
+    return user_profile.user_wants.map{|uw| uw[:id]}.include?(user_want[:id]) ? 'visible' : 'none'
   end
   
   def user_profile_summary_display(user_profile ) 				
