@@ -1,0 +1,20 @@
+#load
+	%h2 Goals
+	%ul#man.person
+		- BodyPart.all.each do |part|
+			%li{:style => "#{bodypart_line_style(part)}", :name => part.name}= link_to '', part.name
+			
+	#parts
+		- @user_goals.group_by(&:body_part).each do |part, goals|
+			- next if part.nil?
+			%div{:name => part.name, :class => 'body-part-form'}
+				.body-part-form-header
+					%h3= part.name
+				.body-part-form-content
+					= form_tag(user_goals_path, :remote => true, :id => "edit_#{part.name.to_slug.downcase}", :method => :put) do
+						- goals.each do |goal|
+							= render :partial => "user_goals/forms/goal_form", :locals => {:goal => goal}
+							
+						= submit_tag 'Update'
+
+

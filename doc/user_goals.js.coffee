@@ -1,22 +1,12 @@
- $('#profile-picture').click (event) ->
-    $('#user-tabs li a[name="pictures"]').click()
-
-  $('.user-form').hide()
-  $('#foundation.user-form').show()
-
-  # User profile tabs
-  $('#user-tabs li a').click (event) ->
-    alert 'got it'
-    #form_name = $(this).attr('name')
-    #$('#user-tabs li').removeClass('selected')
-   # $(this).parent('li').addClass('selected')
-    # $('.user-form').hide()
+    form_name = $(this).attr('name')
+    $('#user-tabs li').removeClass('selected')
+    $(this).parent('li').addClass('selected')
+    $('.user-form').hide()
     href = $(this).attr('href')
     if href
-      # $('#loaded-form').show().html('Loading form...')
-      # $('#loaded-form').load href + ' #load', ->
+      $('#loaded-form').show().html('Loading form...')
+      $('#loaded-form').load href + ' #load', ->
         if href is "/user_goals"
-          alert href
           $('.person li[name=General]').attr('id', 'general')
           $('.body-part-form').hide()
           $('.body-part-form:first').show()
@@ -49,7 +39,5 @@
             $(this).addClass('selected');
           $('.person li:first').addClass('selected')
     else
-      # $("##{form_name}").show()
+      $("##{form_name}").show()
     event.preventDefault()
-
-

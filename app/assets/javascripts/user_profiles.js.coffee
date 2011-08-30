@@ -1,8 +1,18 @@
 $(document).ready ->
-
-  $("#foundation form").submit ->
-    true
   
+  $('.user-form').hide()
+  $('#foundation.user-form').show()
+
+  # User profile abs
+  $('#user-tabs li a').click (event) ->
+    form_name = $(this).attr('name')
+    $('#user-tabs li').removeClass('selected')
+    $(this).parent('li').addClass('selected')
+    $('.user-form').hide()
+    $("##{form_name}").show()
+    event.preventDefault()
+
+
   $("#fondation_bottom input[name=commit]").click ->
     $("#foundation form").submit()
       
@@ -72,3 +82,6 @@ $(document).ready ->
     display_age.html(age + ' years - ')
     if age > 0 then display_age.show() else display_age.hide()
     return
+    
+  event.preventDefault()
+

@@ -11,7 +11,7 @@ class UserProfile < ActiveRecord::Base
     :reject_if => proc { |attributes| attributes.all? {|k,v| v.blank?}}
     
   attr_accessible :summary, :gym, :sports, :brands, :dob, :symptoms, :user_type_ids, :user_want_ids, :body_part_ids, :user
-  attr_accessible :name, :city, :country
+  attr_accessible :name, :city, :country, :picture_file_name
 
   validates :name, :presence => true, :uniqueness => true
   validates :city, :presence => true

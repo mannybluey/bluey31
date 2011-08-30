@@ -1,9 +1,9 @@
 - content_for :top_menu do
-	%ul
-		%li{:style => "margin: 0 5px 0 0;"}= link_to image_tag("user_profile/aboutButton.jpg", :alt => "about"), "#"
-		%li{:style => "margin: 0 5px 0 0;"}= link_to image_tag("user_profile/goalsButton.jpg", :alt => "goals"), "#"
-		%li{:style => "margin: 0 5px 0 0;"}= link_to image_tag("user_profile/symptomsButton.jpg", :alt => "symptoms"), "#"
-		%li{:style => "margin: 0"}= link_to image_tag("user_profile/picturesButton.jpg", :alt => "pictures"), "#"
+	%ul#user-tabs
+		%li.selected= link_to image_tag("user_profile/aboutButton.jpg", :alt => "about"), '', :name => 'foundation'
+		%li= link_to image_tag("user_profile/goalsButton.jpg", :alt => "goals"), user_goals_path
+		%li= link_to image_tag("user_profile/symptomsButton.jpg", :alt => "symptoms"), '', :name => 'symptoms'
+		%li{:style => "margins: 0;"}= link_to image_tag("user_profile/picturesButton.jpg", :alt => "pictures"), user_images_path(current_user.id), :name => 'pictures'
 
 - content_for :bottom_menu do
 	= render :partial => "shared/dashboard_menu"
@@ -13,4 +13,6 @@
 		= render :partial => "shared/user_profile_bar"
 										
 - content_for :bottom_content do
-	= render :partial => "user_profiles/forms/about_form"
+	#user_forms
+		= render :partial => "user_profiles/forms/about_form"
+		= render :partial => "user_profiles/forms/pains_form"

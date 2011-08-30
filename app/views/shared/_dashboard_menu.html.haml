@@ -3,4 +3,4 @@
 	%li{:class => "#{'active' if params[:controller] == 'fitbars'}"}= link_to "Fit Bar", "#"
 	%li{:class => "#{'active' if params[:controller] == 'challenges'}"}= link_to "Challenges", "#"
 	%li{:class => "#{'active' if params[:controller] == 'financials'}"}= link_to "Financial", "#"
-	%li{:class => "#{'active' if params[:controller] == 'user_profiles'}"}= link_to "Profile", profile_edit_path
+	%li{:class => "#{'active' if (params[:controller] == 'user_profiles' || params[:controller] == 'user_goals')}"}= link_to "Profile", profile_edit_path, :name => 'profile'

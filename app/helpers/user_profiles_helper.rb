@@ -35,5 +35,9 @@ module UserProfilesHelper
 	def user_profile_age_display(user_profile)
 	  return @user_profile[:dob].blank? ? 'none' : 'visible'
   end
+  
+  def bodypart_line_style(part)
+    return "left: #{part.x}px; top: #{part.y}px;"
+  end
     
 end

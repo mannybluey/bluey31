@@ -88,7 +88,7 @@ form {
 /* User profile */
 .user-form  {
   @include clearfix;
-  background: #efefef;
+  background: #e5e5e5;
   border: 1px solid #cccccc;
   padding: 10px;
   margin-top: 10px;
@@ -205,3 +205,52 @@ form {
     width: $content_width; }
 }
 
+.body-part-form {
+  display: block;
+  height: auto;
+  outline: 0 none;
+  position: relative;
+  background: none repeat scroll 0 0 white;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 0 2px 0 #333333;
+  padding: 10px;
+  border: 1px solid #5EBDF1;
+}
+
+.body-part-form-header {
+    background-color: #3BAEEE;
+    background-image: none;
+    border: 1px solid #5EBDF1;
+    border-radius: 4px 4px 0 0;
+    color: #FFFFFF;
+    font-size: 1.3em;
+    font-weight: bold;
+    height: 25px;
+    line-height: 23px;
+    padding-top: 3px;
+    text-align: center;
+}
+
+.body-part-form-content {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #5EBDF1;
+  border-radius: 0 0 4px 4px;
+  color: #414141;
+  padding-top: 5px;
+}
+
+.body-part-form-content fieldset {
+  background-color: #e5e5e5;
+  padding-left: 10px;
+  margin: 5px 0 0 0;
+}
+
+.body-part-form-content fieldset legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 0px 0 20px;
+}
+
+.body-part-form-content form input[type="submit"] {
+  margin: 10px;
+}
