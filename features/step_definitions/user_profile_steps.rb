@@ -9,7 +9,10 @@ Given /^I am logged in as "(.*)" with name "(.*)"$/ do |email, name|
   password = 'password'
   @current_user = create_my_user(:email => email, :password => password)
   unless name.empty?
-    @current_user.user_profile.update_attributes(:name => name)
+    @current_user.user_profile.update_attributes(
+    :name => name, :city => "Rio de Janeiro", :country => "Brazil",
+    
+    )
   end
   steps %Q{
     Given I am on the new user session page
