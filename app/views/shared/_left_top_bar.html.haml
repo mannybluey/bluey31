@@ -1,6 +1,6 @@
 .fl
 	- if current_user.user_profile.user_images.where(:is_profile_picture => true).empty?
-		= image_tag "dashboard/userPicture.jpg", :alt => "defaultPicture"
+		= image_tag "dashboard/no_man.jpg", :alt => "defaultPicture"
 	- else
 		= image_tag current_user.user_profile.user_images.where(:is_profile_picture => true).first.picture.url(:large), :alt => "userPicture", :id => 'profile-picture'
 #userPerformances.fl

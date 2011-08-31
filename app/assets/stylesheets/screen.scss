@@ -106,7 +106,7 @@ $large: 18px;
 /* Globals and wrapper */
 body {
   font: $normal Helvetica, Arial, sans-serif;
-  background-color: white;
+  background-color: #D1DEF1;
   color: $text_colour;
 }
 
@@ -248,7 +248,7 @@ a {
 
 #wrapper {
   @include clearfix;
-  background-color: white;
+  background-color: #D1DEF1;
   text-align: center;
   width: $total_width;
   margin: 0 auto;
