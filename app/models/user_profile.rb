@@ -34,7 +34,7 @@ class UserProfile < ActiveRecord::Base
   end 
 
   def has_a_valid_birthday
-    unless (Date.today - self.dob) / 365 > 13
+    unless (Date.today - self.dob.to_date) / 365 > 13
       errors[:base] << "Please check your birthday..."
     end
   end

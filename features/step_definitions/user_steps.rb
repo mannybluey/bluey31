@@ -7,7 +7,7 @@ Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*
                       :password => password,
                       :password_confirmation => password)
   new_user.save!
-  new_user.user_profile.update_attributes(:name => name)
+  new_user.user_profile.update_attributes(:name => name, :dob => 20.years.ago)
 end
 
 Given /^I am a new, authenticated user$/ do
