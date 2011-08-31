@@ -2,7 +2,6 @@ class UserGoalsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @user_profile = current_user.user_profile
     @user_goals = current_user.user_profile.user_goals
   end
 

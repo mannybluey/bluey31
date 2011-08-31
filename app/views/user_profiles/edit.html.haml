@@ -1,4 +1,4 @@
-- load_controller_js
+
 
 - content_for :top_menu do
 	%ul#user-tabs
@@ -99,16 +99,23 @@
 		#loaded-form.user-form
 		
 		#symptoms.user-form
-			%h2 Pain Areas:
+			%h2 Pain Areas
 			= form_for @user_profile, :url => "/profile", :html => { :id => 'edit-symptoms' } do |f|
 				= render 'shared/form_errors', :object => @user_profile
-				= field_set_tag 'Pain areas:' do
-					%ul
+				
+				= field_set_tag do
+					.label_side.fl{:style => "height: 135px; margin-top: 5px;  text-align:right; width: 165px;"}
+						%span.strong Pain area:
+					
+					%ul#pain_area.fl{:style => "display: block; width: 200px; float:left; margin-top: 0px;"}
 						- BodyPart.all.each do |part|
 							%li
 								= check_box_tag "user_profile[body_part_ids][]", part.id, @user_profile.body_parts.include?(part), :id => "user_pain_id_#{part.id}"
 								= label_tag "user_pain_id_#{part.id}", part.name
-				= field_set_tag 'Describe your symptoms:' do
-					= f.text_area :symptoms
-				%p
+				= field_set_tag  do
+					.label_side.fl{:style => "height: 135px; margin-top: 5px; text-align:right;"}
+						%p.strong Describe your symptoms:
+					.input_side
+						= f.text_area :symptoms
+				%p{:style => "padding-left: 185px;"}
 					= f.submit 'Save'

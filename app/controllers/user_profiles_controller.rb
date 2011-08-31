@@ -40,4 +40,8 @@ class UserProfilesController < ApplicationController
 
     format.html { redirect_to(user_profiles_url) }
   end
+  
+  def test
+  end
+  
 end

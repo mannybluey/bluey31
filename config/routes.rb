@@ -2,20 +2,16 @@ Bluey::Application.routes.draw do
   get "pages/landing"
   #get "pages/dashboard"
   match "pages/dashboard", :to => "plans#index", :as => "dashboard", :via => 'get'
-  
  # get "plan/:id", :to => "plans#new"
   get "plan_type/:id", :to => "plans#index", :as => "plan_type"
-
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
 
   # Users and their profile management
   match "profile/edit", :to => "user_profiles#edit", :via => "get", :as => "profile_edit"
   match "profile", :to => "user_profiles#update", :via => "put", :as => "profile"
   match "profile/quickedit", :to => "user_profiles#update_attribute_on_the_spot", :via => "put"
-
   resources :user_goals, :only => :index
   match "user_goals", :to => "user_goals#update", :via => "put"
-    
   resources :user_images, :only => [:index, :create, :destroy] do
     member do
       get :update_profile_picture
