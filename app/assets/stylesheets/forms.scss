@@ -85,9 +85,12 @@ form {
     @include box-shadow(none); }
 }
 
+#user_forms { @include border-radius($default_border_radius); }
+
 /* User profile */
 .user-form  {
   @include clearfix;
+  @include border-radius($default_border_radius);
   background: #e5e5e5;
   border: 1px solid #cccccc;
   padding: 10px;

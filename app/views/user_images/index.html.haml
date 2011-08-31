@@ -1,20 +1,22 @@
-#load
-  %h2 Your pictures
-  #user-images
-    - if @user_images.empty?
-      %em You haven't uploaded any pictures yet.
-    - else
-      = render @user_images
-  = form_for @user_image, :html => {:multipart => true}, :remote => true do |f|
-    = field_set_tag 'Upload a picture' do
-      #picture-errors
-        = render 'shared/form_errors', :object => @user_image
-      %p
-        = f.label :name
-        %br/
-        = f.text_field :name
-      %p
-        = f.label :picture
-        %br/
-        = f.file_field :picture
-      = f.submit 'Upload picture'
+- content_for :top_menu do
+	#load
+		%h2 Your pictures
+		#user-images
+			- if @user_images.empty?
+				%em You haven't uploaded any pictures yet.
+			- else
+				= render @user_images
+		.clear
+			= form_for @user_image, :html => {:multipart => true}, :remote => true do |f|
+				= field_set_tag 'Upload a picture' do
+					#picture-errors
+						= render 'shared/form_errors', :object => @user_image
+						%p
+							= f.label :name
+							%br/
+							= f.text_field :name
+						%p
+							= f.label :picture
+							%br/
+							= f.file_field :picture
+					= f.submit 'Upload picture'

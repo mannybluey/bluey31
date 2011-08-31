@@ -51,6 +51,8 @@
 
 #top_user_profile_bar { overflow: auto;}
 
+#profile-picture { @include border-radius($default_border_radius); }
+
 #personal_data {
   float:left; 
   width: 33%; 
@@ -118,6 +120,7 @@
   width: 250px;
   height: 550px;
 }
+
 #man {
   background: url(/assets/man.png);
   li {
@@ -145,4 +148,40 @@
   float: left;
   margin-left: 100px;
   width: 350px;
+}
+
+
+/* Pictures */
+#user-images {
+  margin-top: 10px;
+  min-height: 100px;
+}
+
+.user-image {
+  width: 100px;
+  margin: 0 25px 20px 0;
+  float: left;
+  position: relative;
+  font-size: 12px;
+  a, p {
+    text-align: center;
+    display: block;
+    width: 104px;
+    display: block;
+  }
+  .delete-image {
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    background: url(/assets/close.png) no-repeat 0 0;
+    width: 25px;
+    height: 25px;
+    z-index: 10000;
+    @include hide-text;
+    cursor: pointer;
+  }
+  .use-for-profile {
+    font-size: 11px;
+    padding-bottom: 5px;
+  }
 }

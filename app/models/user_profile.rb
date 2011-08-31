@@ -38,6 +38,5 @@ class UserProfile < ActiveRecord::Base
       errors[:base] << "Please check your birthday..."
     end
   end
-
-    
+      
 end

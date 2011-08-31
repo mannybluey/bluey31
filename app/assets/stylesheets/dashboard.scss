@@ -115,10 +115,11 @@
 }
 
 #contentWrapper {
+  @include border-radius($default_border_radius);
   overflow: auto;
   border: 1px transparent solid;
-  background-color: #efefef;
-  padding: 10px 0;
+  background-color: #ffffff;
+  padding: 10px;
 }
 
 #bottom_content_bar {
@@ -145,7 +146,7 @@
 
 #contentBar {
   height: 56px;
-  width: 920px;
+  /* width: 920px; */
   border: solid 1px #b4b4b4;
   background: #e9e9e9 url(/assets/dashboard/gradient.png) repeat-x 0 -40px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
