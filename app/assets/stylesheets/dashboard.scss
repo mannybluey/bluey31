@@ -90,13 +90,15 @@
 }
 
 #bottomMenu {
-  float: right;
+  float: left;
   font-size: 13px;
   background: url(/assets/dashboard/bottomMenuBackground.jpg) repeat-x;
+  /* border: solid 1px red; */
   border-top: solid 1px #80878d;
-  width: 100%;
-  line-height: 25px;
-  margin-top: -1px;
+  border-bottom-right-radius: $default_border_radius;
+  /* width: 100%; */
+  line-height: 21px;
+  /* margin-top: -1px; */
   ul {
     li {
       float: left;
