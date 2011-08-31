@@ -1,6 +1,6 @@
 %ul
-	%li{:class => "#{'active' if params[:controller] == 'plans'}"}= link_to "Plans", dashboard_path
-	%li{:class => "#{'active' if params[:controller] == 'fitbars'}"}= link_to "Fit Bar", "#"
-	%li{:class => "#{'active' if params[:controller] == 'challenges'}"}= link_to "Challenges", "#"
-	%li{:class => "#{'active' if params[:controller] == 'financials'}"}= link_to "Financial", "#"
-	%li{:class => "#{'active' if (params[:controller] == 'user_profiles' || params[:controller] == 'user_goals')}"}= link_to "Profile", profile_edit_path, :name => 'profile'
+	%li{:class => "#{ dashboard_menu(params, ['plans']) }"}= link_to "Plans", dashboard_path
+	%li{:class => "#{ dashboard_menu(params, ['fitbars']) }"}= link_to "Fit Bar", "#"
+	%li{:class => "#{ dashboard_menu(params, ['challenges']) }"}= link_to "Challenges", "#"
+	%li{:class => "#{ dashboard_menu(params, ['financials']) }"}= link_to "Financial", "#"
+	%li{:class => "#{ dashboard_menu(params, ['user_profiles', 'user_goals']) }"}= link_to "Profile", profile_edit_path, :name => 'profile'

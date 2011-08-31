@@ -6,5 +6,9 @@ module ApplicationHelper
     end
   end
 
+  def dashboard_menu(params, items)
+    return items.include?(params[:controller]) ? 'active' : ''
+  end
   
 end
+
