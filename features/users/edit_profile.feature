@@ -22,7 +22,7 @@ Feature: Edit profile
       And I fill in "value" with "Hello, this is my summary!"
       And I press "Save" within "#user-info .summary"
       Then I should see "Hello, this is my summary!" within "#user-info .summary"
-
+@wip
     Scenario: User fills in foundation information
       Given I have the following user_type records:
         | name                 |

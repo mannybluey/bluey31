@@ -13,13 +13,13 @@ class UserProfile < ActiveRecord::Base
   attr_accessible :summary, :gym, :sports, :brands, :dob, :symptoms, :user_type_ids, :user_want_ids, :body_part_ids, :user
   attr_accessible :name, :city, :country, :picture_file_name
 
-  validates :name, :presence => true, :uniqueness => true
-  validates :city, :presence => true
-  validates :country, :presence => {:message => "not selected..."}
+  validates :name, :presence => true, :uniqueness => true, :on => :update
+  validates :city, :presence => true, :on => :update
+  validates :country, :presence => {:message => "not selected..."}, :on => :update
   
-  validate :has_one_user_type_at_least
-  validate :has_one_user_want_at_least
-  validate :has_a_valid_birthday
+  validate :has_one_user_type_at_least, :on => :update
+  validate :has_one_user_want_at_least, :on => :update
+  validate :has_a_valid_birthday, :on => :update
   
   def has_one_user_type_at_least
     unless self.user_types.count > 0

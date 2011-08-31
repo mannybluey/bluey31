@@ -19,3 +19,8 @@ cucumber --tags @tagname
 
 To exclude scenarios with a certain tag, prefix the tag with a tilde:
 cucumber --tags ~@wip
+
+DB test
+rake db:migrate RAILS_ENV=test
+rake db:test:clone
+rails g cucumber:install

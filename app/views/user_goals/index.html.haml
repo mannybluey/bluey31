@@ -11,10 +11,11 @@
 				%div{:name => part.name, :class => 'body-part-form'}
 					.body-part-form-header
 						%h3= part.name
-					.body-part-form-content
+					.body-part-form-content{:style => "padding: 5px;"}
 						= form_tag(user_goals_path, :remote => true, :id => "edit_#{part.name.to_slug.downcase}", :method => :put) do
 							- goals.each do |goal|
-								= render :partial => "user_goals/goal_form", :locals => {:goal => goal}
+								.goal
+									= render :partial => "user_goals/goal_form", :locals => {:goal => goal}
 							
 							= submit_tag 'Update'
 

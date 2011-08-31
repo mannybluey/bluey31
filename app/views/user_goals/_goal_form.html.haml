@@ -1,9 +1,10 @@
 = fields_for "user_goals[]", goal do |f|
-	= field_set_tag goal.name, :id => goal.name.to_slug.downcase do
+
+	= field_set_tag goal.name, :id => goal.name.to_slug.downcase  do
 	
 		%div{:class => 'form_errors'}
 			= render 'shared/form_errors', :object => goal
-			
+		
 		%p.number
 			= f.label :current_value, 'Current'
 			%br/
@@ -14,7 +15,7 @@
 			%br/
 			= f.text_field :goal_value, :class => 'number'
 			= goal.unit
-		%p
+		%p.check_goal
 			= f.label :is_goal, 'Add goal?'
 			= f.check_box :is_goal
 

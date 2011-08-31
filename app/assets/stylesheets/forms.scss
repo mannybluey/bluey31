@@ -95,12 +95,12 @@ form {
   border: 1px solid #cccccc;
   padding: 10px;
   margin-top: 0;
-  h2, legend {
+  h2 {
     color: $text_colour;
     font-weight: bold; }
   fieldset {
-    padding: 10px;
-    margin: 10px 0;
+    padding: 0;
+    margin: 0;
     ul {
       margin-top: 10px;
       li {
@@ -243,15 +243,15 @@ form {
 }
 
 .body-part-form-content fieldset {
-  background-color: #e5e5e5;
+  /* background-color: #e5e5e5;
   padding-left: 10px;
-  margin: 5px 0 0 0;
+  margin: 5px 0 0 0; */
 }
 
 .body-part-form-content fieldset legend {
-  font-weight: bold;
+  /* font-weight: bold;
   font-size: 1.2em;
-  margin: 0px 0 20px;
+  margin: 0px 0 20px; */
 }
 
 .body-part-form-content form input[type="submit"] {
