@@ -2,11 +2,12 @@ Given /^no user exists with an email of "(.*)"$/ do |email|
   assert_nil User.find(:first, :conditions => { :email => email })
 end
 
-Given /^I am a user with an email "([^"]*)" and password "([^"]*)"$/ do |email, password|
+Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
   new_user = User.new(:email => email,
                       :password => password,
                       :password_confirmation => password)
   new_user.save!
+  new_user.user_profile.update_attributes(:name => name, :dob => 20.years.ago)
 end
 
 Given /^I am a new, authenticated user$/ do
@@ -14,7 +15,7 @@ Given /^I am a new, authenticated user$/ do
   login = 'Testing man'
   password = 'secretpass'
 
-  Given %{I am a user with an email "#{email}" and password "#{password}"}
+  Given %{I am a user named "" with an email "#{email}" and password "#{password}"}
   And %{I go to the sign in page}
   And %{I fill in "user_email" with "#{email}"}
   And %{I fill in "user_password" with "#{password}"}
@@ -70,9 +71,9 @@ Given /^I am not logged in$/ do
   visit('/users/sign_out') # ensure that at least
 end
 
-Given /^I sign up and sign in with email "([^"]*)"$/ do |email|
+Given /^I sign up and sign in with name "([^"]*)" and email "([^"]*)"$/ do |name, email|
   Given %{I am not logged in}
-  And %{I am a user with an email "#{email}" and password "please"}
+  And %{I am a user named "#{name}" with an email "#{email}" and password "please"}
   When %{I go to the sign in page}
   And %{I sign in as "#{email}/please"}
   Then %{I should be signed in}
@@ -104,5 +105,6 @@ end
 Given /^(?:|I )have the following users:$/ do |table|
   table.hashes.each do |hash|
     user = Factory(:user, :email => hash[:email], :password => hash[:password])
+    user.user_profile.update_attributes(:name => hash[:name])
   end
 end

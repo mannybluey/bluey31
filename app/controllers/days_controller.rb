@@ -1,4 +1,5 @@
 class DaysController < ApplicationController
+  
   def create
     plan = Plan.find(params[:plan_id])
     @day = Day.new(:plan => plan)

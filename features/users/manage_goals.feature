@@ -3,7 +3,7 @@ Feature: Manage goals
   A user
   Should be able to view, add and edit goals for their body
 
-    @javascript
+    @javascript @wip
     Scenario: User sets a valid goal for their left arm bicep
       Given I am authenticated on the goals tab
       When I follow "Left Arm" within ".person"

@@ -1,45 +1,38 @@
 Feature: Edit profile
-  In order to allow users to customise their profiles
-  A user
-  Should be able to edit their profile
+	In order to allow users to customise their profiles
+	A user
+	Should be able to edit their profile
 
-    @javascript
-    Scenario: User signs in and edits their name
-      Given I sign up and sign in with name "" and email "user@test.com"
-      Then I should see "Click here to update your name" within "#user-info h1"
-      When I click on "#user-info h1 .on_the_spot_editing"
-      And I fill in "value" with "My name"
-      And I press "Save" within "#user-info h1"
-      Then I should see "My name" within "#user-info h1"
-      When I go to the edit profile page
-      Then I should see "My name" within "#user-info h1"
 
-    @javascript
-    Scenario: User signs in and edits their summary
-      Given I sign up and sign in with name "foo" and email "user@test.com"
-      Then I should see "Click here to edit your summary" within "#user-info .summary"
-      When I click on "#user-info .summary .on_the_spot_editing"
-      And I fill in "value" with "Hello, this is my summary!"
-      And I press "Save" within "#user-info .summary"
-      Then I should see "Hello, this is my summary!" within "#user-info .summary"
-@wip
-    Scenario: User fills in foundation information
-      Given I have the following user_type records:
-        | name                 |
-        | A trainer            |
-        | Looking for trainers |
-      And I have the following user_want records:
-        | name                 |
-        | Lose weight          |
-        | Train for sport      |
-      And I sign up and sign in with name "foo" and email "user@test.com"
-      When I check "A trainer"
-      And I check "Lose weight"
-      And I select "United Kingdom" from "Country"
-      And I fill in "City" with "Bristol"
-      And I press "Save"
-      Then I should see "User profile was successfully updated"
-      And the "City" field should contain "Bristol"
-      And the "Country" field should contain "GB"
-      And the "Lose weight" checkbox should be checked
-      And the "A trainer" checkbox should be checked
+	Scenario: User fills in foundation information
+		  Given I have the following user_type records:
+		    | name                 |
+		    | A trainer            |
+		    | Looking for trainers |
+		  And I have the following user_want records:
+		    | name                 |
+		    | Lose weight          |
+		    | Train for sport      |
+		  And I sign up and sign in with email "user@test.com"
+		  When I check "A trainer"
+		  And I check "Lose weight"
+		  And I select "United Kingdom" from "user_profile[country]"
+		  And I fill in "user_profile_city" with "Bristol"
+		  And I fill in "user_profile_name" with "foo"
+		
+		
+		  And I select "31" from "user_profile[dob(3i)]"
+		  And I select "12" from "user_profile[dob(2i)]"
+		  And I select "1975" from "user_profile[dob(1i)]"
+		
+		  And I press "Save"		
+		  Then I should see "User profile was successfully updated"
+		  And the "user_profile_name" field should contain "foo"
+		  And the "user_profile_city" field should contain "Bristol"
+		  And the "user_profile[country]" field should contain "GB"
+		  And the "Lose weight" checkbox should be checked
+		  And the "A trainer" checkbox should be checked
+		
+		  And the "user_profile[dob(3i)]" field should contain "31"
+		  And the "user_profile[dob(2i)]" field should contain "12"
+		  And the "user_profile[dob(1i)]" field should contain "1975"

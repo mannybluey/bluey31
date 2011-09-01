@@ -36,23 +36,3 @@ nav ul {
   height: 113px;
   margin: 15px 0 15px 15px; }
 
-#context-bar {
-  ul.filter-buttons, #share {
-    border: 0;
-    background: url(/assets/ie/ctx-bar.png) no-repeat; }
-  ul.filter-buttons {
-    width: 220px;
-    padding: 3px 15px;
-    height: 64px; }
-  #share {
-    width: 250px;
-    height: 70px;
-    float: right; }
-  input {
-    border: 0;
-    background: url(/assets/ie/search-bar.png) no-repeat;
-    margin: 5px 0 0 10px;
-    padding-top: 17px;
-    width: 240px;
-    height: 28px;
-    float: left; } }

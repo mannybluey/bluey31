@@ -74,7 +74,6 @@ class PlansController < ApplicationController
     respond_to do |format|
         format.html     
         format.js  {
-          debugger
           # render  :action => 'edit.js'
         }
     end

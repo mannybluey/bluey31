@@ -8,6 +8,12 @@ GIT
       fssm (>= 0.2.7)
       sass (~> 3.1)
 
+GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: 57f32788f1952bcd633057b4b56b69b51df17610
+  specs:
+    nested_form (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -134,7 +140,6 @@ GEM
     mime-types (1.16)
     multi_json (1.0.3)
     mysql2 (0.3.7)
-    nested_form (0.1.1)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -148,7 +153,7 @@ GEM
     orm_adapter (0.0.5)
     paper_trail (2.3.2)
       rails (~> 3)
-    paperclip (2.3.16)
+    paperclip (2.4.0)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
@@ -268,7 +273,7 @@ DEPENDENCIES
   json
   launchy
   mysql2
-  nested_form
+  nested_form!
   on_the_spot
   paper_trail
   paperclip
