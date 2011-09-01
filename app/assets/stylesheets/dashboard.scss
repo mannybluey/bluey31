@@ -84,9 +84,14 @@
 }
 
 #powerButton {
-  margin-top: -70px;
-  margin-right: -5px;
-  height: 80px; 
+  /* margin-top: -70px;
+  margin-right: -5px; */
+  height: 80px;
+  position: absolute;
+  z-index: 9999;  
+  margin-left: 908px;
+  margin-top: -110px;
+
 }
 
 #bottomMenu {
@@ -98,6 +103,7 @@
   border-bottom-right-radius: $default_border_radius;
   /* width: 100%; */
   line-height: 21px;
+  margin-top: 10px;
   /* margin-top: -1px; */
   ul {
     li {
