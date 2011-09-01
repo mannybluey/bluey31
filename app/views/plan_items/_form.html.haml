@@ -1,7 +1,7 @@
 = nested_form_for [@plan, @day, @plan_item], :remote => true do |f|
   .form-errors
   %p
-    = f.label :name, 'Exercise'
+    = f.label :name, 'Plan Item'
     = f.text_field :name
   %p
     %em.hint Sets: Enter reps, weight or any measurement e.g. '18 kg, 40 lbs' or '40 lengths'
@@ -16,10 +16,10 @@
   %hr
   %p.buttons
     - if local_assigns[:edit_form].nil?
-      = f.submit 'Add exercise'
+      = f.submit 'Add Plan Item'
       or
-      = link_to "I'm done adding exercises", '#', :class => 'cancel', :id => 'cancel-add-exercise'
+      = link_to "I'm done adding plan items", '#', :class => 'cancel', :id => 'cancel-add-plan-item'
     - else
       = f.submit 'Update'
       or
-      = link_to "cancel", '#', :class => 'cancel', :id => 'cancel-edit-exercise'
+      = link_to "cancel", '#', :class => 'cancel', :id => 'cancel-edit-plan-item'

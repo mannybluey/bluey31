@@ -17,7 +17,8 @@
 
 - content_for :bottom_content do
 	#plan
-		%h1= on_the_spot_edit @plan, :name
+		%h1= @plan.plan_type[:name]
+		%h2= on_the_spot_edit @plan, :name
 		%p#description= on_the_spot_edit @plan, :description, :type => :textarea
 		%hr
 		.plan-days

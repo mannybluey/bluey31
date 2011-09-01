@@ -5,4 +5,4 @@
   %section
     %ul.day-items
       = render day.plan_items
-    = link_to 'Add exercise', new_plan_day_plan_item_path(day.plan, day), :class => 'add-exercise', :remote => true
+    = link_to 'Add plan_item', new_plan_day_plan_item_path(day.plan, day), :class => 'add-plan-item', :remote => true

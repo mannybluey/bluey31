@@ -44,7 +44,7 @@ $(document).ready ->
     else
       $(this).parent().remove ".found"
   
-  $(".add-exercise").bind "ajax:complete", ->
+  $(".add-plan-item").bind "ajax:complete", ->
     $("input[id$=_measurements]").keyup scanMetrics
     $("#new_plan_item").bind "nested:fieldAdded", ->
       $("input[id$=_measurements]").keyup scanMetrics
