@@ -72,6 +72,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    capybara-webkit (0.6.1)
+      capybara (~> 1.0.0)
     carmen (0.2.8)
     celerity (0.9.0)
     childprocess (0.2.2)
@@ -256,6 +258,7 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   capybara
+  capybara-webkit
   carmen
   celerity
   coffee-rails (~> 3.1.0.rc)

@@ -64,6 +64,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'autotest'
+  gem "capybara-webkit"
   gem 'culerity'
   gem 'celerity', :require => nil
 end

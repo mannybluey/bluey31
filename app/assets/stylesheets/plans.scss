@@ -31,7 +31,6 @@
         background: #86ae9f; } } } 
 }
 
-
 #searchForm input[type=text] {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -166,4 +165,118 @@ div.planActionBar img.plan_action_image {
   max-height:300px;
   width:350px;
   max-width:350px
+}
+
+.plan-days .day, .history {
+  margin-bottom: 10px;
+  background: #efefef;
+  border: 1px solid #ccc;
+  @include border-radius(4px);
+}
+
+.plan-days .day {
+  @include clearfix;
+  h3 {
+    font-weight: normal;
+    padding: 7px 7px 0 7px;
+    font-size: $large;
+    a {
+      float: right;
+      font-size: $small;
+    }
+  }
+  section {
+    padding: 0 7px;
+    li {
+      @include clearfix;
+      padding: 7px 0;
+      border-bottom: 1px dotted $subtle;
+    }
+  }
+  /* Form to add an exercise */
+  form {
+    background: $pale_yellow;
+    margin: 10px 20px;
+    padding: 5px 5px 0px 5px;
+    font-size: $small;
+    float: left;
+    label {  font-weight: bold; width: 70px;display: inline-block; }
+    .buttons { 
+      padding-bottom: 5px;
+    }
+    p { margin-bottom: 5px; }
+    #error_explanation {
+      h3 {
+        background: none;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        @include text-shadow(none);
+        color: $error_red;
+        font-size: $normal;
+      }
+      li { border: 0; }
+    }
+  }
+}
+
+#plan .button {
+  @extend .green-button;
+  overflow: visible;
+  line-height: 15px;
+  height: 15px;
+  padding: 5px 10px 5px 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-align: center;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+li.plan-item.completed { color: $subtle; }
+
+#no-days { display: block;  margin-bottom: 10px; }
+
+.add-exercise {
+  display: inline-block;
+  margin: 7px;
+  font-size: $small;
+}
+
+.found span {
+  background: $subtle;
+  border: 1px solid #ccc;
+  @include border-radius(2px);
+  padding: 3px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.plan-item {
+  header {
+    float: left;
+    width: 200px;
+  }
+  section {
+    float: left;
+    border: 0;
+    margin: 0;
+    width: 300px;
+    padding: 0;
+    ul li {
+      font-size: $small;
+      float: left;
+      background: $pale_yellow;
+      @include border-radius(2px);
+      padding: 3px;
+      margin: 0 5px 0 0;
+      border: 0;
+    }
+  }
+  /* Delete link */
+  footer {
+    float: right;
+    padding-top: 3px;
+  }
 }

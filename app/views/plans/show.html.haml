@@ -17,10 +17,11 @@
 
 - content_for :bottom_content do
 	#plan
-		%h1= @plan.plan_type[:name]
-		%h2= on_the_spot_edit @plan, :name
-		%p#description= on_the_spot_edit @plan, :description, :type => :textarea
-		%hr
+		%div.fl= image_tag "#{@plan.plan_type[:image_path]}", :alt => "#{File.basename( @plan.plan_type[:image_path], '.*')}", :style => "align: middle;"
+		%div.fl
+			%h1= on_the_spot_edit @plan, :name
+			%p#description= on_the_spot_edit @plan, :description, :type => :textarea
+		%hr.clear
 		.plan-days
 			- if @plan.days.empty?
 				%em#no-days No days have been added to this plan yet!
