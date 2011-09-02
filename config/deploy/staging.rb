@@ -48,7 +48,7 @@ namespace :deploy do
   task :cold do       # Overriding the default deploy:cold
     update
     migrate
-    load_schema       # My own step, replacing migrations.
+    # load_schema       # My own step, replacing migrations.
     start
   end
 
