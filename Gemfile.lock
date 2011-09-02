@@ -72,6 +72,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    capybara-webkit (0.6.1)
+      capybara (~> 1.0.0)
     carmen (0.2.8)
     celerity (0.9.0)
     childprocess (0.2.2)
@@ -110,8 +112,8 @@ GEM
     factory_girl_rails (1.1.0)
       factory_girl (~> 2.0.0)
       railties (>= 3.0.0)
-    fancybox-rails (0.1.3)
-      railties (>= 3.1.0.rc)
+    fancybox-rails (0.1.4)
+      railties (>= 3.1.0)
     ffi (1.0.9)
     friendly_id (3.3.0.1)
       babosa (~> 0.3.0)
@@ -256,6 +258,7 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   capybara
+  capybara-webkit
   carmen
   celerity
   coffee-rails (~> 3.1.0.rc)
