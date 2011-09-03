@@ -23,7 +23,7 @@ class Plan < ActiveRecord::Base
   
   cattr_reader :per_page
   @@per_page = 12
-  
+    
   class << self
     def all_plans_for(user)
        where(:creator_id => user[:id])

@@ -110,6 +110,11 @@
   z-index: 20;
 }
 
+.planActionBar img.plan_action_image {
+  text-shadow: none;
+  margin-top: 1px;
+}
+
 #add_plan_form_container {
   height: 277px;
   width: 351px;
@@ -150,10 +155,6 @@
     font-size: 22px; }
 }
 
-div.planActionBar img.plan_action_image {
-  text-shadow: none;
-  margin-top: -4px;
-}
 
 #planCreated {
   color: #ff9933;
