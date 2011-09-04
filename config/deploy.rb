@@ -1,6 +1,7 @@
 set :stages, %w(staging production)
 set :default_stage, "staging"
 require 'capistrano/ext/multistage'
+require 'bundler/capistrano'
 
 set :application, "bluey_app"
 
@@ -53,9 +54,9 @@ namespace :deploy do
     run "ln -sfn /home/#{user}/#{application}/shared/bluey.mov #{release_path}/public/videos/bluey.mov"
   end
   
-  task :bundle_new_release, :roles => :app do
-     run "cd #{release_path} && bundle install --without test"
-  end
+  #task :bundle_new_release, :roles => :app do
+     #run "cd #{release_path} && bundle install --without test"
+  #end
 
-  after 'deploy:update_code', 'deploy:symlink_shared', 'deploy:bundle_new_release'
+  after 'deploy:update_code', 'deploy:symlink_shared'
 end
