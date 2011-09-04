@@ -182,10 +182,14 @@
       border-radius: 15px;
       text-align: center;
       a {
+        text-shadow: none;
         font-size: 14px;
         font-weight: bold;
         color: white;
-        text-decoration: none; } } } 
+        text-decoration: none;
+      &:hover { color: #000000; }
+      } 
+    } } 
 }
 
 #paginationBar {

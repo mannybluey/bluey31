@@ -1,0 +1,4 @@
+$('#user_password').val("");
+$('#user_password_confirmation').val("");
+$('.ui-dialog #error_messages').html("<%= escape_javascript( render :partial => '/shared/form_errors', :locals => {:object => resource} ) -%>");
+$('.ui-dialog #error_messages').show();

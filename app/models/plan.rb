@@ -7,10 +7,13 @@ class Plan < ActiveRecord::Base
   validates :description, :presence => true
   validates_associated :plan_type
   
-  attr_accessible :name, :description, :plan_items_attributes, :plan_type_id
+  attr_accessible :name, :description, :plan_items_attributes, :plan_type_id, :picture_file_name
   
   has_many :days
   has_many :plan_items, :through => :days
+  
+  has_one :plan_image, :dependent => :destroy
+
   
   has_many :plan_item_versions, :class_name => "Version",
     :finder_sql => proc { "SELECT versions.* 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110820131113) do
+ActiveRecord::Schema.define(:version => 20110904065156) do
 
   create_table "body_parts", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(:version => 20110820131113) do
   create_table "plan_days_plan_items", :id => false, :force => true do |t|
     t.integer "plan_day_id"
     t.integer "plan_item_id"
+  end
+
+  create_table "plan_images", :force => true do |t|
+    t.string   "name"
+    t.integer  "plan_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "plan_item_sets", :force => true do |t|

@@ -1,18 +1,4 @@
 - content_for :main_content do
 	#content
 		#new_plan
-			= form_for :plan, :url => plans_url, :remote => true do |f|
-				#error_messages{:style => "display: none;"}
-				.styled-select
-					= f.select( :plan_type_id, PlanType.all.collect {|pt| [ pt.name, (pt.id) ] }, {:prompt => 'Select a Plan Type'})
-			
-				%p
-					= f.label :name
-					%br/
-					= f.text_field :name, :class => 'wide'
-				%p
-					= f.label :description
-					%br/
-					= f.text_area :description, :class => 'small wide'
-				%p
-					= f.submit 'Create'
+			= render :partial => '/plans/forms/new_plan_form'

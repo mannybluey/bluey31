@@ -61,7 +61,6 @@ class PlansController < ApplicationController
             flash[:notice] = "Created plan - #{undo_link}".html_safe
             render :action => 'create_plan_success.js'
           else
-             debugger
              render :action => 'create_plan_error.js'
           end
         }

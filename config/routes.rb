@@ -1,4 +1,8 @@
 Bluey::Application.routes.draw do
+
+  #devise_for :users
+  devise_for :users, :controllers => { :sessions => "sessions", :registrations => "registrations", :passwords => "passwords" }
+  
   get "pages/landing"
   #get "pages/dashboard"
   match "pages/dashboard", :to => "plans#index", :as => "dashboard", :via => 'get'
@@ -12,12 +16,15 @@ Bluey::Application.routes.draw do
   match "profile/quickedit", :to => "user_profiles#update_attribute_on_the_spot", :via => "put"
   resources :user_goals, :only => :index
   match "user_goals", :to => "user_goals#update", :via => "put"
+  
+  resources :plan_images, :only => [:new, :create, :destroy] 
+
   resources :user_images, :only => [:index, :create, :destroy] do
     member do
       get :update_profile_picture
     end
   end
-  devise_for :users
+  
   
   # Plans
   #resources :plans, :except => [:edit] do

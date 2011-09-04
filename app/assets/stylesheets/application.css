@@ -5,6 +5,7 @@
  *= require_self
  *= require screen
  *= require jquery-ui-.custom
+ *= require fancybox
  *= require forms
  *= require pages/landing
  *= require dashboard

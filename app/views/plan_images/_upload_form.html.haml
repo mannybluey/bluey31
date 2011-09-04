@@ -1,0 +1,18 @@
+#plan_image_form
+
+	= form_for @plan_image, :html => {:multipart => true}, :remote => true do |f|
+	
+		= hidden_field_tag :plan_id, @plan[:id]
+		
+		#error_messages{:style => "display: none;"}
+
+		%p
+			= f.label :description
+			%br/
+			= f.text_field :name
+		%p
+			= f.label :image
+			%br/
+			= f.file_field :image
+				
+		= f.submit 'Upload image'

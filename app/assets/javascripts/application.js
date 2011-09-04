@@ -13,11 +13,12 @@
 //= require jquery.remotipart
 //= require jquery.rotate
 
-//= require landing
 //= require forms
+//= require landing
 //= require nested_form
 //= require on_the_spot
 //= require flowplayer
+//= require fancybox
 
 //= require_tree .
 

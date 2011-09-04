@@ -1,4 +1,5 @@
 class PlanItemsController < ApplicationController
+  
   def new
     @plan = Plan.find(params[:plan_id])
     @day = Day.find(params[:day_id])
