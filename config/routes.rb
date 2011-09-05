@@ -19,7 +19,7 @@ Bluey::Application.routes.draw do
   resources :user_goals, :only => :index
   match "user_goals", :to => "user_goals#update", :via => "put"
   
-  resources :plan_images, :only => [:new, :create, :destroy] 
+  resources :plan_item_images, :only => [:new, :create, :destroy] 
 
   resources :user_images, :only => [:index, :create, :destroy] do
     member do

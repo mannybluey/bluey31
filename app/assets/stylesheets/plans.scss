@@ -284,24 +284,25 @@ li.plan-item.completed { color: $subtle; }
 }
 
 
-.plan-image {
+.plan-item-image {
   position: relative;
   width: 110px;
+  margin-top: 5px;
   text-align: center;
-  float: right;
+  float: left;
   a, p {
     float: right;
-    margin-right: 20px;
+    margin-right: 10px;
     text-align: center;
     font-size: 0.75em;
     text-decoration: none;
     display: block;
   }
-  a#add-plan-image {font-size: 1.15em; font-weight: bold; }
+  a#add-plan-item-image {font-size: 1.15em; font-weight: bold; }
   .delete-image {
     position: absolute;
     top: -5px;
-    right: 13px;
+    right: 5px;
     background: url(/assets/small_close.png) no-repeat 0 0;
     width: 13px;
     height: 13px;

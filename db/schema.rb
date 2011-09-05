@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(:version => 20110904065156) do
     t.integer "plan_item_id"
   end
 
-  create_table "plan_images", :force => true do |t|
+  create_table "plan_item_images", :force => true do |t|
     t.string   "name"
-    t.integer  "plan_id"
+    t.integer  "plan_item_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

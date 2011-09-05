@@ -21,15 +21,6 @@
 		%div.fl
 			%h1= on_the_spot_edit @plan, :name
 			%p#description= on_the_spot_edit @plan, :description, :type => :textarea
-		.plan-image
-			- if @plan.plan_image.nil?
-				%p#add_image= link_to '+ Add Image', new_plan_image_path(:plan_id => @plan[:id]), :id => 'add-plan-image', :class => 'dialog', :title => "Add Image"
-			- else
-				%p
-					%span= link_to(image_tag(@plan.plan_image.image.url(:thumb)), "#{@plan.plan_image.image.url(:original)}", :class => 'fb-simple', :title => "#{@plan.plan_image[:name]}")
-					= link_to 'Delete', plan_image_path(@plan.plan_image[:id]), :method => :delete, :class => 'delete-image'
-					%br
-					%em Click to enlarge
 		%hr.clear
 		.plan-days
 			- if @plan.days.empty?

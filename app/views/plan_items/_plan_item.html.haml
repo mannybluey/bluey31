@@ -1,12 +1,25 @@
 %li.plan-item{:id => "plan_item_#{plan_item.id}"}
-  %header
-    = check_box_tag plan_item.name, plan_item.id, plan_item.completed, 
-                    :'data-url' => plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item)
-    = plan_item.name
-  %section
-    %ul
-      - plan_item.plan_item_sets.each_with_index do |set, idx|
-        %li= "<strong>Set #{idx + 1}</strong>: #{set.measurements}".html_safe
-  %footer
-    = link_to 'Edit', edit_plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item), :remote => :true
-    = link_to 'Delete', plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item), :method => :delete
+	%header
+		= check_box_tag plan_item.name, plan_item.id, plan_item.completed, 
+		                :'data-url' => plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item)
+		= plan_item.name
+		
+	%section
+		%ul
+			- plan_item.plan_item_sets.each_with_index do |set, idx|
+				%li= "<strong>Set #{idx + 1}</strong>: #{set.measurements}".html_safe
+				
+	%section
+		.plan-item-image
+			- if plan_item.plan_item_image.nil?
+				%p#add_image= link_to '+ Add Image', new_plan_item_image_path(:plan_item_id => plan_item[:id]), :id => 'add-plan-item-image', :class => 'dialog', :title => "Add Image"
+			- else
+				%p
+					%span= link_to(image_tag(plan_item.plan_item_image.image.url(:thumb)), "#{plan_item.plan_item_image.image.url(:original)}", :class => 'fb-simple', :title => "#{plan_item.plan_item_image[:name]}")
+					= link_to 'Delete', plan_item_image_path(plan_item.plan_item_image[:id]), :method => :delete, :class => 'delete-image'
+					%br
+					%em Click to enlarge
+
+	%footer
+		= link_to 'Edit', edit_plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item), :remote => :true
+		= link_to 'Delete', plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item), :method => :delete
