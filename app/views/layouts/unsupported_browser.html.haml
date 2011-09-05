@@ -1,0 +1,45 @@
+!!!
+%html
+	%head
+		%title Bluey Health & Fitness
+		%link{:rel => 'shortcut icon', :href=>"/favicon.ico"}
+		= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise'
+		= stylesheet_link_tag 'application', :media => 'screen, projection'
+		/[if IE]
+			= stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+		= javascript_include_tag 'application', :debug => Rails.env.development? 
+		/[if lt IE 9]
+			= javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js'
+			= javascript_include_tag 'ie' 
+		= csrf_meta_tag
+		:javascript
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-3494982-5']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+	%body
+		#wrapper
+			#landing-page
+				%h1 Can you live past 100 years old?
+				#left-col
+					#unsupported_page{:style =>"width: 640px; height: 380px; background-color: white;"}
+						= render :partial => ""
+				#right-col
+					#alpha
+					= link_to 'Sign up', new_user_registration_path, :id => 'sign-up', :class => 'dialog', :title => 'Sign Up'
+					%p
+						Already registered?
+						= link_to 'Sign in', new_user_session_path, :id => 'sign-in', :class => 'dialog', :title => 'Sign In'
+				%ol
+					%li Sign up using an email address
+					%li Sign in to answer a few questions about your health and fitness goals
+					%li 
+						We will recommend people to you to help you start building your health
+						and fitness community
+
+		= javascript_include_tag 'flowplayer'
+

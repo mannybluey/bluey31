@@ -1,5 +1,7 @@
 class SessionsController < Devise::SessionsController 
   
+  skip_before_filter :ensure_browser_supported
+  
   # GET /resource/sign_in
   def new
     resource = build_resource
@@ -8,7 +10,7 @@ class SessionsController < Devise::SessionsController
   end
   
 
- def create
+  def create
     resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)
@@ -32,6 +34,17 @@ class SessionsController < Devise::SessionsController
         render :action => "signin_failed.js"
       }
     end
+  end
+  
+    # POST /continue
+  def continue
+    if params[:show_unsupported_browser_notice_message].nil?
+      cookies[:browser_unsupported] = { :value => "false", :expires => 2.years.from_now }
+    else
+      cookies.delete :browser_unsupported
+    end
+    session[:browser_unsupported] = true
+    redirect_to session[:return_to] || root_url
   end
    
 end

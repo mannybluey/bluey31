@@ -1,8 +1,10 @@
 Bluey::Application.routes.draw do
 
   #devise_for :users
-  devise_for :users, :controllers => { :sessions => "sessions", :registrations => "registrations", :passwords => "passwords" }
-  
+  devise_for :users, :controllers => { :sessions => "sessions", :registrations => "registrations", :passwords => "passwords" } do
+    post 'continue' => 'sessions#continue', :as => :continue
+  end
+
   get "pages/landing"
   #get "pages/dashboard"
   match "pages/dashboard", :to => "plans#index", :as => "dashboard", :via => 'get'
