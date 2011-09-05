@@ -20,17 +20,6 @@ set :domain, "blueyfit.com"
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 
-#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-#require "rvm/capistrano"
-#set :rvm_ruby_string, 'ruby-1.9.2-p180'
-#set :rvm_type, :user
-
-#set :default_environment, {
-  #'PATH' => '/home/blueybot/.rvm/gems/ruby-1.9.2-p180/bin:$PATH',
-  #'GEM_HOME' => '/home/blueybot/.rvm/gems/ruby-1.9.2-p180',
-  #'GEM_PATH' => '/home/blueybot/.rvm/gems/ruby-1.9.2-p180'
-#}
-
 role :web, domain                          # Your HTTP server, Apache/etc
 role :app, domain                          # This may be the same as your `Web` server
 role :db,  domain, :primary => true # This is where Rails migrations will run
@@ -54,9 +43,5 @@ namespace :deploy do
     run "ln -sfn /home/#{user}/#{application}/shared/bluey.mov #{release_path}/public/videos/bluey.mov"
   end
   
-  #task :bundle_new_release, :roles => :app do
-     #run "cd #{release_path} && bundle install --without test"
-  #end
-
   after 'deploy:update_code', 'deploy:symlink_shared'
 end
