@@ -20,6 +20,7 @@ class SessionsController < Devise::SessionsController
         redirect_location(resource_name, resource)
        }
       format.js {
+        set_flash_message :notice, :signed_in
         @url = session[:return_to].nil? ? root_url : url_for(session[:return_to])
         render :action => "signed_in.js"
       }

@@ -15,7 +15,8 @@ Given /^I am a new, authenticated user$/ do
   password = 'secretpass'
 
   Given %{I am a user with an email "#{email}" and password "#{password}"}
-  And %{I go to the sign in page}
+  And %{I go to the home page}
+  And %{I follow "sign-in"}
   And %{I fill in "user_email" with "#{email}"}
   And %{I fill in "user_password" with "#{password}"}
   And %{I press "Sign in"}
@@ -27,7 +28,8 @@ end
 
 Given /^I am signed up as "(.*)\/(.*)"$/ do |email, password|
   Given %{I am not logged in}
-  When %{I go to the sign up page}
+  When %{I go to the home page}
+  And %{I follow "sign-up"}
   And %{I fill in "Email" with "#{email}"}
   And %{I fill in "Password" with "#{password}"}
   And %{I fill in "Password confirmation" with "#{password}"}
@@ -42,7 +44,8 @@ end
 
 When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
   Given %{I am not logged in}
-  When %{I go to the sign in page}
+  When %{I go to the home page}
+  And %{I follow "sign-in"}
   And %{I fill in "Email" with "#{email}"}
   And %{I fill in "Password" with "#{password}"}
   And %{I press "Sign in"}
@@ -73,10 +76,11 @@ end
 Given /^I sign up and sign in with email "([^"]*)"$/ do |email|
   Given %{I am not logged in}
   And %{I am a user with an email "#{email}" and password "please"}
-  When %{I go to the sign in page}
+  When %{I go to the home page}
+  And %{I follow "sign-in"}
   And %{I sign in as "#{email}/please"}
   Then %{I should be signed in}
-  And %{I should be on the edit profile page}
+  And %{I should be on the dashboard page}
 end
 
 When /^(?:|I )click on "([^"]*)"$/ do |selector|

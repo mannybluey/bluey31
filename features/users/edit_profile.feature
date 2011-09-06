@@ -3,7 +3,7 @@ Feature: Edit profile
 	A user
 	Should be able to edit their profile
 
-
+	@javascript
 	Scenario: User fills in foundation information
 		  Given I have the following user_type records:
 		    | name                 |
@@ -14,6 +14,7 @@ Feature: Edit profile
 		    | Lose weight          |
 		    | Train for sport      |
 		  And I sign up and sign in with email "user@test.com"
+		  And I go to the edit profile page
 		  When I check "A trainer"
 		  And I check "Lose weight"
 		  And I select "United Kingdom" from "user_profile[country]"

@@ -32,26 +32,25 @@ Feature: Sign in
       When I go to the home page
       Then I should see "Can you live past 100 years old?"
 
+	@javascript 
     Scenario: User is not signed up
       Given I am not logged in
       And no user exists with an email of "user@test.com"
-      When I go to the sign in page
       And I sign in as "user@test.com/please"
-      Then I should see "Invalid email or password."
-      And I go to the home page
-      And I should be signed out
-
+      Then I should see "Invalid email or password"
+	
+	@javascript
     Scenario: User enters wrong password
       Given I am not logged in
       And I am a user with an email "user@test.com" and password "please"
-      When I go to the sign in page
       And I sign in as "user@test.com/wrongpassword"
-      Then I should see "Invalid email or password."
-      And I go to the home page
-      And I should be signed out
+      Then I should see "Invalid email or password"
 
+
+	@javascript
     Scenario: User signs in successfully with email second time
       Given I sign up and sign in with email "test@foo.com"
       And I sign out
       When I sign in as "test@foo.com/please"
-      Then I should be on the dashboard page
+	  Then I should be signed in
+      And I should be on the dashboard page

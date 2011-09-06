@@ -14,5 +14,4 @@ Given /^I am authenticated on the goals tab$/ do
   Given %{I have the default body parts}
   And %{I sign up and sign in with email "user@test.com"}
   And %{I go to the user goals page}
-  Then %{show me the page}
 end
