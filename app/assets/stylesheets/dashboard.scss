@@ -37,6 +37,7 @@
   width: 492px;
   height: 100px;
   position: relative; 
+  background: url(/assets/dashboard/earth.png) no-repeat 0 0;
 }
 
 #userPerformances {
@@ -75,6 +76,17 @@
     margin: 8px 0 0 5px;
     font-family: Helvetica;
     font-size: 16px; } 
+}
+
+#beta_logo {
+  margin-left: 390px; 
+  margin-top: -10px; 
+  position: absolute;
+  p { 
+    font-weight: bold; 
+    font-size: 1.2em;
+    img { vertical-align:top; }
+  }
 }
 
 #medals { 
