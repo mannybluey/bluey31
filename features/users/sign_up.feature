@@ -2,17 +2,19 @@ Feature: Sign up
   In order to get access to protected sections of the site
   A user
   Should be able to sign up
-
+	@javascript  @wip
     Scenario: User signs up with valid data
       Given I am not logged in
-      When I go to the sign up page
+      #When I go to the sign up page
+      When I go to the home page
+	  And I follow "sign-up"
       And I fill in "Email" with "user@test.com"
       And I fill in "Password" with "please"
       And I fill in "Password confirmation" with "please"
       And I press "Sign up"
       Then I should see "Welcome! You have signed up successfully."
 
-	@javascript  @wip
+
     Scenario: User signs up with invalid email
       Given I am not logged in
       When I go to the sign up page
@@ -20,8 +22,8 @@ Feature: Sign up
       And I fill in "Password" with "please"
       And I fill in "Password confirmation" with "please"
 Then show me the page
-      And I press "Sign up"
-      Then I should see "Email is invalid"
+     # And I press "Sign up"
+   #   Then I should see "Email is invalid"
 
     Scenario: User signs up without password
       Given I am not logged in

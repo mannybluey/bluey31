@@ -1,5 +1,5 @@
 class CreatePlanItemImages < ActiveRecord::Migration
-  def change
+    def up
     create_table :plan_item_images do |t|
       t.string :name
       t.integer :plan_item_id
@@ -9,4 +9,9 @@ class CreatePlanItemImages < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def down
+    drop_table :plan_item_images
+  end
+
 end
