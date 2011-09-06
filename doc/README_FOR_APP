@@ -14,11 +14,16 @@ rake cucumber:rerun  # Record failing features and run only them if any exist
 rake cucumber:wip    # Run features that are being worked on
 
 
+
 To run scenarios with a specific tag:
 cucumber --tags @tagname
 
 To exclude scenarios with a certain tag, prefix the tag with a tilde:
 cucumber --tags ~@wip
+
+To run a specific feature file
+cucumber -r features features/xxxxxxxxx.feature
+
 
 DB test
 rake db:migrate RAILS_ENV=test

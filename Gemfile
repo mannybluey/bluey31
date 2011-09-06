@@ -52,7 +52,7 @@ gem 'database_cleaner'
 gem 'ruby-debug19', :require => 'ruby-debug'
 #=> don't forget :  gem install ruby-debug19 -- --with-ruby-include=~/.rvm/src/ruby-1.9.2-p290/
 
-group :test do
+group :test, :development do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'rspec-rails'

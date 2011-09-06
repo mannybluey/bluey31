@@ -12,12 +12,14 @@ Feature: Sign up
       And I press "Sign up"
       Then I should see "Welcome! You have signed up successfully."
 
+	@javascript  @wip
     Scenario: User signs up with invalid email
       Given I am not logged in
       When I go to the sign up page
       And I fill in "Email" with "invalidemail"
       And I fill in "Password" with "please"
       And I fill in "Password confirmation" with "please"
+Then show me the page
       And I press "Sign up"
       Then I should see "Email is invalid"
 
