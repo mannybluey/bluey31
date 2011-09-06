@@ -41,7 +41,7 @@ UserWant.create(
 
 PlanType.create(
   [
-    {:name => "Exercise" , :image_path => "dashboard/weightlifting.png", :position => 1, :status => 1},
+    {:name => "Exercise" , :image_path => "dashboard/exercise.png", :position => 1, :status => 1},
     {:name => "Nutrition" , :image_path => "dashboard/apple.png", :position => 2, :status => 1},
     {:name => "Supplement" , :image_path => "dashboard/pills.png", :position => 3, :status => 1},
     {:name => "Health" , :image_path => "dashboard/heart.png", :position => 4, :status => 1}

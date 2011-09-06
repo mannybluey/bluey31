@@ -1,6 +1,6 @@
 %li.plan{:id => "plan_#{plan[:id]}"}
 	= image_tag "#{plan.plan_type[:image_path]}", :alt => "#{File.basename( plan.plan_type[:image_path], '.*')}"
-	%p.task= plan[:name]
+	%p.task= truncate(plan[:name], :length => 14)
 	%p.day= I18n.t(:day, :count => plan.days.count)
 	%p{:style => "line-height: 22px;"}
 		= image_tag "dashboard/avatar.png", :alt => "avatar"
