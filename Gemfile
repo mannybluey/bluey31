@@ -56,6 +56,7 @@ group :test, :development do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'rspec-rails'
+  gem 'simplecov'
   gem 'hpricot', '0.8.2'
   gem 'ruby_parser', '2.0.4'
   gem 'cucumber-rails'

@@ -3,12 +3,11 @@ Feature: Manage goals
   A user
   Should be able to view, add and edit goals for their body
 
-    @javascript 
+    @javascript @wip
     Scenario: User sets a valid goal for their left arm bicep
       Given I am authenticated on the goals tab
       When I follow "Left Arm" within ".person"
-       When I fill in "Current" with "3" within "fieldset#bicep"
-
+      When I fill in "Current" with "3" within "fieldset#bicep"
       And I check "Add goal?"
       And I fill in "Goal" with "4" within "fieldset#bicep"
       And I press "Update"
@@ -17,7 +16,7 @@ Feature: Manage goals
       And the "Goal" field should contain "4" within "fieldset#bicep"
       And I should be on the edit profile page
 
-    @javascript
+    @javascript @wip
     Scenario: User sets a invalid goal for their left arm bicep
       Given I am authenticated on the goals tab
       When I follow "Left Arm" within ".person"
@@ -35,6 +34,6 @@ Feature: Manage goals
     Scenario: User sets blood pressure
       Given I am authenticated on the goals tab
       When I follow "General" within ".person"
-      And I fill in "Current" with "140/79" within "fieldset#blood-pressure"
+      When I fill in "Current" with "140/79" within "fieldset#blood-pressure"
       And I press "Update" within "#edit_general"
       Then I should see "Updated your goals"
