@@ -1,0 +1,8 @@
+- content_for :main_content do
+	#content
+		%h3 Are you sure you want to delete your profile? 
+		%p All of your user data, including plans, profile and any data you've created on Bluey will be deleted and this action is non-reversible. 
+		%p If you have any problems and prefer to keep your data please email us at team@blueyfit.com
+
+		
+		%p{:style => "margin-top: 20px;"}= button_to('I Confirm !', profiles_path , :method => "delete") 

@@ -4,12 +4,18 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-require 'cucumber/rails'
+require 'simplecov'
+SimpleCov.start 'rails'
+SimpleCov.coverage_dir 'coverage/cucumber'
 
-if RUBY_VERSION =~ /1.8/
-  require 'test/unit/testresult'
-  Test::Unit.run = true
-end
+require 'capybara'
+require 'cucumber/rails'
+require "factory_girl/step_definitions"
+
+#if RUBY_VERSION =~ /1.8/
+  #require 'test/unit/testresult'
+  #Test::Unit.run = true
+#end
 
 #Culerity.jruby_invocation = File.expand_path("~/.rvm/bin/celerity_jruby")
 
