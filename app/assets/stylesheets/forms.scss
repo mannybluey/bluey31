@@ -69,6 +69,37 @@ form {
   display: inline;
 }
 
+/* nested forms */
+
+a.add_nested_fields {
+    background: none repeat scroll 0 0 #72BC00;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 5px;
+    margin-top: 3px;
+    padding: 5px 5px;
+    text-shadow: none;
+    text-decoration: none;
+    &:hover {
+      text-decoration :none;
+    };
+}
+
+a.remove_nested_fields {
+  color: transparent;
+  text-decoration: none;
+  background: transparent url(/assets/delete_small.png) no-repeat;
+  padding: 0 3px;
+  &:hover {
+    color: transparent;
+    text-decoration: none;
+  }
+}
+
 /* Devise forms */
 #devise {
   margin: 0 auto;

@@ -1,8 +1,9 @@
 = div_for day do
-  %h3
-    %span Day #{@day_count || day_counter + 1}
-    %span=link_to 'Delete day', plan_day_path(day.plan, day), :method => :delete
-  %section
-    %ul.day-items
-      = render day.plan_items
-    = link_to 'Add plan_item', new_plan_day_plan_item_path(day.plan, day), :class => 'add-plan-item', :remote => true
+	.day_header{:style => "line-height: 25px; background-color: #dde8ee; border-bottom: solid 1px #CCCCCC; font-weight: 600;"}
+		%h3
+			%span Day #{@day_count || day_counter + 1}
+			%span=link_to (image_tag 'delete.png', :style => "margin-top: -4px;"), plan_day_path(day.plan, day), :method => :delete
+	%section
+		%ul.day-items{:style => "margin: 10px 0 10px 0;"}
+			= render day.plan_items
+		%p{:style => "margin: 0 0 10px;"}= link_to 'Add plan_item', new_plan_day_plan_item_path(day.plan, day), :class => 'add-plan-item button', :remote => true

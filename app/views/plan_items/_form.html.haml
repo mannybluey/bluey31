@@ -10,9 +10,9 @@
     %p
       = set_form.label :measurements, "Set"
       = set_form.text_field :measurements, :class => 'half-size'
-      = set_form.link_to_remove '&#x2717'.html_safe
+      = set_form.link_to_remove '&#x2717   '.html_safe
 
-  = f.link_to_add 'Add another set', :plan_item_sets
+  = f.link_to_add '+ Add another set', :plan_item_sets
   %hr
   %p.buttons
     - if local_assigns[:edit_form].nil?
