@@ -15,3 +15,7 @@ Given /^I am authenticated on the goals tab$/ do
   And %{I sign up and sign in with email "user@test.com"}
   And %{I go to the user goals page}
 end
+
+When /^I click on "([^"]*)" in the body$/ do |link|
+  click_link("#{link}")
+end

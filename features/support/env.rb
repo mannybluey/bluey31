@@ -18,8 +18,21 @@ end
 # prefer to use XPath just remove this line and adjust any selectors in your
 # steps to use the XPath syntax.
 Capybara.default_selector = :css
-Capybara.default_wait_time = 20
+Capybara.default_wait_time = 5
 Capybara.javascript_driver = :webkit
+
+
+# uncomment for debugging
+#class Capybara::Driver::Webkit::Browser
+#  alias original_command command
+
+#  def command(name, *args)
+#    result = original_command(name, *args)
+#    sleep(5) if args.first == "click"
+#    result
+#  end
+#end
+
 
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how 

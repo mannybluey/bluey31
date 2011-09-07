@@ -21,11 +21,11 @@ gem 'paperclip'
 #gem 'nested_form'
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'remotipart'
-gem 'to_slug'
 gem 'json'
 #gem 'barista'
 gem 'paper_trail'
 gem 'friendly_id'
+gem 'to_slug'
 
 
 # Gems used only for assets and not required

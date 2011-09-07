@@ -31,14 +31,15 @@ class UserProfilesController < ApplicationController
       render :action => "edit"
     end
   end
+  
+  def remove
+    @user_profile = current_user.user_profile
+  end
 
-  # DELETE /user_profiles/1
-  # DELETE /user_profiles/1.xml
+
   def destroy
-    @user_profile = UserProfile.find(params[:id])
-    @user_profile.destroy
-
-    format.html { redirect_to(user_profiles_url) }
+    current_user.destroy
+    redirect_to root_url
   end
   
   def test

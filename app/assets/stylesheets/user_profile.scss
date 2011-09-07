@@ -96,7 +96,7 @@
 
 #what_i_want {
   float:left; 
-  width: 33%; 
+  width: 31%; 
   overflow: auto;
 }
 
@@ -105,6 +105,10 @@
 #what_i_want ul li {line-height: 14px;}
 
 #what_i_want ul li img {text-align: center;}
+
+#delete_account {
+  p img {}
+}
 
 #bottom_user_profile_bar.clear {}
 

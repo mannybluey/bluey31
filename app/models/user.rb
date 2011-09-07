@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_one :user_profile
-  has_many :plans, :foreign_key => 'creator_id'
+  has_one :user_profile,  :dependent => :destroy
+  has_many :plans, :foreign_key => 'creator_id', :dependent => :destroy
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
@@ -36,7 +36,7 @@ private
       {:name => 'Chest', :body_part => BodyPart.find_by_name('Chest'), :unit => 'inches'},
       {:name => 'Waist', :body_part => BodyPart.find_by_name('Waist'), :unit => 'inches'},
       {:name => 'Weight', :body_part => general, :unit => 'lbs'},
-      {:name => 'Blood pressure', :body_part => general, :unit => 'mmHg'},
+      {:name => 'Blood pressure', :body_part => general, :unit => 'mm.Hg'},
       {:name => 'Heart rate', :body_part => general, :unit => 'bpm'},
       {:name => 'Body fat', :body_part => general, :unit => '%'}
     ]

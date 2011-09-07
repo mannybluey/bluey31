@@ -23,7 +23,7 @@ module NavigationHelpers
     when /the user pictures page/
       user_images_path
     when /the plans page/
-      plans_path
+      dashboard_path
     when /the new plan page/
       new_plan_path
     when /the "(.*)" plan page/

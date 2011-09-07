@@ -16,6 +16,10 @@ Factory.define :body_part do |f|
   f.name "foo"
 end
 
+Factory.define :plan_type do |f|
+  f.name "Plan name"
+end
+
 Factory.define :plan do |f|
   f.name "Plan name"
   f.description "Plan description"

@@ -43,6 +43,10 @@
 					%li{:id => "uw_#{user_want[:id]}", :style => "display: #{what_i_want_display(@user_profile, user_want )}"}
 						= image_tag 'user_profile/green_arrow.jpg', :size => "16x16"
 						= user_want[:name]
+		
+		- if @user_profile == current_user.user_profile
+			#delete_account
+				%p= link_to (image_tag 'delete.png', :size => "28x28", :alt => "Delete Registration"), profile_remove_path, :class => "dialog", :title => "Delete Registration"
 
 		
 	#bottom_user_profile_bar.clear
