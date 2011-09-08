@@ -1,9 +1,9 @@
 - content_for :top_menu do
 	%ul#user-tabs
-		%li.selected= link_to image_tag("user_profile/aboutButton.jpg", :alt => "about"), '', :name => 'foundation'
-		%li= link_to image_tag("user_profile/goalsButton.jpg", :alt => "goals"), user_goals_path
-		%li= link_to image_tag("user_profile/symptomsButton.jpg", :alt => "symptoms"), '', :name => 'symptoms'
-		%li{:style => "margins: 0;"}= link_to image_tag("user_profile/picturesButton.jpg", :alt => "pictures"), user_images_path, :name => 'pictures'
+		%li.selected= link_to image_tag("dashboard/user-profile/about-nav-item.png", :alt => "about"), '', :name => 'foundation', :title => "About"
+		%li= link_to image_tag("dashboard/user-profile/goal-nav-item.png", :alt => "goals"), user_goals_path, :title => "Goals"
+		%li= link_to image_tag("dashboard/user-profile/symptoms-nav-icon.png", :alt => "symptoms"), '', :name => 'symptoms', :title => "Symptoms"
+		%li{:style => "margins: 0;"}= link_to image_tag("dashboard/user-profile/pictures-nav-item.png", :alt => "pictures"), user_images_path, :name => 'pictures', :title => "Pictures"
 
 - content_for :bottom_menu do
 	= render :partial => "shared/dashboard_menu"

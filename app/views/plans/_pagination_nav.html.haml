@@ -1,7 +1,5 @@
-.pagination-nav
-	%span{:style => "float: right; border:solid 1px transparent;"}
-		%ul{:style => "float: left;"}
-			%li
-				= (pagination_entries_info @plans, :entry_name => "").html_safe
-			%li
-				= will_paginate @plans
+.pagination-nav.apple_pagination
+	%ul
+		%li#entries{:style => "margin-right: 20px;"}
+			%p= (pagination_entries_info @plans, :entry_name => "").html_safe
+		%li= will_paginate @plans, :inner_window => 1, :outer_window => 2, :previous_label => "Previous" , :next_label => "Next"

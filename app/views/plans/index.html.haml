@@ -19,7 +19,7 @@
 	#contentWrapper{:style => "position:relative;"}
 		%h2= plan_list_title(@plan_type)
 		#contentBar
-			%ul.fl
+			%ul.fl.add-plan
 				%li
 					= link_to '+ Add Plan', new_plan_path, :id => 'add-plan', :class => 'dialog', :title => "New Plan"
 			#addPlanText.fl
@@ -27,9 +27,9 @@
 					%b Available plans are listed below
 				%p.small To add new plan click the link on the left
 
-		- if display_paginationBar(@plans)
-			#paginationBar.clear
-				= render :partial => "pagination_nav"
+			- if display_paginationBar(@plans)
+				#paginationBar.fl
+					= render :partial => "pagination_nav"
 
 		#content.clear.dashboard{:style => "z-index: 0;"}
 			- unless @plans.count > 0

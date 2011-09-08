@@ -165,37 +165,3 @@
 p.number { margin-bottom: 5px;}
 p.check_goal{ margin: 0; padding: 22px 0 0 0; }
 
-/* Pictures */
-#user-images {
-  margin-top: 10px;
-  min-height: 100px;
-}
-
-.user-image {
-  width: 100px;
-  margin: 0 25px 20px 0;
-  float: left;
-  position: relative;
-  font-size: 12px;
-  a, p {
-    text-align: center;
-    display: block;
-    width: 104px;
-    display: block;
-  }
-  .delete-image {
-    position: absolute;
-    top: -10px;
-    right: -15px;
-    background: url(/assets/delete_small.png) no-repeat 0 0;
-    width: 25px;
-    height: 25px;
-    z-index: 10000;
-    @include hide-text;
-    cursor: pointer;
-  }
-  .use-for-profile {
-    font-size: 11px;
-    padding-bottom: 5px;
-  }
-}
