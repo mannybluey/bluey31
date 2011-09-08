@@ -1,5 +1,9 @@
 @import "screen";
 
+#bottom-landing {
+  background: url(/assets/landing-page/blackBar.png) repeat-x;
+}
+
 #containerWrapper {
   width: 1000px;
   text-align: center;
@@ -37,7 +41,8 @@
   width: 492px;
   height: 100px;
   position: relative; 
-  background: url(/assets/dashboard/earth.png) no-repeat 0 0;
+  background: url(/assets/dashboard/bubble.png) no-repeat 0 0;
+  /* background: url(/assets/dashboard/earth.png) no-repeat 0 0; */
 }
 
 #userPerformances {

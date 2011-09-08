@@ -1,27 +1,52 @@
 - content_for :head do
-  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise'
+	= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise'
 
 - content_for :foot do
-  = javascript_include_tag 'flowplayer'
+	= javascript_include_tag 'flowplayer'
 
 - content_for :main_content do
-  #landing-page
-    %h1 Can you live past 100 years old?
-    #left-col
-      = link_to '', '/videos/bluey.flv', :id => 'video'
-      :javascript
-        $(document).ready(function() {
-          $f('video', {src: '/videos/flowplayer-3.2.7.swf', wmode: 'transparent'});
-        });
-    #right-col
-      #alpha
-      = link_to 'Sign up', new_user_registration_path, :id => 'sign-up', :class => 'dialog', :title => 'Sign Up'
-      %p 
-        Already registered?
-        = link_to 'Sign in', new_user_session_path, :id => 'sign-in', :class => 'dialog', :title => 'Sign In'
-    %ol
-      %li Sign up using an email address
-      %li Sign in to answer a few questions about your health and fitness goals
-      %li 
-        We will recommend people to you to help you start building your health
-        and fitness community
+	#landing-page{:style => "min-height: 800px;"}
+		#landing-top
+			
+			#left-col{:style => "width:600px;"}
+			
+				%h1
+					Bluey, is a new platform for fitness, health, nutrition, supplement, athlete and sports performance management. Give it a try, registration is free!  
+				
+				= link_to '', '/videos/bluey.flv', :id => 'video'
+				:javascript
+					$(document).ready(function() {
+						$f('video', {src: '/videos/flowplayer-3.2.7.swf', wmode: 'transparent'});
+					});
+			#right-col
+				#blue_logo
+					= image_tag 'landing-page/Blue-logo.png', :size =>"150x150"
+				#signup-logo{:style => "margin-top: 150px;"}
+					= link_to image_tag("landing-page/signup-btn.png", :size => "288x102", :alt => ""), new_user_registration_path, :id => 'sign-up', :class => 'dialog', :title => 'Sign Up'
+
+
+- content_for :bottom_bar do
+	#bottom-landing{:style => "height: 108px; width: 100%; background: url(/assets/landing-page/blackBar.png) repeat-x;"}
+	
+		#bottom-wrapper{:style => "width: 1000px; text-align: center; margin: 0 auto; padding: 0 30px;"}
+			#right-logos.fr{:style => "width: 450px; border: solid 1px transparent; color: white; font-weight: bold;"}
+				#follow-us-logos.fl{:style => "width: 300px; border: solid 1px transparent; text-align: right;"}
+					%span{:style => "margin-right: 30px;"}= image_tag("landing-page/followus.png", :alt => "")
+					%br
+					= link_to image_tag("landing-page/twitter.png", :size => "64x64", :alt => ""), "http://www.twitter.com/blueyfit"
+					= link_to image_tag("landing-page/facebook.png", :size => "64x64", :alt => ""), "http://www.facebook.com/blueyfit"
+				
+				#login-logo.fl{:style => "width: 70px; border: solid 1px transparent; text-align: right;"} 
+					%span{:style => "margin-right: 10px;"}= image_tag("landing-page/loginText.png", :alt => "")
+					%br
+					= link_to image_tag("landing-page/login.png", :size => "64x64", :alt => ""), new_user_session_path, :id => 'sign-in', :class => 'dialog', :title => 'Sign In'
+				
+			#left-twitter-updates.fl
+				%p{:style => "margin: 30px 0 0 30px; display:none;"} TWITTER UPDATES
+
+
+
+				
+				
+
+
