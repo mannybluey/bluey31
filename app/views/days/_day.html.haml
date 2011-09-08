@@ -3,7 +3,7 @@
 		%h3
 			%span Day #{@day_count || day_counter + 1}
 			%span=link_to (image_tag 'delete.png', :style => "margin-top: -4px;"), plan_day_path(day.plan, day), :method => :delete
-	%section{:style => "width: 930px;"}
+	%section{:style => "width: 920px; margin-left: 5px;"}
 		%ul.day-items{:style => "margin: 10px 0 10px 0;"}
 			= render day.plan_items
 		%p{:style => "margin: 0 0 10px;"}= link_to "Add #{day.plan.plan_type[:name].capitalize}", new_plan_day_plan_item_path(day.plan, day), :class => 'add-plan-item button', :remote => true

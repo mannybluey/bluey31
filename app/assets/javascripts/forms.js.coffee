@@ -1,5 +1,5 @@
 $(document).ready ->
-  
+    
   onkeypress = "return event.keyCode!=13"
 
   $("[placeholder]").focus(->
@@ -16,3 +16,4 @@ $(document).ready ->
     $(this).find("[placeholder]").each ->
       input = $(this)
       input.val ""  if input.val() == input.attr("placeholder")
+
