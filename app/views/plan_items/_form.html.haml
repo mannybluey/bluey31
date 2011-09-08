@@ -1,7 +1,7 @@
 = nested_form_for [@plan, @day, @plan_item], :remote => true do |f|
   .form-errors
   %p
-    = f.label :name, 'Plan Item'
+    = f.label :name, "#{@plan.plan_type[:name].capitalize}"
     = f.text_field :name
   %p
     %em.hint Sets: Enter reps, weight or any measurement e.g. '18 kg, 40 lbs' or '40 lengths'
@@ -16,9 +16,9 @@
   %hr
   %p.buttons
     - if local_assigns[:edit_form].nil?
-      = f.submit 'Add Plan Item'
+      = f.submit "Add #{@plan.plan_type[:name].capitalize}"
       or
-      = link_to "I'm done adding plan items", '#', :class => 'cancel', :id => 'cancel-add-plan-item'
+      = link_to "I'm done adding #{@plan.plan_type[:name].downcase.pluralize}", '#', :class => 'cancel', :id => 'cancel-add-plan-item'
     - else
       = f.submit 'Update'
       or

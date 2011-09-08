@@ -6,4 +6,4 @@
 	%section
 		%ul.day-items{:style => "margin: 10px 0 10px 0;"}
 			= render day.plan_items
-		%p{:style => "margin: 0 0 10px;"}= link_to 'Add plan_item', new_plan_day_plan_item_path(day.plan, day), :class => 'add-plan-item button', :remote => true
+		%p{:style => "margin: 0 0 10px;"}= link_to "Add #{day.plan.plan_type[:name].capitalize}", new_plan_day_plan_item_path(day.plan, day), :class => 'add-plan-item button', :remote => true
