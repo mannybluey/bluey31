@@ -19,6 +19,7 @@
 //= require on_the_spot
 //= require flowplayer
 //= require fancybox
+//= require jquery.jixedbar.min
 
 //= require_tree .
 
