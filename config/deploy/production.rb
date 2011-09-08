@@ -1,6 +1,7 @@
 set :stages, %w(staging production)
 set :default_stage, "staging"
 require 'capistrano/ext/multistage'
+require 'bundler/capistrano'
 
 set :application, "bluey_app"
 
@@ -9,7 +10,7 @@ set :scm, :git
 set :repository,   "git@github.com:mannybluey/Bluey.git"
 
 # Deploy from master branch by default
-set :branch, "master"
+set :branch, "stable"
 set :deploy_via, :remote_cache
 set :scm_verbose, true
 # 
