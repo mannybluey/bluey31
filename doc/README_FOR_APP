@@ -24,6 +24,8 @@ cucumber --tags ~@wip
 To run a specific feature file
 cucumber -r features features/xxxxxxxxx.feature
 
+To run with the progress bar
+ cucumber -f progress
 
 DB test
 rake db:migrate RAILS_ENV=test
