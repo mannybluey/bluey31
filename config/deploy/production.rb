@@ -7,7 +7,7 @@ set :application, "bluey_app"
 
 # Use Git source control
 set :scm, :git
-set :repository,   "git@github.com:mannybluey/Bluey.git"
+set :repository,  "git@github.com:mannybluey/bluey31.git"
 
 # Deploy from master branch by default
 set :branch, "stable"
@@ -24,7 +24,8 @@ set :deploy_to, "/home/#{user}/#{application}/production"
 
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-set :rvm_ruby_string, '1.9.2-p180'
+set :rvm_ruby_string, '1.9.2-p290@rails31'
+#set :rvm_ruby_string, '1.9.2-p180'
 set :rvm_type, :user
 
 #set :default_environment, {
@@ -56,5 +57,12 @@ namespace :deploy do
     run "ln -sfn /home/#{user}/#{application}/shared/bluey.mov #{release_path}/public/videos/bluey.mov"
   end
 
-  after 'deploy:update_code', 'deploy:symlink_shared'
+  after 'deploy:update_code', 'deploy:symlink_shared', "assets:precompile"
+end
+
+namespace :assets do
+  desc "Compile assets"
+  task :precompile, :roles => :app do
+    run "cd #{release_path} && rake RAILS_ENV=#{rails_env} assets:precompile"
+  end
 end
