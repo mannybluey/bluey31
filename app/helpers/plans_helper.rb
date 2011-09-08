@@ -5,7 +5,7 @@ module PlansHelper
      when 0
        "Available Plans"
      else
-       "Available #{PlanType.find(plan_type)[:name]} Plans"
+       "Available #{PlanType.find(plan_type)[:name].capitalize} Plans"
      end
    end
   

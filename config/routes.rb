@@ -18,6 +18,8 @@ Bluey::Application.routes.draw do
   match "profile/delete", :to => "user_profiles#destroy", :via => "delete", :as => "profiles"
   match "profile", :to => "user_profiles#update", :via => "put", :as => "profile"
   match "profile/quickedit", :to => "user_profiles#update_attribute_on_the_spot", :via => "put"
+
+  match "pages/not_yet_implemented", :to => "pages#not_yet_implemented", :via => "get", :as => "not_yet_implemented"
   
   resources :user_goals, :only => :index
   match "user_goals", :to => "user_goals#update", :via => "put"  

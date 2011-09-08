@@ -11,4 +11,7 @@ class PagesController < ApplicationController
   def dashboard
   end
   
+  def not_yet_implemented
+  end
+  
 end

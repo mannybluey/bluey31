@@ -1,5 +1,5 @@
 %li{:class => "#{'active' if @plan_type == 0}"}= link_to "All", plans_path, :plan_type => 0
 %li{:class => "#{'active' if @plan_type == 1}"}= link_to "Exercise", plan_type_path(1), :plan_type => 1
-%li{:class => "#{'active' if @plan_type == 2}"}= link_to "Nutrition", plan_type_path(2), :plan_type => 2
-%li{:class => "#{'active' if @plan_type == 3}"}= link_to "Supplement", plan_type_path(3), :plan_type => 3
-%li{:class => "#{'active' if @plan_type == 4}"}= link_to "Health", plan_type_path(4), :plan_type => 4
+%li{:class => "#{'active' if @plan_type == 2}"}= link_to "Nutrition", not_yet_implemented_path, :class => "dialog", :title => "Nutrition Plan", :width => "520"
+%li{:class => "#{'active' if @plan_type == 3}"}= link_to "Supplement",  not_yet_implemented_path, :class => "dialog", :title => "Supplement Plan", :width => "520"
+%li{:class => "#{'active' if @plan_type == 4}"}= link_to "Health",  not_yet_implemented_path, :class => "dialog", :title => "Health Plan", :width => "520"

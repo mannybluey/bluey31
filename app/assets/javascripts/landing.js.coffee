@@ -21,6 +21,11 @@ $(document).ready ->
     $('.ui-dialog').remove()
     e.preventDefault()
     url = $(this).attr("href")
+    if $(this).attr("width")
+      customWidth = $(this).attr("width")
+    else
+      customWidth = 360
+    
     popup = $(this)
     title = $(this).attr("title")
     dialog_form = $("<div id=\"dialog-form\">Loading form...</div>").dialog(
@@ -28,7 +33,7 @@ $(document).ready ->
       draggable: false
       resizable: false
       autoOpen: false
-      width: 360
+      width: customWidth
       modal: true
       open: ->
         $(this).load url + " #content"      

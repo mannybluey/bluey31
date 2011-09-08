@@ -1,6 +1,6 @@
 %ul
 	%li{:class => "#{ dashboard_menu(params, ['plans']) }"}= link_to "Plans", dashboard_path
-	%li{:class => "#{ dashboard_menu(params, ['fitbars']) }"}= link_to "Fit Bar", "#"
-	%li{:class => "#{ dashboard_menu(params, ['challenges']) }"}= link_to "Challenges", "#"
-	%li{:class => "#{ dashboard_menu(params, ['financials']) }"}= link_to "Financial", "#"
+	%li{:class => "#{ dashboard_menu(params, ['fitbars']) }"}= link_to "Fit Bar", not_yet_implemented_path, :class => "dialog", :title => "Fit Bar", :width => "520"
+	%li{:class => "#{ dashboard_menu(params, ['challenges']) }"}= link_to "Challenges", not_yet_implemented_path, :class => "dialog", :title => "Challenges", :width => "520"
+	%li{:class => "#{ dashboard_menu(params, ['financials']) }"}= link_to "Financial", not_yet_implemented_path, :class => "dialog", :title => "Financials", :width => "520"
 	%li{:class => "#{ dashboard_menu(params, ['user_profiles', 'user_goals']) }"}= link_to "Profile", profile_edit_path, :name => 'profile'
