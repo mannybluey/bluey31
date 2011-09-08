@@ -300,8 +300,8 @@ li.plan-item.completed { color: $subtle; }
   .delete-image {
     position: absolute;
     top: -5px;
-    right: 5px;
-    background: url(/assets/small_close.png) no-repeat 0 0;
+    right: 15px;
+    background: url(/assets/delete_small.png) no-repeat 0 0;
     width: 13px;
     height: 13px;
     z-index: 10000;
