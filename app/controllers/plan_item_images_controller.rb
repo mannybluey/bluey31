@@ -6,23 +6,15 @@ class PlanItemImagesController < ApplicationController
     @plan_item = PlanItem.find(params[:plan_item_id])
     @plan = @plan_item.day.plan
     @plan_item_image = PlanItemImage.new()
-
-    respond_to do |format|
-      format.html   {}  
-      format.js  { 
-        render  :action => 'new.js' 
-      }
-    end
-    
   end
   
 
   def create
+    
     @plan_item = PlanItem.find(params[:plan_item_id])
     @plan = Plan.find(params[:plan_id])
     @plan_item_image = PlanItemImage.new(params[:plan_item_image])
     @plan_item_image[:plan_item_id] = @plan_item[:id]
-
 
     respond_to do |format|
         format.html  {}

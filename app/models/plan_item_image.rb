@@ -4,7 +4,9 @@ class PlanItemImage < ActiveRecord::Base
   
   validates_presence_of :name
   validates_attachment_presence :image
-  validates_attachment_content_type :image, :content_type=>['image/jpeg', 'image/png', 'image/gif'] 
+  validates_attachment_content_type :image, :content_type=>['image/jpeg', 'image/png', 'image/gif'] ,
+   :message => ": jpeg, png or gif only" , :if => Proc.new { |imports| !imports.image_file_name.blank? }
+  validates_attachment_size :image, :less_than=>1.megabyte,  :if => Proc.new { |imports| !imports.image_file_name.blank? }
   
   has_attached_file :image, 
    :styles => { 

@@ -16,7 +16,7 @@
   %hr
   %p.buttons
     - if local_assigns[:edit_form].nil?
-      = f.submit "Add #{@plan.plan_type[:name].capitalize}"
+      = f.submit "Add this #{@plan.plan_type[:name].capitalize}"
       or
       = link_to "I'm done adding #{@plan.plan_type[:name].downcase.pluralize}", '#', :class => 'cancel', :id => 'cancel-add-plan-item'
     - else

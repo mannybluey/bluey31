@@ -187,10 +187,10 @@
     }
   }
   section {
-    padding: 0 7px;
+    padding: 0;
     li {
       @include clearfix;
-      padding: 7px 0;
+      padding: 4px 0;
       border-bottom: 1px dotted $subtle;
     }
   }
@@ -264,7 +264,6 @@ li.plan-item.completed { color: $subtle; }
     float: left;
     border: 0;
     margin: 0;
-    width: 300px;
     padding: 0;
     ul li {
       font-size: $small;
@@ -290,7 +289,7 @@ li.plan-item.completed { color: $subtle; }
   margin-top: 5px;
   text-align: center;
   float: left;
-  a, p {
+  p {
     float: right;
     margin-right: 10px;
     text-align: center;
@@ -298,7 +297,6 @@ li.plan-item.completed { color: $subtle; }
     text-decoration: none;
     display: block;
   }
-  a#add-plan-item-image {font-size: 1.15em; font-weight: bold; }
   .delete-image {
     position: absolute;
     top: -5px;

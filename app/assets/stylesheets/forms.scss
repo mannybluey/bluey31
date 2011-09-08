@@ -100,6 +100,24 @@ a.remove_nested_fields {
   }
 }
 
+a.small_grey_button {
+    background: none repeat scroll 0 0 #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    color: #000000;
+    font-size: 10px;
+    font-weight: bold;
+    height: 15px;
+    line-height: 15px;
+    margin-right: 5px;
+    margin-top: 2px;
+    padding: 2px 2px;
+    text-shadow: none;
+    text-decoration: none;
+    &:hover {
+      text-decoration :none;
+    };  
+}
+
 /* Devise forms */
 #devise {
   margin: 0 auto;
