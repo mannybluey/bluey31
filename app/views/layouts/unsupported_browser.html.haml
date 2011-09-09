@@ -23,11 +23,11 @@
 			})();
 	%body
 		#wrapper
-			#landing-page{:style => "min-height: 800px;"}
+			#landing-page
 
-				#landing-top{:style => "height: 650px;"}
+				#landing-top
 		
-					#left-col{:style => "width:600px;"}
+					#left-col
 		
 						%h1
 							Bluey, is a new platform for fitness, health, nutrition, supplement, athlete and sports performance management. Give it a try, registration is free!  
@@ -36,27 +36,46 @@
 							= yield :main_content
 						
 					#right-col
-						#blue_logo{:style => "margin-top: 30px;"}
+						#blue_logo
 							= image_tag 'landing-page/Blue-logo.png', :size =>"200x200"
-						#signup-logo{:style => "margin-top: 120px;"}
+						#signup-logo
 							= image_tag("landing-page/signup-btn.png", :size => "288x102", :alt => "")
 	
 				#landing-bottom
 	
-					#bottom-wrapper{:style => " text-align: center; margin: 0 auto; padding-top: 80px;"}
-						#right-logos.fr{:style => "width: 450px; border: solid 1px transparent; color: white; font-weight: bold;"}
-							#follow-us-logos.fl{:style => "width: 300px; border: solid 1px transparent; text-align: right;"}
-								%span{:style => "margin-right: 30px;"}= image_tag("landing-page/followus.png", :alt => "")
+					#bottom-wrapper
+						#right-logos.fr
+							#follow-us-logos.fl
+								%span= image_tag("landing-page/followus.png", :alt => "")
 								%br
 								= link_to image_tag("landing-page/twitter.png", :size => "64x64", :alt => ""), "http://www.twitter.com/blueyfit"
 								= link_to image_tag("landing-page/facebook.png", :size => "64x64", :alt => ""), "http://www.facebook.com/blueyfit"
 			
-							#login-logo.fl{:style => "width: 70px; border: solid 1px transparent; text-align: right;"} 
-								%span{:style => "margin-right: 10px;"}= image_tag("landing-page/loginText.png", :alt => "")
+							#login-logo.fl 
+								%span= image_tag("landing-page/loginText.png", :alt => "")
 								%br
 								= image_tag("landing-page/login.png", :size => "64x64", :alt => "")
 			
 						#left-twitter-updates.fl
-							%p{:style => "margin: 30px 0 0 30px; display:none;"} TWITTER UPDATES
-
-
+							#twtr-search-widget{:style => "display:visible;"}
+								:javascript
+									$(document).ready(function() {
+										new TWTR.Widget({
+											search: 'blueyfit',
+											id: 'twtr-search-widget',
+											loop: true,
+											width: 720,
+											height: 100,
+											theme: {
+												shell: {
+													background: '#111',
+													color: '#000000'
+												},
+												tweets: {
+													background: '#000000',
+													color: '#ffffff',
+													links: '#f59f00'
+												}
+											}
+										}).render().start();
+									});

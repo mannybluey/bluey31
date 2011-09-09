@@ -2,13 +2,16 @@
 @import "screen";
 
 #landing-page {
+  min-height: 800px;
   h1 {
     margin-top: 50px;
     font-family: "Waiting for the Sunrise", arial, sans-serif;
     font-size: 64px;
     text-align: center; }
   #landing-top{
+    height: 650px;
     #left-col {
+      width:600px;
       h1 {
         margin: 20px 0 30px 0;
         font-family: "Waiting for the Sunrise", arial, sans-serif;
@@ -26,7 +29,10 @@
   #right-col {
     width: 332px;
     text-align: center;
-    float: right; }
+    float: right;
+    #blue_logo { margin-top: 30px;}
+    #signup-logo{margin-top: 120px;}
+  } 
   #alpha {
     margin-top: 30px;
     width: 332px;
@@ -51,6 +57,32 @@
 #landing-bottom {
   height: 200px; 
   background: transparent url(/assets/landing-page//earthBar.png) no-repeat;
+  #bottom-wrapper {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 80px;
+    #right-logos {
+      width: 270px; 
+      border: solid 1px transparent; 
+      color: white; 
+      font-weight: bold;
+      #follow-us-logos {
+        width: 150px; 
+        border: solid 1px transparent; 
+        text-align: right;
+        span { margin-right: 30px; }
+      }
+      #login-logo {
+        width: 70px; 
+        border: solid 1px transparent; 
+        text-align: right;
+        span {margin-right: 10px;}
+      }
+    }
+    #left-twitter-updates {
+      #twtr-search-widget{ margin: 0px 0 0 5px;}
+    }
+  }
 }
 
 

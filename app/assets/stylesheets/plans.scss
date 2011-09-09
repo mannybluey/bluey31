@@ -175,6 +175,17 @@
   @include border-radius(4px);
 }
 
+.plan-days .day_header {
+  line-height: 25px; 
+  background-color: #dde8ee; 
+  border-bottom: solid 1px #CCCCCC;
+  font-weight: 600;
+   section {
+     ul.day-items { margin: 10px 0 10px 0;}
+     p {margin: 0 0 10px;}
+  }
+}
+
 .plan-days .day {
   @include clearfix;
   h3 {
