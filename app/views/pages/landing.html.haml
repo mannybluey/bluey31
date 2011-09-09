@@ -22,7 +22,7 @@
 				#blue_logo
 					= image_tag 'landing-page/Blue-logo.png', :size =>"150x150"
 				#signup-logo{:style => "margin-top: 150px;"}
-					= link_to image_tag("landing-page/signup-btn.png", :size => "288x102", :alt => ""), new_user_registration_path, :id => 'sign-up', :class => 'dialog', :title => 'Sign Up'
+					= link_to image_tag("landing-page/signup-btn.png", :size => "288x102", :alt => ""), new_user_registration_path, :id => 'sign-up', :class => 'dialog', :title => 'Sign Up', :name => "Sign up"
 
 
 - content_for :bottom_bar do

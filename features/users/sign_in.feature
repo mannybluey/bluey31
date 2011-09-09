@@ -30,7 +30,7 @@ Feature: Sign in
     Scenario: Guest visits the home page
       Given I am not logged in
       When I go to the home page
-      Then I should see "Can you live past 100 years old?"
+      Then I should see "Sign up"
 
 	@javascript 
     Scenario: User is not signed up

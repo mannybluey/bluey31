@@ -64,8 +64,7 @@ When /^I return next time$/ do
 end
 
 Then /^I should be signed out$/ do
-  And %{I should see "Sign up"}
-  And %{I should see "Sign in"}
+  And %{I should see "Give it a try, registration is free!"}
   And %{I should not see "Logout"}
 end
 
