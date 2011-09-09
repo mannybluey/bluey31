@@ -30,7 +30,7 @@ Feature: Sign in
     Scenario: Guest visits the home page
       Given I am not logged in
       When I go to the home page
-      Then I should see "Sign up"
+      Then I should see "Bluey Health & Fitness"
 
 	@javascript 
     Scenario: User is not signed up

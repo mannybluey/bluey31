@@ -13,7 +13,7 @@
 					- unless @user_profile.user == current_user
 						= link_to (image_tag 'user_profile/profileDeleteButton.jpg', :size => "24x24"), "#"
 			#bottom_personal_data_summary.clear{:style => "display: #{user_profile_summary_display(@user_profile )};"}
-				%p= @user_profile[:summary]
+				%p= truncate @user_profile[:summary], :length => 90
 				
 			#bottom_personal_data.clear
 				%span#age{:style => "#{user_profile_age_display(@user_profile)}"}= "#{ (Date.today() - @user_profile[:dob]).to_int / 365 } years - " unless @user_profile[:dob].blank?

@@ -77,7 +77,11 @@ $(document).ready ->
   $('#foundation_right textarea[id=user_profile_summary]').change (e) ->
     $('#bottom_personal_data_summary p').html($(this).val())
     summary = $('#bottom_personal_data_summary')
-    if $(this).val().length > 0 then summary.show() else summary.hide()
+    if $(this).val().length > 0
+      summary.show()
+      $('#bubble_area p').html($(this).val())
+    else 
+      summary.hide()
     return
     
   $('#foundation_right input[id=user_profile_gym]').change (e) ->
