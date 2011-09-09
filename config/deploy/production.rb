@@ -11,7 +11,7 @@ set :repository,  "git@github.com:mannybluey/bluey31.git"
 
 # Deploy from master branch by default
 set :branch, "stable"
-set :deploy_via, :remote_cache
+#set :deploy_via, :remote_cache
 set :scm_verbose, true
 # 
 set :user, "blueybot"
