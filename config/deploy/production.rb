@@ -57,7 +57,7 @@ namespace :deploy do
     run "ln -sfn /home/#{user}/#{application}/shared/bluey.mov #{release_path}/public/videos/bluey.mov"
   end
 
-  after 'deploy:update_code', 'deploy:symlink_shared', "assets:precompile"
+  after 'deploy:update_code', 'deploy:symlink_shared'
 end
 
 namespace :assets do
