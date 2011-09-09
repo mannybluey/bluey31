@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', :git => "git://github.com/rails/rails.git", :branch => "3-1-stable"
-#gem 'rails'
+#gem 'rails', :git => "git://github.com/rails/rails.git", :branch => "3-1-stable"
+gem 'rails'
 gem 'sprockets'
 
 # Bundle edge Rails instead:
