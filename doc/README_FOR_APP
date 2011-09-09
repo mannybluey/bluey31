@@ -31,3 +31,6 @@ DB test
 rake db:migrate RAILS_ENV=test
 rake db:test:clone
 rails g cucumber:install
+
+GIT USEFUL COMMANDS
+git reset --hard

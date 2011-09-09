@@ -1,3 +1,10 @@
+- content_for :head do
+	= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise'
+
+
+- content_for :foot do
+	= javascript_include_tag 'flowplayer'
+
 - content_for :main_content do
 	#unsupported_content
 		%p.big Unsupported Web Browser!

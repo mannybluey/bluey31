@@ -18,9 +18,9 @@
 - content_for :bottom_content do
 	#plan
 		%div.fl= image_tag "#{@plan.plan_type[:image_path]}", :alt => "#{File.basename( @plan.plan_type[:image_path], '.*')}", :style => "align: middle;"
-		%div.fl
+		%div.fl{:style => "margin-left: 20px;"}
 			%h1= on_the_spot_edit @plan, :name
-			%p#description= on_the_spot_edit @plan, :description, :type => :textarea
+			%p#description{:style => "margin: 3px 0 0 5px;"}= on_the_spot_edit @plan, :description, :type => :textarea
 		%hr.clear
 		%p{:style => "margin: 0 0 10px;"}=link_to "Add a day", plan_days_path(@plan), :class => 'button', :remote => true, :method => :post
 		.plan-days

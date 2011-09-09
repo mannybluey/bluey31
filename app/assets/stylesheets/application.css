@@ -7,7 +7,6 @@
  *= require jquery-ui-.custom
  *= require fancybox
  *= require forms
- *= require unsupported_browser
  *= require pages/landing
  *= require dashboard
  *= require plans
