@@ -6,6 +6,8 @@ class PlanItem < ActiveRecord::Base
   
   has_one :plan_item_image, :dependent => :destroy
 
+  attr_accessible :type
+
   validates_presence_of :name
 
   accepts_nested_attributes_for :plan_item_sets, :allow_destroy => true,

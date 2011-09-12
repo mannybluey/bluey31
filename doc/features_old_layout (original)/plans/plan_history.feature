@@ -5,14 +5,13 @@ Feature: Plan history
 
   Background:
     Given I have the following users:
-      | email | password |
-      | alex@test.com | mypassword |
-  #  And I sign in as "alex@test.com/mypassword"
+      | name | email | password |
+      | Alex | alex@test.com | mypassword |
+    And I sign in as "alex@test.com/mypassword"
 
-  @javascript @wip
-  Scenario: Create an exercise plan
+  Scenario: Create a plan
     Given "Alex" creates and visits a plan called "My simple plan"
-    Then I should see "Created plan"
+    Then I should see "My simple p..."
 
   Scenario: Add an item to a plan
 

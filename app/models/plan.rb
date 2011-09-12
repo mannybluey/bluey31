@@ -7,7 +7,7 @@ class Plan < ActiveRecord::Base
   validates :description, :presence => true
   validates_associated :plan_type
   
-  attr_accessible :name, :description, :plan_items_attributes, :plan_type_id, :picture_file_name
+  attr_accessible :name, :description, :plan_items_attributes, :plan_type_id, :picture_file_name, :type, :creator_id
   
   has_many :days
   has_many :plan_items, :through => :days
@@ -28,18 +28,6 @@ class Plan < ActiveRecord::Base
     def all_plans_for(user)
        where(:creator_id => user[:id])
     end
-    def exercises(user)
-       where(:plan_type_id => 1, :creator_id => user[:id])
-    end
-    def nutritions(user)
-       where(:plan_type_id => 2, :creator_id => user[:id])
-    end
-    def supplements(user)
-       where(:plan_type_id => 3, :creator_id => user[:id])
-    end
-    def healths(user)
-       where(:plan_type_id => 4, :creator_id => user[:id])
-    end    
   end
   
 end

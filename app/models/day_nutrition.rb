@@ -1,0 +1,2 @@
+class DayNutrition < Day
+end

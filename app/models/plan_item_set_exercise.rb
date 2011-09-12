@@ -1,0 +1,2 @@
+class PlanItemSetExercise < PlanItemSet
+end

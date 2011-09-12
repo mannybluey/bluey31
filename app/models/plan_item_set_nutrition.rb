@@ -1,0 +1,2 @@
+class PlanItemSetNutrition < PlanItemSet
+end

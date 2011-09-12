@@ -7,21 +7,19 @@ class PlansController < ApplicationController
   
   # GET /plans
   def index
-    #@plans = current_user.plans
-
     @order = ["created_at desc", "name asc"]
     @page_number = params[:page].nil? ? 1 : params[:page].to_i
+    @total_pages  = 0
     @plan_type = params[:id].nil? ? 0 : params[:id].to_i
-
     case @plan_type
       when 1
-        @plans = Plan.exercises(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+        @plans = ExercisePlan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
       when 2
-        @plans = Plan.nutritions(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+        @plans = NutritionPlan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
       when 3
-        @plans = Plan.supplements(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+        @plans = SupplementPlan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
       when 4
-        @plans = Plan.healths(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+        @plans = HealthPlan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
       else  #  0   all plans
         @plans = Plan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
     end

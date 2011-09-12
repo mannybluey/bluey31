@@ -1,0 +1,2 @@
+class NutritionPlan < Plan
+end

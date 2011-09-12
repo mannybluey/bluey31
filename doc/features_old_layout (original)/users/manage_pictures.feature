@@ -3,12 +3,11 @@ Feature: Manage user pictures
   A user
   Should be able to add and delete pictures from the profile page
 
-    @javascript 
+    @javascript
     Scenario: User uploads a picture
-      Given I sign up and sign in with email "user@test.com"
+      Given I sign up and sign in with name "foo" and email "user@test.com"
       And I have no user pictures
-      And I go to the edit profile page
-      And I follow "pictures"
+      And I follow "Pictures"
       Then I should see "Your pictures"
       And I should see "You haven't uploaded any pictures yet"
       When I fill in "Name" with "My picture"
@@ -20,12 +19,11 @@ Feature: Manage user pictures
       And I should be on the edit profile page
       And the "Name" field should not contain "My picture"
 
-    @javascript 
+    @javascript
     Scenario: User tries to upload picture without name
-      Given I sign up and sign in with email "user@test.com"
+      Given I sign up and sign in with name "foo" and email "user@test.com"
       And I have no user pictures
-       And I go to the edit profile page
-     And I follow "pictures"
+      And I follow "Pictures"
       Then I should see "Your pictures"
       And I should see "You haven't uploaded any pictures yet"
       When I attach the file "public/images/alpha.png" to "Picture"
@@ -35,25 +33,23 @@ Feature: Manage user pictures
 
     @javascript
     Scenario: User tries to upload picture without file
-      Given I sign up and sign in with email "user@test.com"
+      Given I sign up and sign in with name "foo" and email "user@test.com"
       And I have no user pictures
-      And I go to the edit profile page
-      And I follow "pictures"
+      And I follow "Pictures"
       Then I should see "Your pictures"
       And I should see "You haven't uploaded any pictures yet"
       When I fill in "Name" with "My picture"
       And I press "Upload picture"
-      Then I should see "Picture file name can't be empty"
+      Then I should see "Picture file name must be set"
       And I should be on the edit profile page
 
     @javascript
     Scenario: User deletes a picture
-      Given I sign up and sign in with email "user@test.com"
+      Given I sign up and sign in with name "foo" and email "user@test.com"
       And I have the following user_image records:
         | name       | picture_file_name |
         | My picture | my_picture.png    |
-      And I go to the edit profile page
-      And I follow "pictures"
+      And I follow "Pictures"
       Then I should see "My picture"
       When I follow "Delete"
       Then I should see "Successfully deleted picture"
@@ -61,10 +57,9 @@ Feature: Manage user pictures
 
     @javascript
     Scenario: User adds their profile picture
-      Given I sign up and sign in with email "user@test.com"
+      Given I sign up and sign in with name "foo" and email "user@test.com"
       And I have no user pictures
-      And I go to the edit profile page
-      And I follow "pictures"
+      And I click on "#profile-picture"
       Then I should see "You haven't uploaded any pictures yet"
       When I fill in "Name" with "My profile picture"
       And I attach the file "public/images/alpha.png" to "Picture"

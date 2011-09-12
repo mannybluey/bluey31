@@ -1,0 +1,2 @@
+class ExercisePlan < Plan
+end
