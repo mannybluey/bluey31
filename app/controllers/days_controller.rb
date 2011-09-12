@@ -2,11 +2,13 @@ class DaysController < ApplicationController
   
   def create
     plan = Plan.find(params[:plan_id])
-    @day = Day.new(:plan => plan)
+    day_class_name = "Day#{plan.plan_type[:name].capitalize}"
+    @day = day_class_name.constantize.new()
     respond_to do |format|
-      if @day.save
+      if @day.valid?
+        plan.days << @day
         format.html { redirect_to :back, :notice => 'Added day to your plan' }
-        format.js { @day_count = plan.days.count }
+        format.js {  @day_count = plan.days.count }
       else
         format.html { redirect_to :back, :alert => 'Could not add a day' }
         format.js

@@ -10,21 +10,15 @@ class PlansController < ApplicationController
     @order = ["created_at desc", "name asc"]
     @page_number = params[:page].nil? ? 1 : params[:page].to_i
     @total_pages  = 0
-    @plan_type = params[:id].nil? ? 0 : params[:id].to_i
-    case @plan_type
-      when 1
-        @plans = ExercisePlan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
-      when 2
-        @plans = NutritionPlan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
-      when 3
-        @plans = SupplementPlan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
-      when 4
-        @plans = HealthPlan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
-      else  #  0   all plans
-        @plans = Plan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+    if params[:id].nil?
+      @plans = Plan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+    else
+      plan_type = PlanType.find(params[:id].to_i)
+      plan_class_name = "#{plan_type[:name].capitalize}Plan"
+      @plans = plan_class_name.constantize.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
     end
-    @total_pages = @plans.count / Plan.per_page + (@plans.count % Plan.per_page > 0 ? 1 : 0 ) if @plans.count > 0
-    
+    @total_pages = @plans.count / Plan.per_page + (@plans.count % Plan.per_page > 0 ? 1 : 0 ) if @plans.count > 0    
+    @plan_type = plan_type.nil? ? 0 : plan_type[:id]
   end
 
   # GET /plans/1
@@ -49,7 +43,9 @@ class PlansController < ApplicationController
 
   # POST /plans
   def create
-    @plan = Plan.new(params[:plan])
+    plan_type = PlanType.find(params[:plan][:plan_type_id].to_i)
+    plan_class_name = "#{plan_type[:name].capitalize}Plan"
+    @plan = plan_class_name.constantize.new(params[:plan])
     @plan[:creator_id] = current_user.id
 
     respond_to do |format|

@@ -22,7 +22,7 @@ Feature: Exercise Plan
     Given "Alex" creates an "Exercise" plan called "My Exercise plan"
     Then I should see "My Exercise..."
 
- @javascript @wip
+ @javascript
   Scenario: Remove an Exercise Plan
     Given I have the following plans:
       | name | description | plan_type | creator |
@@ -32,28 +32,20 @@ Feature: Exercise Plan
 	And I remove the "Exercise" plan named "My Exercise plan"
     Then I should not see "My Exercise"
 
-  Scenario: Add an item to an Exercise plan
+  @javascript @wip
+  Scenario: Add exercises to a plan
+    Given I have the following plans:
+      | name | description | plan_type | creator |
+      | My Exercise plan | Lorem ipsum... | Exercise | Alex |
+      | My Nutrition plan | Lorem ipsum... | Nutrition | Alex |
+    And I am on the "My Exercise plan" plan page
+    Then I should see "My Exercise plan"
+    And I should see "No days have been added to this plan yet!"
+	When I follow "Add a day"
+	And I should wait until I see "Day 1"
+	Then show me the page
 
-  Scenario: Update Exercise plan item
 
-  @javascript
-  Scenario: Complete an Exercise plan item
-    Given I have the following plans created by Alex:
-      | name        | day | exercises   |
-      | Simple plan | 1   | Bench press |
-    And I am on the "Simple plan" plan page
-    When I add the following days:
-      | day  | exercises                                             |
-      | 1    | Bench press (Set 1: 10 kg 10 minutes, Set 2: 15 kg)   |
-      | 1    | Sit-ups (Set 1: 10 minutes)                           |
-      | 2    | Bench press (Set 1: 10 kg 10 minutes)                 |
-    And I complete "Bench press" on day 1
-    Then I should see "Completed Bench press on day 1" within ".history"
 
-  Scenario: Uncomplete an Exercise plan item
 
-  Scenario: Delete an Exercise plan item
 
-  Scenario: Challenge an update
-
-  Scenario: Restore an Exercise plan item

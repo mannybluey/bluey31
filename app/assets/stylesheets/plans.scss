@@ -168,7 +168,12 @@
   max-width:350px
 }
 
-.plan-days .day, .history {
+.plan-days .day, 
+.plan-days .day_exercise,
+.plan-days .day_nutrition,
+.plan-days .day_supplement,
+.plan-days .day_health,
+.history {
   margin-bottom: 10px;
   background: #efefef;
   border: 1px solid #ccc;
@@ -186,7 +191,11 @@
   }
 }
 
-.plan-days .day {
+.plan-days .day, 
+.plan-days .day_exercise,
+.plan-days .day_nutrition,
+.plan-days .day_supplement,
+.plan-days .day_health {
   @include clearfix;
   h3 {
     font-weight: normal;

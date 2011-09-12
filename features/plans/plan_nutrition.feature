@@ -19,6 +19,10 @@ Feature: Nutrition Plan
 
  @javascript
   Scenario: Remove a Nutrition Plan
-    Given "Alex" creates an "Nutrition" plan called "My Nutrition plan"
-	When I remove the "Nutrition" plan named "My Nutrition plan"
-    Then I should see "No Plans"
+    Given I have the following plans:
+      | name | description | plan_type | creator |
+      | My Exercise plan | Lorem ipsum... | Exercise | Alex |
+      | My Nutrition plan | Lorem ipsum... | Nutrition | Alex |
+	When I am on the dashboard page
+	And I remove the "Nutrion" plan named "My Nutrition plan"
+    Then I should not see "My Nutritio..."

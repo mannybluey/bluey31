@@ -1,2 +1,3 @@
 class DayExercise < Day
+  
 end
