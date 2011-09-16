@@ -1,14 +1,7 @@
 source 'http://rubygems.org'
 
-#gem 'rails', :git => "git://github.com/rails/rails.git", :branch => "3-1-stable"
-gem 'rails'
-#gem 'sprockets'
+gem 'rails', '3.1.0'
 gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
-#gem 'sqlite3'
 
 gem 'mysql2'
 gem 'will_paginate', '~> 3.0.pre4'
@@ -20,7 +13,6 @@ gem 'haml'
 gem 'on_the_spot'
 gem 'carmen'
 gem 'paperclip'
-#gem 'nested_form'
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'remotipart'
 gem 'json'
