@@ -16,7 +16,6 @@ class MealsController < ApplicationController
   end
 
   def edit
-    debugger
     @meal = Meal.find(params[:id])
     @plan = Plan.find(params[:plan_id])
     @day = Day.find(params[:day_id])
