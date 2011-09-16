@@ -1,4 +1,4 @@
-<%- day_selector = "#day_#{@day[:id}]" %>
+<%- day_selector = "#day_#{@day[:id]}" %>
 <%- add_link = "#{day_selector} .add-meal" %>
 $('<%= add_link %>').before('<%= escape_javascript render('form') %>');
 $('<%= add_link %>').hide();
