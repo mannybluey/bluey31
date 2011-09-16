@@ -11,6 +11,7 @@ class Plan < ActiveRecord::Base
   
   has_many :days
   has_many :plan_items, :through => :days
+  has_many :meals, :through => :days
   
   has_many :plan_item_versions, :class_name => "Version",
     :finder_sql => proc { "SELECT versions.* 
