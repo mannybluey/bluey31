@@ -1,39 +1,11 @@
-- content_for :top_menu do
-	%ul
-		- PlanType.all.each do |plan_type|
-			%li= link_to image_tag("#{plan_type[:image_path]}", :alt => "#{File.basename( plan_type[:image_path], '.*')}"), plan_type_path(plan_type[:id])
-
-- content_for :bottom_menu do
-	= render :partial => "shared/dashboard_menu"
+= render  "plans_menu"
 
 - content_for :bottom_content_bar do
 	#bottom_content_bar.plans
-		#navBar
-			%ul.fl
-				= render :partial => "nav_bar"
-			= form_for :query , :url => "#", :html => {:id => "searchForm", :class => "fr" } do |f|
-				= f.text_field :search_string
-				= f.submit "Search"
+		#filter_bar
+			= render "filter_bar"
+			= render "search_form"
 										
 - content_for :bottom_content do
 	#contentWrapper{:style => "position:relative;"}
-		%h2= plan_list_title(@plan_type)
-		#contentBar
-			%ul.fl.add-plan
-				%li
-					= link_to '+ Add Plan', new_plan_path, :id => 'add-plan', :class => 'dialog', :title => "New Plan"
-			#addPlanText.fl
-				%p
-					%b Available plans are listed below
-				%p.small To add new plan click the link on the left
-
-			- if display_paginationBar(@plans)
-				#paginationBar.fl
-					= render :partial => "pagination_nav"
-
-		#content.clear.dashboard{:style => "z-index: 0;"}
-			- unless @plans.count > 0
-				= render :partial => "no_plan"
-			- else
-				%ul
-					= render :partial => "plan", :collection => @plans
+		= render  "plan_list"

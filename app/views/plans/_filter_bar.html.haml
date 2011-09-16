@@ -1,0 +1,6 @@
+%ul.fl
+	%li#allBtn{:class => "#{'active' if @selection.nil?}"}= link_to "All", plans_path
+	%li#exerciseBtn{:class => "#{'active' if @selection == 'exercise'}"}= link_to "Exercise", exercises_plans_path
+	%li#nutritionBtn{:class => "#{'active' if @selection == 'nutrition'}"}= link_to "Nutrition", nutritions_plans_path, :id => "nutrition"
+	%li#supplementBtn{:class => "#{'active' if @selection == 'supplement'}"}= link_to "Supplement", not_yet_implemented_path, :class => "dialog", :title => "Supplement Plan", :width => "520"
+	%li#healthBtn{:class => "#{'active' if @selection == 'health'}"}= link_to "Health",  not_yet_implemented_path, :class => "dialog", :title => "Health Plan", :width => "520"		

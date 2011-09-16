@@ -1,9 +1,9 @@
 class DaysController < ApplicationController
-  
+   respond_to :html, :js
+ 
   def create
     plan = Plan.find(params[:plan_id])
-    day_class_name = "Day#{plan.plan_type[:name].capitalize}"
-    @day = day_class_name.constantize.new()
+    @day = Day.new()
     respond_to do |format|
       if @day.valid?
         plan.days << @day

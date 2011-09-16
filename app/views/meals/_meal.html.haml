@@ -1,0 +1,21 @@
+%li.plan-item{:id => "meal_#{meal[:id]}"}
+
+	%header
+		.check-plan-item.fl{:id => "meal_#{meal[:id]}"}
+			= check_box_tag meal.name, meal.id, meal.completed, 
+		                :'data-url' => plan_day_meal_path(meal.day.plan, meal.day, meal)
+		.plan-item-name.fl{:style => "width: 165px; padding-top: 5px;"}
+			= meal.name
+		
+		.plan-item-actions.clear{:style => "margin: 3px 0 3px 5px; text-align: center;"}
+			= link_to image_tag('edit_medium.png', :alt => 'Edit'), edit_plan_day_meal_path(meal.day.plan, meal.day, meal), :remote => :true, :title => 'Edit Meal'
+			= "  Edit"
+			%span{:style => "margin-left: 20px;"}= link_to image_tag('delete_medium.png', :alt => 'Delete'), plan_day_meal_path(meal.day.plan, meal.day, meal), :method => :delete, :title => 'Delete Exercise'
+			= "  Delete"
+
+	
+	%section{:style => "width: 600px;" }
+		%div.fl
+			%ul
+			- meal.aliments.each_with_index do |aliment, idx|
+				%li= "<strong>#{aliment[:name]}</strong>  >> Calories: #{aliment[:calories]} , Prot.: #{aliment[:proteines]} , Cal: #{aliment[:calories]} , Proteins: #{aliment[:proteines]}, Carbs: #{aliment[:carbs]} , Fats: #{aliment[:fats]}".html_safe

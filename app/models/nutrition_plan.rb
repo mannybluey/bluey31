@@ -1,2 +1,0 @@
-class NutritionPlan < Plan
-end

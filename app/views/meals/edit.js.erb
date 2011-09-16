@@ -1,0 +1,8 @@
+<%- item_selector = "#meal_#{@meal[:id]}" %>
+$('<%= item_selector %>').append('<%= escape_javascript render(:partial => 'form', :locals => {:edit_form => true}) %>');
+
+// Cancel link
+$('<%= item_selector %> #cancel-edit-meal').click(function(event) {
+  $(this).closest('form').remove();
+  event.preventDefault();
+});

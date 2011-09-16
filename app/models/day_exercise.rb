@@ -1,3 +1,0 @@
-class DayExercise < Day
-  
-end

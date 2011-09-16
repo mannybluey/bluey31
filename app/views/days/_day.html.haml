@@ -2,8 +2,18 @@
 	.day_header
 		%h3
 			%span Day #{@day_count || day_counter + 1}
-			%span=link_to (image_tag 'delete.png', :style => "margin-top: -4px;"), plan_day_path(day.plan, day), :method => :delete
+			%span=link_to (image_tag 'delete.png', :style => "margin-top: -4px;"), plan_day_path(day.plan, day), :method => :delete, :title => "Delete Day"
+
 	%section{:style => "width: 920px; margin-left: 5px;"}
+	
+	- if day.plan.plan_type[:name] == 'Nutrition'
+		%ul.day-items
+			= render day.meals
+			
+		%p.clear{:style => "margin: 0 0 5px 5px;"}= link_to "Add a Meal", new_plan_day_meal_path(day.plan, day), :class => 'add-meal button', :remote => true
+				
+	- else
 		%ul.day-items
 			= render day.plan_items
-		%p= link_to "Add #{day.plan.plan_type[:name].capitalize}", new_plan_day_plan_item_path(day.plan, day), :class => 'add-plan-item button', :remote => true
+			
+		%p.clear{:style => "margin: 0 0 5px 5px;"}= link_to "Add an Exercise", new_plan_day_plan_item_path(day.plan, day), :class => 'add-plan-item-button', :remote => true

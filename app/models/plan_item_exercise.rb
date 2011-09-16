@@ -1,2 +1,0 @@
-class PlanItemExercise < PlanItem
-end

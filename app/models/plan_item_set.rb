@@ -1,6 +1,5 @@
 class PlanItemSet < ActiveRecord::Base
-  belongs_to :plan_item
   
-  attr_accessible :type
+  belongs_to :plan_item
 
 end

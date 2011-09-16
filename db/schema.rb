@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110910075027) do
+ActiveRecord::Schema.define(:version => 20110915124001) do
+
+  create_table "aliments", :force => true do |t|
+    t.string   "name"
+    t.integer  "calories"
+    t.integer  "proteins"
+    t.integer  "carbs"
+    t.integer  "fats"
+    t.integer  "meal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "body_parts", :force => true do |t|
     t.string   "name"
@@ -27,7 +38,15 @@ ActiveRecord::Schema.define(:version => 20110910075027) do
     t.integer  "plan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
+  end
+
+  create_table "meals", :force => true do |t|
+    t.string   "name"
+    t.integer  "day_id"
+    t.integer  "position"
+    t.boolean  "completed",  :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "plan_days_plan_items", :id => false, :force => true do |t|
@@ -51,7 +70,6 @@ ActiveRecord::Schema.define(:version => 20110910075027) do
     t.integer  "plan_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
   end
 
   create_table "plan_items", :force => true do |t|
@@ -61,7 +79,6 @@ ActiveRecord::Schema.define(:version => 20110910075027) do
     t.integer  "position"
     t.boolean  "completed",  :default => false
     t.string   "name"
-    t.string   "type"
   end
 
   create_table "plan_types", :force => true do |t|
@@ -81,7 +98,6 @@ ActiveRecord::Schema.define(:version => 20110910075027) do
     t.text     "description"
     t.integer  "plan_type_id"
     t.string   "cached_slug"
-    t.string   "type"
   end
 
   create_table "slugs", :force => true do |t|

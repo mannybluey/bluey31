@@ -1,0 +1,15 @@
+%h2 All Plans
+#contentBar
+	= render :partial => "add_plans_link"
+	
+	- if @plans.total_pages > 1
+		#paginationBar.fl
+			= render :partial => "pagination_nav"
+
+#content.clear.dashboard{:style => "z-index: 0;"}
+	- unless @plans.count > 0
+		#no_plan{:style => "min-height: 400px;"}
+			%h2 No Plans
+	- else
+		%ul
+			= render :partial => "plan", :collection => @plans, :as => :plan

@@ -1,7 +1,10 @@
 class PlanItemsController < ApplicationController
   
+  respond_to :html, :js
+
   def new
     @plan = Plan.find(params[:plan_id])
+    @selection = @plan.plan_type[:name].downcase
     @day = Day.find(params[:day_id])
     @plan_item = PlanItem.new
     @plan_item.plan_item_sets.build
@@ -21,6 +24,7 @@ class PlanItemsController < ApplicationController
 
   def edit
     @plan_item = PlanItem.find(params[:id])
+    @selection = @plan_item.day.plan.plan_type[:name].downcase
     @plan = Plan.find(params[:plan_id])
     @day = Day.find(params[:day_id])
   end
@@ -28,6 +32,7 @@ class PlanItemsController < ApplicationController
   # PUT /update/:id
   def update
     @plan_item = PlanItem.find(params[:id])
+    @selection = @plan_item.day.plan.plan_type[:name].downcase
     respond_to do |format|
       if @plan_item.update_attributes(params[:plan_item])
         format.js
@@ -39,6 +44,7 @@ class PlanItemsController < ApplicationController
 
   def destroy
     @plan_item = PlanItem.find(params[:id])
+    @selection = @plan_item.day.plan.plan_type[:name].downcase
     @plan_item.destroy
     redirect_to :back, :notice => "Deleted exercise #{undo_link}".html_safe
   end

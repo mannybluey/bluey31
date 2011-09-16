@@ -10,6 +10,7 @@ Bluey::Application.routes.draw do
   match "pages/dashboard", :to => "plans#index", :as => "dashboard", :via => 'get'
  # get "plan/:id", :to => "plans#new"
   get "plan_type/:id", :to => "plans#index", :as => "plan_type"
+  
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
 
   # Users and their profile management
@@ -36,10 +37,13 @@ Bluey::Application.routes.draw do
   #resources :plans, :except => [:edit] do
   resources :plans do
     collection do
+      get :exercises
+      get :nutritions
       put :update_attribute_on_the_spot
     end
     resources :days, :only => [:create, :destroy] do
       resources :plan_items
+      resources :meals
     end
   end
 

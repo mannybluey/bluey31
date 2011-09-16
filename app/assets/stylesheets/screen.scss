@@ -61,6 +61,14 @@ $large: 18px;
   @include text-shadow(white 1px 1px 1px);
 }
 
+@mixin grey-box {
+  color: #333333;
+  @include background-image(linear-gradient(bottom, #cccccc, #cccccc 100%));
+  @include border-radius($default_border_radius);
+  border: 1px solid #d4d4d4;
+  @include text-shadow(white 1px 1px 1px);
+}
+
 @mixin shiny-red-box {
   @include background-image(linear-gradient(bottom, #990000, #990000 45%, #a3322b 45%, #a3322b 100%));
   @include border-radius($default_border_radius);
@@ -80,6 +88,14 @@ $large: 18px;
   @include border-radius($default_border_radius);
   @include box-shadow(#bbbbbb 0 0 1px 0px);
   border: 1px solid #999999;
+}
+
+@mixin light-blue-box  {
+  color: #333333;
+  @include background-image(linear-gradient(bottom, #dde8ee, #dde8ee 100%));
+  @include border-radius($default_border_radius);
+  border: 1px solid #d4d4d4;
+  @include text-shadow(white 1px 1px 1px);
 }
 
 @mixin green-text-shadow {

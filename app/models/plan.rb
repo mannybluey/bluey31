@@ -25,9 +25,16 @@ class Plan < ActiveRecord::Base
   @@per_page = 12
     
   class << self
-    def all_plans_for(user)
+    def all_for(user)
        where(:creator_id => user[:id])
     end
+    def exercises_for(user)
+        where(:plan_type_id => 1, :creator_id => user[:id])
+   end
+    def nutritions_for(user)
+        where(:plan_type_id => 2, :creator_id => user[:id])
+   end
+    
   end
   
 end

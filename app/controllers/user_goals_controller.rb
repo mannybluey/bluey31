@@ -1,5 +1,6 @@
 class UserGoalsController < ApplicationController
   before_filter :authenticate_user!
+  respond_to :html, :js
 
   def index
     @user_goals = current_user.user_profile.user_goals

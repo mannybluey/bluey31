@@ -1,2 +1,0 @@
-class PlanItemNutrition < PlanItem
-end

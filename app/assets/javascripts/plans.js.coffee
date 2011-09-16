@@ -1,12 +1,16 @@
 $(document).ready ->
   
-  $("#plan_type").change (e) ->
+  $("#plan_plan_type_id").live 'change', ->
     choice = $(this).val()
     choice = 0 if ( $(this).val() == '')
-    $.get "/plan/#{choice}.js"
+    submitBtn = $('#plan_form input[type="submit"]')
+    if choice > 0
+      submitBtn.removeAttr('disabled')
+    else
+      submitBtn.attr('disabled', 'disabled')
 	  
-  $("#navBar ul li a").click ->
-    $( "#navBar ul li" ).removeClass( 'active' )
+  $("#filter_bar ul li a").click ->
+    $( "#filter_bar ul li" ).removeClass( 'active' )
     $(this).parent().addClass('active') 
   
   $("#content.dashboard ul li.plan").mouseenter ->

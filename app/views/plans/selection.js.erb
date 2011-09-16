@@ -1,0 +1,7 @@
+var selection = "<%= @selection %>";  
+if (selection < 1) {
+  $('#plan_form form input[type=submit]').attr('disabled', 'disabled');
+} else {
+  $('#plan_form form').attr('action', "<%= escape_javascript( @url ) -%>" );
+  $('#plan_form form input[type=submit]').removeAttr('disabled');
+}

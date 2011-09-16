@@ -1,5 +1,5 @@
 %li.plan{:id => "plan_#{plan[:id]}"}
-	= image_tag "#{plan.plan_type[:image_path]}", :alt => "#{File.basename( plan.plan_type[:image_path], '.*')}"
+	= image_tag "#{plan.plan_type[:image_path]}", :alt => "#{plan.plan_type[:name]}"
 	%p.task= truncate(plan[:name], :length => 14)
 	%p.day= I18n.t(:day, :count => plan.days.count)
 	%p{:style => "line-height: 22px;"}
@@ -8,7 +8,5 @@
 	%p
 		= image_tag "dashboard/calendar.png", :alt => "calendar", :align => "top"
 		%small= "#{I18n.l(plan[:created_at].to_date, :format => :long)}"
-	.planActionBar{:style => "display:none;"}
-		= link_to (image_tag "dashboard/planActionEdit.png", :alt => "plan edit", :align => "top", :class => "plan_action_image"), plan_path(plan[:id]), :id => "plan-#{plan[:id]}-edit"
-		= link_to (image_tag "dashboard/planActionDelete.png", :alt => "plan delete", :align => "top", :class => "plan_action_image"), plan_path(plan[:id]), :method => :delete, :id => "plan-#{plan[:id]}-delete"
-		= link_to (image_tag "dashboard/planActionShare.png", :alt => "plan share",  :align => "top",  :align => "top", :class => "plan_action_image"), "#", :id => "plan-#{plan[:id]}-share"
+
+	= render :partial => "plan_action_bar", :locals => {:plan => plan }
