@@ -13,6 +13,13 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(params[:meal])
     @meal.day_id = params[:day_id]
+    respond_to do |format|
+      if @meal.save
+        format.js
+      else
+        format.js
+      end
+    end
   end
 
   def edit
