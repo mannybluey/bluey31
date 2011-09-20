@@ -8,5 +8,6 @@ module PlansHelper
        "Available #{PlanType.find(plan_type)[:name].capitalize} Plans"
      end
    end
+   
   
 end

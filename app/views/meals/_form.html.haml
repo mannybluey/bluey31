@@ -1,0 +1,44 @@
+= nested_form_for [@plan, @day, @meal], :remote => true do |f|
+
+	%h2{:style => "padding: 3px; margin-bottom: 10px;"}
+		- if local_assigns[:edit_form].nil?
+			%span#form_title.fl Add Meal
+			%span.fr
+				= link_to image_tag('yellow_small_close.png'), '#', :class => 'cancel', :id => 'cancel-add-meal', :title => "Done"
+		- else
+			%span#form_title.fl Update Meal
+			%span.fr
+				= link_to image_tag('yellow_small_close.png'), '#', :class => 'cancel', :id => 'cancel-edit-meal', :title => "Cancel"
+
+
+	.form-errors
+	%p
+		= f.label :name, "Meal"
+		= f.select(:name, options_for_meal_name(@day))	
+
+	%p
+		%em.hint Aliments: Enter name, calories and nutrient % e.g. 'Calories: 250, Fat: 10%, Carbs: 25%'
+
+		
+	= f.fields_for :aliments do |set_form|
+		%p{:style => "text-align:right;"}
+			= set_form.link_to_remove '&#x2717   '.html_safe
+			= set_form.label :name, "Aliment"
+			= set_form.text_field :name, :class => 'half-size'
+			= set_form.label :calories, "Calories"
+			= set_form.text_field :calories, :class => 'mini-size'
+			= set_form.label :proteins, "Proteins"
+			= set_form.text_field :proteins, :class => 'mini-size'
+			= set_form.label :carbs, "Carbs"
+			= set_form.text_field :carbs, :class => 'mini-size'
+			= set_form.label :fats, "Fats"
+			= set_form.text_field :fats, :class => 'mini-size'
+			
+
+	= f.link_to_add '+ Add another Aliment', :aliments
+	%hr
+	%p.buttons
+		- if local_assigns[:edit_form].nil?
+			= f.submit "Add this Meal"
+		- else
+			= f.submit 'Update'

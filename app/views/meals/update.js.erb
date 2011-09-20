@@ -1,0 +1,3 @@
+<%- item_selector = "#meal_#{@meal.id}" %>
+$('<%= item_selector %>')
+  .replaceWith('<%= escape_javascript(render(@meal)) %>');

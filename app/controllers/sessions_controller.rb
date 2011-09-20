@@ -1,7 +1,8 @@
 class SessionsController < Devise::SessionsController 
   
   skip_before_filter :ensure_browser_supported
-  
+  respond_to :html, :js
+
   # GET /resource/sign_in
   def new
     resource = build_resource

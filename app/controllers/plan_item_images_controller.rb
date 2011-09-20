@@ -1,7 +1,8 @@
 class PlanItemImagesController < ApplicationController
-  
+
   before_filter :authenticate_user!
-  
+  respond_to :html, :js
+
   def new
     @plan_item = PlanItem.find(params[:plan_item_id])
     @plan = @plan_item.day.plan

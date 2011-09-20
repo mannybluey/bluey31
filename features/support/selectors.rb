@@ -15,7 +15,15 @@ module HtmlSelectorsHelpers
     # Here is an example that pulls values out of the Regexp:
     #
     #  when /the (notice|error|info) flash/
-    #    ".flash.#{$1}"
+    #    ".flash.#{$1}"    
+    when /the plan navigation menu/
+      "#topBar > #rightTopBar > #bottomMenu"
+      
+    when /the plan filter bar/
+      "#bottom_content > #contentWrapper > #contentBar"
+      
+    when /the new plan form/
+      "#new_plan > #plan_form"
 
     # You can also return an array to use a different selector
     # type, like:

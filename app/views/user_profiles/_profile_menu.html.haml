@@ -1,0 +1,14 @@
+- content_for :top_menu do
+	%ul#user-tabs
+		%li.selected= link_to image_tag("dashboard/user-profile/about-nav-item.png", :alt => "about"), '', :name => 'foundation', :title => "About"
+		%li= link_to image_tag("dashboard/user-profile/goal-nav-item.png", :alt => "goals"), user_goals_path, :title => "Goals"
+		%li= link_to image_tag("dashboard/user-profile/symptoms-nav-icon.png", :alt => "symptoms"), '', :name => 'symptoms', :title => "Symptoms"
+		%li{:style => "margins: 0;"}= link_to image_tag("dashboard/user-profile/pictures-nav-item.png", :alt => "pictures"), user_images_path, :name => 'pictures', :title => "Pictures"
+
+- content_for :bottom_menu do
+	%ul
+		%li= link_to "Plans", dashboard_path
+		%li= link_to "Fit Bar", not_yet_implemented_path, :class => "dialog", :title => "Fit Bar", :width => "520"
+		%li= link_to "Challenges", not_yet_implemented_path, :class => "dialog", :title => "Challenges", :width => "520"
+		%li= link_to "Financial", not_yet_implemented_path, :class => "dialog", :title => "Financials", :width => "520"
+		%li.active= link_to "Profile", profile_edit_path, :name => 'profile'

@@ -1,25 +1,35 @@
 = nested_form_for [@plan, @day, @plan_item], :remote => true do |f|
-  .form-errors
-  %p
-    = f.label :name, "#{@plan.plan_type[:name].capitalize}"
-    = f.text_field :name
-  %p
-    %em.hint Sets: Enter reps, weight or any measurement e.g. '18 kg, 40 lbs' or '40 lengths'
 
-  = f.fields_for :plan_item_sets do |set_form|
-    %p
-      = set_form.label :measurements, "Set"
-      = set_form.text_field :measurements, :class => 'half-size'
-      = set_form.link_to_remove '&#x2717   '.html_safe
+	%h2{:style => "padding: 3px; margin-bottom: 10px;"}
+		- if local_assigns[:edit_form].nil?
+			%span#form_title.fl Add Exercise
+			%span.fr
+				= link_to image_tag('yellow_small_close.png'), '#', :class => 'cancel', :id => 'cancel-add-plan-item', :title => "Done"
+		- else
+			%span#form_title.fl Update Exercise
+			%span.fr
+				= link_to image_tag('yellow_small_close.png'), '#', :class => 'cancel', :id => 'cancel-edit-plan-item', :title => "Cancel"
+	
+	
+	%div.clear{:style => "margin-top: 20px; padding: 5px 5px 5px 5px;"} 
+		.form-errors
+		%p
+			= f.label :name, "Exercise"
+			= f.text_field :name
+		%p
+			%em.hint Sets: Enter reps, weight or any measurement e.g. '18 kg, 40 lbs' or '40 lengths'
 
-  = f.link_to_add '+ Add another set', :plan_item_sets
-  %hr
-  %p.buttons
-    - if local_assigns[:edit_form].nil?
-      = f.submit "Add this #{@plan.plan_type[:name].capitalize}"
-      or
-      = link_to "I'm done adding #{@plan.plan_type[:name].downcase.pluralize}", '#', :class => 'cancel', :id => 'cancel-add-plan-item'
-    - else
-      = f.submit 'Update'
-      or
-      = link_to "cancel", '#', :class => 'cancel', :id => 'cancel-edit-plan-item'
+		= f.fields_for :plan_item_sets do |set_form|
+			%p
+				= set_form.label :measurements, "Set"
+				= set_form.text_field :measurements, :class => 'half-size'
+				= set_form.link_to_remove '&#x2717   '.html_safe
+		%p
+			= f.link_to_add '+ Add another set', :plan_item_sets
+
+		%hr.clear
+		%p.buttons
+			- if local_assigns[:edit_form].nil?
+				= f.submit "Add this Exercise"
+			- else
+				= f.submit 'Update'

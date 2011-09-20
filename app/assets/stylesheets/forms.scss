@@ -51,6 +51,10 @@ form {
     width: 50px !important; }
   input.half-size {
     width: 150px; }
+  input.quarter-size {
+    width: 75px; }
+  input.mini-size {
+    width: 38px; }
   p.number {
     float: left;
     margin-right: 50px; }
@@ -93,6 +97,17 @@ a.remove_nested_fields {
   color: transparent;
   text-decoration: none;
   background: transparent url(/assets/delete_small.png) no-repeat;
+  padding: 0 3px;
+  &:hover {
+    color: transparent;
+    text-decoration: none;
+  }
+}
+
+a.add_nested_fields {
+  color: transparent;
+  text-decoration: none;
+  background: transparent url(/assets/add_small.png) no-repeat;
   padding: 0 3px;
   &:hover {
     color: transparent;
@@ -307,3 +322,4 @@ a.small_grey_button {
 .body-part-form-content form input[type="submit"] {
   margin: 10px;
 }
+

@@ -1,0 +1,30 @@
+.fl
+	- if current_user.user_profile.user_images.where(:is_profile_picture => true).empty?
+		= image_tag "dashboard/no_man.jpg", :alt => "defaultPicture"
+	- else
+		= image_tag current_user.user_profile.user_images.where(:is_profile_picture => true).first.picture.url(:large), :alt => "userPicture", :id => 'profile-picture'
+#userPerformances.fl
+	#userPoints
+		= current_user[:id]
+	%p
+		- if current_user.user_profile[:name].blank?
+			Hi !
+		- else
+			= "Hi, #{current_user.user_profile[:name]}"
+	= image_tag "dashboard/userMedals.jpg", :id => "medals", :alt => "userMedals"
+= image_tag "dashboard/healthMetterButton.jpg", :class => "fl", :alt => "healthMetterButton", :id => "healthMeter"
+= image_tag "dashboard/goalMeterButton.jpg", :class => "fl", :alt => "goalMeterButton", :id => "goalMeter"
+
+#beta_logo
+	%p
+		Beta
+		= image_tag "dashboard/Blue-logo.png", :alt => "blue_logo", :style => "vertical-align:top;"
+
+#bubble_area{:style => "width: 375px; height: 90px; word-wrap: break-word;"}
+	
+	%p{:style => "margin: 30px 0 0 111px; width: 245px; height: 50px; padding: 2px 10px 3px 5px; color: grey; font-size: 0.95em;"}
+		- if current_user.user_profile[:summary].blank?
+			Type your summary in Profile...
+		- else
+			= truncate current_user.user_profile[:summary], :length => 90
+	

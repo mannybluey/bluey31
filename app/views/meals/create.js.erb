@@ -1,0 +1,19 @@
+<%- day_selector = "#day_#{@meal.day_id}" %>
+<%- if @meal.errors.any? %>
+  $('<%= day_selector %> .form-errors').html('<%= escape_javascript render('shared/form_errors', :object => @meal) %>');
+<% else %>
+// update the meal name selector
+<%- meal_name = "#{@meal[:name]}" %>
+<%-  unless meal_name == 'snack' %>
+  $("#meal_name option[value=<%= meal_name %>]").remove();
+<%- end %>
+  $('<%= escape_javascript render @meal %>')
+    .hide()
+    .appendTo('<%= day_selector %> .day-items')
+    .fadeIn();
+  $('<%= day_selector %> form').resetForm();
+  $('<%= day_selector %> form').find('.found').remove();
+  $('<%= day_selector %>').find('.fields:gt(0)').remove();
+  // Make sure there are no errors displayed after successful creation
+  $('<%= day_selector %> .form-errors').html('');
+<% end %>

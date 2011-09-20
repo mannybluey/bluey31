@@ -1,0 +1,44 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12600\viewh10200\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs28 \cf0 \
+_footer partial\
+\
+- if content_for?(:bubbles)\
+  = yield :bubbles\
+\
+\
+==== view / partial\
+      %p\{:style=>"margin-top: 1.5em"\}\
+        %a.help\{:href=>"#birthday_and_gender_help"\} Why is this needed?\
+\
+\
+- content_for :bubbles do\
+  .bubble#birthday_and_gender_help\{:style=>"display: none; width: 24em"\}\
+    %h5 Why are my birthday and gender required?\
+    %p\
+      MemberHub requires that all users have a valid date of birth and gender\
+      because it makes it easier to process registrations with age or gender\
+      requirements.\
+\
+=========\
+\
+application.js\
+\
+Effect.DefaultOptions.duration = 0.25;\
+Bubble.DefaultOptions.outerContainerSelector = '#page';\
+\
+var Application = \{\};\
+Application.GeneralBehaviors = \{\
+...\
+ 'a.help': function() \{ BubbleTriggerBehavior.attach(this, this.href.anchorId()) \},\
+....\
+\
+======\
+\
+buble_behavior.js\
+\
+}

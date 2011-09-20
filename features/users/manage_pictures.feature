@@ -46,7 +46,7 @@ Feature: Manage user pictures
       Then I should see "Picture file name can't be empty"
       And I should be on the edit profile page
 
-    @javascript @wip
+    @javascript
     Scenario: User deletes a picture
       Given I sign up and sign in with email "user@test.com"
       And I have the following user_image records:

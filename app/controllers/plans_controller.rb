@@ -7,46 +7,43 @@ class PlansController < ApplicationController
   
   # GET /plans
   def index
-    #@plans = current_user.plans
-
+    @selection = params[:selection]
     @order = ["created_at desc", "name asc"]
     @page_number = params[:page].nil? ? 1 : params[:page].to_i
-    @plan_type = params[:id].nil? ? 0 : params[:id].to_i
-
-    case @plan_type
-      when 1
-        @plans = Plan.exercises(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
-      when 2
-        @plans = Plan.nutritions(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
-      when 3
-        @plans = Plan.supplements(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
-      when 4
-        @plans = Plan.healths(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
-      else  #  0   all plans
-        @plans = Plan.all_plans_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+    @total_pages  = 0
+    if params[:selection].nil?
+      @plans = Plan.all_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+    else
+      case @selection
+      when 'exercise'
+        @plans = Plan.exercises_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+      when 'nutrition'
+        @plans = Plan.nutritions_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+      end
     end
-    @total_pages = @plans.count / Plan.per_page + (@plans.count % Plan.per_page > 0 ? 1 : 0 ) if @plans.count > 0
-    
+    @total_pages = @plans.count / Plan.per_page + (@plans.count % Plan.per_page > 0 ? 1 : 0 ) if @plans.count > 0    
   end
 
+  # GET /plans/exercises
+  def exercises
+    redirect_to plans_url(:selection => :exercise)
+  end
+  
+  # GET /plans/nutritions
+  def nutritions
+    redirect_to plans_url(:selection => :nutrition)
+  end
+    
   # GET /plans/1
   def show
     @plan = Plan.find(params[:id])
+    @selection = @plan.plan_type[:name].downcase
     authorize! :read, @plan
   end
   
   # GET /plans/new
   def new
-    @plan_type_id =  params[:id].nil? ? 1 : params[:id].to_i
     @plan = Plan.new(:plan_type_id => @plan_type_id)
-
-    respond_to do |format|
-        format.html     
-        format.js  {
-          # render  :action => 'new.js'
-        }
-    end
-    
   end
 
   # POST /plans
@@ -70,12 +67,7 @@ class PlansController < ApplicationController
  # POST /plans/1/edit.js 
   def edit
     @plan = Plan.find(params[:id])
-    respond_to do |format|
-        format.html     
-        format.js  {
-          # render  :action => 'edit.js'
-        }
-    end
+    @selection = @plan.plan_type[:name].downcase
   end
  
   # PUT /plans/1
@@ -97,6 +89,9 @@ class PlansController < ApplicationController
     redirect_to plans_url, :notice => "Deleted plan #{undo_link}".html_safe
   end
 
+
+
+  
   private
 
   def undo_link

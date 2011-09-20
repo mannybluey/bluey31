@@ -1,6 +1,7 @@
 class UserProfilesController < ApplicationController
   before_filter :authenticate_user!
   can_edit_on_the_spot
+  respond_to :html, :js
 
   def show
     @user_profile = UserProfile.find(params[:id])

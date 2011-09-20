@@ -1,4 +1,25 @@
 - content_for :main_content do
 	#content
 		#new_plan
-			= render :partial => '/plans/forms/new_plan_form'
+			#plan_form
+				= form_for @plan, :remote => true do |f|
+	
+					#error_messages{:style => "display: none;"}
+		
+					.styled-select
+		
+						- if @plan[:plan_type_id].nil?
+							= f.select( :plan_type_id, PlanType.implemented.collect {|pt| [ pt.name, (pt.id) ] }, {:prompt => 'Select a Plan Type'})
+						- else
+							= f.select( :plan_type_id, PlanType.implemented.collect {|pt| [ pt.name, (pt.id) ] })	
+
+					%p
+						= f.label :name
+						%br/
+						= f.text_field :name, :class => 'wide'
+					%p
+						= f.label :description
+						%br/
+						= f.text_area :description, :class => 'small wide'
+					%p
+						= f.submit 'Create', :disabled => !@preselected
