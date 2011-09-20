@@ -16,8 +16,6 @@ $(document).ready ->
   animate_progress 0, 30, true
   animate_progress 1, 50, false
   
-  # $("#bottom-landing").jixedbar()
-
   $(".dialog").live "click", (e) ->
     $('.ui-dialog').remove()
     e.preventDefault()

@@ -51,6 +51,8 @@
 							
 						#bottom_content
 							= yield :bottom_content
-		
-		= yield :foot
+			
+		- if content_for?(:bubbles)
+			= yield :bubbles
 
+		= yield :foot

@@ -12,9 +12,11 @@
 //= require jquery.jeditable.mini
 //= require jquery.remotipart
 //= require jquery.rotate
+//= require jquery.tools.min
 
 //= require forms
 //= require landing
+//= require dashboard
 //= require nested_form
 //= require on_the_spot
 //= require flowplayer
