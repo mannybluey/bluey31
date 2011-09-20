@@ -1,10 +1,12 @@
 %li.plan-item{:id => "plan_item_#{plan_item.id}"}
 
 	%header
+		
 		.check-plan-item.fl{:style => "width: 25px;"}
 			= check_box_tag plan_item.name, plan_item.id, plan_item.completed, 
 		                :'data-url' => plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item)
-		.plan-item-name.fl{:style => "width: 165px; padding-top: 5px;"}
+		
+		.plan-item-name.fl{:style => "width: 165px; padding-top: 5px; overflow: auto;"}
 			= plan_item.name
 		
 		.plan-item-actions.clear{:style => "margin: 3px 0 3px 5px; text-align: center;"}
