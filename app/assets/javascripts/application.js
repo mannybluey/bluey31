@@ -15,7 +15,6 @@
 
 //= require forms
 //= require landing
-//= require dashboard
 //= require nested_form
 //= require on_the_spot
 //= require flowplayer
