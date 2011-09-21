@@ -12,7 +12,6 @@
 //= require jquery.jeditable.mini
 //= require jquery.remotipart
 //= require jquery.rotate
-//= require jquery.tools.min
 
 //= require forms
 //= require landing
