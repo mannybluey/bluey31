@@ -14,3 +14,16 @@ class PlanType < ActiveRecord::Base
   
 
 end
+# == Schema Information
+#
+# Table name: plan_types
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  image_path :string(255)
+#  position   :integer(4)
+#  status     :boolean(1)      default(TRUE)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

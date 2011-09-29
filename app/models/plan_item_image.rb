@@ -15,3 +15,18 @@ class PlanItemImage < ActiveRecord::Base
   attr_accessible :image, :name
   
 end
+# == Schema Information
+#
+# Table name: plan_item_images
+#
+#  id                 :integer(4)      not null, primary key
+#  name               :string(255)
+#  plan_item_id       :integer(4)
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer(4)
+#  image_updated_at   :datetime
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+
