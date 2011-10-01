@@ -274,7 +274,7 @@ li.plan-item.completed { color: $subtle; }
   line-height:15px;  
   header {
     float: left;
-    width: 200px;
+    width: 120px;
     .delete-image {
       right: 15px;
       background: url(/assets/delete_small.png) no-repeat 0 0;
@@ -303,6 +303,20 @@ li.plan-item.completed { color: $subtle; }
     float: right;
     padding-top: 3px;
   }
+}
+
+.edit_plan_item a.add_nested_fields {
+  color: grey; 
+  padding-left: 20px;
+  &:hover { color: #333333 }
+}
+
+.plan-item-name { 
+  font-size: 1.10em;
+  width: 165px; 
+  padding-top: 5px; 
+  padding-bottom: 10px; 
+  overflow: auto;
 }
 
 .plan-item-image {
@@ -336,7 +350,12 @@ li.plan-item.completed { color: $subtle; }
   @include border-radius($default_border_radius);
   font-size: 13px;
   padding-top: 3px;
+  margin: 3px 0 3px 5px;
+  text-align: center;
+  width: 100px;
 }
+
+.plan_item_done { width: 22px; height:22px;}
 
 p#add_image {
   @include shiny-grey-box;

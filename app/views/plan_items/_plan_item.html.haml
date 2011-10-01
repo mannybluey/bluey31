@@ -1,23 +1,16 @@
 %li.plan-item{:id => "plan_item_#{plan_item.id}"}
 
 	%header
-		
-		.check-plan-item.fl{:style => "width: 25px;"}
-			= check_box_tag plan_item.name, plan_item.id, plan_item.completed, 
-		                :'data-url' => plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item)
-		
-		.plan-item-name.fl{:style => "width: 165px; padding-top: 5px; overflow: auto;"}
-			= plan_item.name
-		
-		.plan-item-actions.clear{:style => "margin: 3px 0 3px 5px; text-align: center;"}
-			= link_to image_tag('edit_medium.png', :alt => 'Edit'), edit_plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item), :remote => :true, :title => 'Edit Exercise'
-			= "  Edit"
-			%span{:style => "margin-left: 20px;"}= link_to image_tag('delete_medium.png', :alt => 'Delete'), plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item), :method => :delete, :title => 'Delete Exercise'
-			= "  Delete"
+		.plan-item-actions.clear
 
-	
+			= check_box_tag plan_item.name, plan_item.id, plan_item.completed, :class => "plan_item_done"
+			= "  Done"
+			
 	%section{:style => "width: 600px;" }
 		%div.fl
+			.plan-item-name
+				%b= "Exercise: "
+				= plan_item.name
 			%ul
 			- plan_item.plan_item_sets.each_with_index do |set, idx|
 				%li= "<strong>Set #{idx + 1}</strong>: #{set.measurements}".html_safe
@@ -36,5 +29,11 @@
 					%br
 					%em Click to enlarge
 
+	%section{:style => "width: 70px;"}
+		= link_to image_tag('delete_medium.png', :alt => 'Delete'), plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item), :method => :delete, :title => 'Delete Exercise'
+		= "Delete"
+		%br
+		= link_to image_tag('edit_medium.png', :alt => 'Edit'), edit_plan_day_plan_item_path(plan_item.day.plan, plan_item.day, plan_item), :remote => :true, :title => 'Edit Exercise'
+		= "Edit"
 
 
