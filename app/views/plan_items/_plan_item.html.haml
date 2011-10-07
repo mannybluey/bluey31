@@ -1,9 +1,9 @@
-%li.plan-item{:id => "plan_item_#{plan_item.id}"}
+%li.plan-item{:id => "plan_item_#{plan_item[:id]}",  :class => "#{'completed' if plan_item.completed? }", :style => "display: #{ should_display?(plan_item) }"}
 
 	%header
 		.plan-item-actions.clear
 
-			= check_box_tag plan_item.name, plan_item.id, plan_item.completed, :class => "plan_item_done"
+			= check_box_tag plan_item.name, plan_item.id, plan_item.completed?, :class => "plan_item_completed"
 			= "  Done"
 			
 	%section{:style => "width: 600px;" }

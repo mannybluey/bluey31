@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0'
 gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
 
+gem 'rack', '1.3.3'
+
 gem 'mysql2'
 gem 'will_paginate', '~> 3.0.pre4'
 
@@ -21,6 +23,7 @@ gem 'paper_trail'
 gem 'friendly_id'
 gem 'to_slug'
 
+gem 'state_machine'
 
 # Gems used only for assets and not required
 # in production environments by default.

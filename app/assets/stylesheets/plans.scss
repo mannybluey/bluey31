@@ -192,7 +192,6 @@
     padding: 7px 7px 0 7px;
     font-size: $large;
     a {
-      float: right;
       font-size: $small;
     }
   }
@@ -248,7 +247,7 @@
 }
 #plan a.button:hover { color: #000000;}
 
-li.plan-item.completed { color: $subtle; }
+li.plan-item.completed {}
 
 #no-days { display: block;  margin-bottom: 10px; }
 

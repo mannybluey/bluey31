@@ -23,6 +23,13 @@ class DaysController < ApplicationController
     redirect_to :back, :notice => "Delete day. #{undo_link}".html_safe
   end
 
+  def toggle_completed_items
+    @plan = Plan.find(params[:plan_id])
+    @day = Day.find(params[:day_id])
+    @day.toggle!(:show_flag)
+    @day_count = @plan.days.count
+  end
+  
   private
 
   def undo_link
