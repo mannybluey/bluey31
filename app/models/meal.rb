@@ -12,22 +12,6 @@ class Meal < ActiveRecord::Base
     :reject_if => proc { |attributes| attributes.all? {|k,v| v.blank?}}
     
   has_paper_trail
-<<<<<<< HEAD
- 
-end# == Schema Information
-#
-# Table name: meals
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  day_id     :integer(4)
-#  position   :integer(4)
-#  completed  :boolean(1)      default(FALSE)
-#  created_at :datetime
-#  updated_at :datetime
-#
-
-=======
 
   state_machine :initial => :pending do
 
@@ -41,4 +25,16 @@ end# == Schema Information
   end
    
 end
->>>>>>> working
+# == Schema Information
+#
+# Table name: meals
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  day_id     :integer(4)
+#  position   :integer(4)
+#  completed  :boolean(1)      default(FALSE)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
