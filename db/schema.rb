@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111007062704) do
+ActiveRecord::Schema.define(:version => 20111007123429) do
 
   create_table "aliments", :force => true do |t|
     t.string   "name"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(:version => 20111007062704) do
     t.integer  "plan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",      :default => "pending"
     t.boolean  "show_flag",  :default => false
+    t.string   "state",      :default => "pending"
   end
 
   create_table "meals", :force => true do |t|
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20111007062704) do
     t.boolean  "completed",  :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state",      :default => "pending"
   end
 
   create_table "plan_days_plan_items", :id => false, :force => true do |t|
