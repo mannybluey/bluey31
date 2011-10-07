@@ -73,7 +73,13 @@ class PlansController < ApplicationController
   # PUT /plans/1
   def update
     @plan = Plan.find(params[:id])
-
+    unless params[:plan_item].nil? || params[:plan_item][:id].nil?
+      plan_item = PlanItem.find(params[:plan_item][:id])
+      case params[:plan_item][:completed] 
+        when "true" then plan_item.perform!
+        when "false" then plan_item.reset!
+      end
+    end
     if @plan.update_attributes(params[:plan])
       redirect_to(@plan, :notice => 'Plan was successfully updated.')
     else

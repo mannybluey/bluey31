@@ -20,3 +20,6 @@ $(document).ready ->
   $("#content.dashboard ul li.plan").mouseleave ->
     $(this).children("div.planActionBar:first").hide()
     return
+  
+  #$("ul.day-items input[type='checkbox'].plan_item_done").live 'change', ->
+  #  planItemId = $(this).val()

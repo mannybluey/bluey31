@@ -42,6 +42,7 @@ Bluey::Application.routes.draw do
       put :update_attribute_on_the_spot
     end
     resources :days, :only => [:create, :destroy] do
+      get :toggle_completed_items
       resources :plan_items
       resources :meals
     end

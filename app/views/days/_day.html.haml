@@ -2,7 +2,10 @@
 	.day_header
 		%h3
 			%span Day #{@day_count || day_counter + 1}
-			%span=link_to (image_tag 'delete.png', :style => "margin-top: -4px;"), plan_day_path(day.plan, day), :method => :delete, :title => "Delete Day"
+			- if day.plan_items.count > 0
+				%span= link_to "#{toggleShowLink_label(day)}", plan_day_toggle_completed_items_path(day.plan, day), :id => 'toggleShowLink', :remote => true, :day => day[:id]
+				
+			%span=link_to (image_tag 'delete.png', :style => "margin-top: -4px;"), plan_day_path(day.plan, day), :method => :delete, :title => "Delete Day", :style => "float:right; "
 
 	%section{:style => "width: 920px; margin-left: 5px;"}
 	

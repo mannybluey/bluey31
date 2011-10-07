@@ -14,7 +14,18 @@ class PlanItem < ActiveRecord::Base
     :reject_if => proc { |attributes| attributes.all? {|k,v| v.blank?}}
     
   has_paper_trail
-  
+
+  state_machine :initial => :pending do
+
+    event :perform do
+      transition :pending => :completed
+    end
+    event :reset do
+      transition :completed => :pending
+    end
+
+  end
+    
 end
 # == Schema Information
 #

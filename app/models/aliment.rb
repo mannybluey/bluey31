@@ -1,6 +1,7 @@
 class Aliment < ActiveRecord::Base
   
   belongs_to :meal
+<<<<<<< HEAD
   
 end\n# == Schema Information
 #
@@ -17,3 +18,17 @@ end\n# == Schema Information
 #  updated_at :datetime
 #
 
+=======
+
+  state_machine :initial => :pending do
+
+    event :perform do
+      transition :pending => :done
+    end
+    event :reset do
+      transition :done => :pending
+    end
+
+  end  
+end
+>>>>>>> working
