@@ -12,3 +12,16 @@ describe PlanItem do
     @plan_item.should be_valid
   end
 end
+# == Schema Information
+#
+# Table name: plan_items
+#
+#  id         :integer(4)      not null, primary key
+#  created_at :datetime
+#  updated_at :datetime
+#  day_id     :integer(4)
+#  position   :integer(4)
+#  completed  :boolean(1)      default(FALSE)
+#  name       :string(255)
+#
+

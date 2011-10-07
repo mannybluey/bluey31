@@ -13,3 +13,19 @@ class UserGoal < ActiveRecord::Base
 
   attr_accessible :current_value, :goal_value, :is_goal
 end
+# == Schema Information
+#
+# Table name: user_goals
+#
+#  id              :integer(4)      not null, primary key
+#  name            :string(255)
+#  current_value   :decimal(16, 2)
+#  goal_value      :decimal(16, 2)
+#  unit            :string(255)
+#  is_goal         :boolean(1)      default(FALSE)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  user_profile_id :integer(4)
+#  body_part_id    :integer(4)
+#
+

@@ -48,6 +48,7 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 group :test, :development do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'hpricot', '0.8.2'

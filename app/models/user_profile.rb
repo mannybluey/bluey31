@@ -40,3 +40,22 @@ class UserProfile < ActiveRecord::Base
   end
       
 end
+# == Schema Information
+#
+# Table name: user_profiles
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  summary    :text
+#  city       :string(255)
+#  country    :string(255)
+#  user_id    :integer(4)
+#  created_at :datetime
+#  updated_at :datetime
+#  gym        :string(255)
+#  sports     :text
+#  brands     :text
+#  dob        :date
+#  symptoms   :text
+#
+
