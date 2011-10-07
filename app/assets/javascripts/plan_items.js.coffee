@@ -8,8 +8,13 @@ updatePlanDays = ->
 
 
 updatePlanItems = ->
-  $(".plan-item input[type=checkbox]:checked").closest("li").addClass("completed")
-  $(".plan-item input[type=checkbox]:not(:checked)").closest("li").removeClass("completed")
+  checkedPlanItem = $(".plan-item input[type=checkbox]:checked").closest("li")
+  checkedPlanItem.addClass("completed")
+  if checkedPlanItem.closest('.day').hasClass('expanded')
+    checkedPlanItem.show()
+  else
+    checkedPlanItem.hide()  
+  $(".plan-item input[type=checkbox]:not(:checked)").closest("li").removeClass("completed").show()
 
 
 $(document).ready ->
@@ -18,9 +23,9 @@ $(document).ready ->
   
   updatePlanItems()
   
-  $(".plan-item header input[type=checkbox]").click ->
+  $(".plan-item header input[type=checkbox]").live "click", (e) ->
     $.ajax 
-     # url: $(this).attr("data-url")
+      #url: $(this).attr("data-url")
       type: "put"
       data: 
         plan_item: 

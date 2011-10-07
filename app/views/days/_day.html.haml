@@ -1,4 +1,4 @@
-= div_for day do
+= div_for day, :class => "#{day[:show_flag] ? 'expanded' : 'collapsed'}" do
 	.day_header
 		%h3
 			%span Day #{@day_count || day_counter + 1}
