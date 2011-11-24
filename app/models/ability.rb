@@ -4,8 +4,13 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    can :read, Plan do |plan|
-      plan && plan.creator.id == user.id
+    if user.roles.include?(Role.find_by_title('Admin'))
+      can :read, :all
+      can :access, :rails_admin
+    else
+      can :read, Plan do |plan|
+        plan && plan.creator.id == user.id
+      end
     end
   end
 end
