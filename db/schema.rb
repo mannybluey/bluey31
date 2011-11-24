@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111007123429) do
+ActiveRecord::Schema.define(:version => 20111124143454) do
 
   create_table "aliments", :force => true do |t|
     t.string   "name"
@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(:version => 20111007123429) do
     t.integer  "plan_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",        :default => "pending"
   end
 
   create_table "plan_items", :force => true do |t|
@@ -104,6 +103,19 @@ ActiveRecord::Schema.define(:version => 20111007123429) do
     t.integer  "plan_type_id"
     t.string   "cached_slug"
   end
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
@@ -188,7 +200,6 @@ ActiveRecord::Schema.define(:version => 20111007123429) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

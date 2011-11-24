@@ -1,5 +1,7 @@
 Bluey::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   #devise_for :users
   devise_for :users, :controllers => { :sessions => "sessions", :registrations => "registrations", :passwords => "passwords" } do
     post 'continue' => 'sessions#continue', :as => :continue
