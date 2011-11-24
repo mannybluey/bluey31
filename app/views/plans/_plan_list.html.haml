@@ -3,6 +3,9 @@
 	= render :partial => "add_plans_link"
 	
 
+#paginationBar.fl
+	= paginate @plans
+
 #content.clear.dashboard{:style => "z-index: 0;"}
 	- unless @plans.count > 0
 		#no_plan{:style => "min-height: 400px;"}

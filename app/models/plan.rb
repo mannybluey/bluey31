@@ -22,8 +22,7 @@ class Plan < ActiveRecord::Base
   has_paper_trail
   has_friendly_id :name, :use_slug => true
   
-  cattr_reader :per_page
-  @@per_page = 12
+  paginates_per 12
     
   class << self
     def all_for(user)
