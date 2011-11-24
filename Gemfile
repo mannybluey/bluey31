@@ -21,6 +21,7 @@ gem 'json'
 gem 'paper_trail'
 gem 'friendly_id'
 gem 'to_slug'
+gem 'kaminari'
 
 gem 'state_machine'
 

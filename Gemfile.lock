@@ -311,6 +311,7 @@ DEPENDENCIES
   hpricot (= 0.8.2)
   jquery-rails (= 1.0.17)
   json
+  kaminari
   launchy
   mysql2
   nested_form!
