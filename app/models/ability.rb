@@ -5,7 +5,7 @@ class Ability
     user ||= User.new
 
     if user.roles.include?(Role.find_by_title('Admin'))
-      can :read, :all
+      can :manage, :all
       can :access, :rails_admin
     else
       can :read, Plan do |plan|
