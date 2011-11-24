@@ -6,7 +6,6 @@ gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
 gem 'rack', '1.3.3'
 
 gem 'mysql2'
-gem 'will_paginate', '~> 3.0.pre4'
 
 gem 'devise'
 gem 'cancan'
