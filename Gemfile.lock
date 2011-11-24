@@ -20,6 +20,21 @@ GIT
     nested_form (0.1.1)
 
 GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 06eafd6f995373a204bdcdb7824c0ea82e327cfd
+  specs:
+    rails_admin (0.0.1)
+      bootstrap-sass (~> 1.4)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (~> 1.0.17)
+      kaminari (~> 0.12.4)
+      rack-pjax
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+
+GIT
   remote: git://github.com/sstephenson/sprockets.git
   revision: 9483f5d15120c4558ad0f8bd8968fe9e724b1026
   specs:
@@ -69,6 +84,8 @@ GEM
       ZenTest (>= 4.4.1)
     babosa (0.3.5)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (1.4.0)
+      sass-rails (~> 3.1.0)
     builder (3.0.0)
     cancan (1.6.7)
     capistrano (2.9.0)
@@ -87,7 +104,7 @@ GEM
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
     capybara-webkit (0.7.1)
-      capybara (< 1.2, >= 1.0.0)
+      capybara (>= 1.0.0, < 1.2)
     carmen (0.2.8)
     celerity (0.9.0)
     childprocess (0.2.2)
@@ -140,11 +157,13 @@ GEM
     hike (1.2.1)
     hpricot (0.8.2)
     i18n (0.6.0)
-    jquery-rails (1.0.14)
+    jquery-rails (1.0.17)
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.1)
     json_pure (1.6.1)
+    kaminari (0.12.4)
+      rails (>= 3.0.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     linecache19 (0.5.12)
@@ -180,6 +199,9 @@ GEM
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-pjax (0.5.3)
+      nokogiri (~> 1.5.0)
+      rack (> 1.0)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
@@ -229,11 +251,10 @@ GEM
       sexp_processor (~> 3.0)
     rubyzip (0.9.4)
     sass (3.1.10)
-    sass-rails (3.1.4)
+    sass-rails (3.1.5)
       actionpack (~> 3.1.0)
       railties (~> 3.1.0)
-      sass (>= 3.1.4)
-      sprockets (~> 2.0.0)
+      sass (~> 3.1.10)
       tilt (~> 1.3.2)
     selenium-webdriver (2.8.0)
       childprocess (>= 0.2.1)
@@ -278,7 +299,7 @@ DEPENDENCIES
   capybara-webkit
   carmen
   celerity
-  coffee-rails (~> 3.1.0.rc)
+  coffee-rails (~> 3.1)
   compass!
   cucumber-rails
   culerity
@@ -289,7 +310,7 @@ DEPENDENCIES
   friendly_id
   haml
   hpricot (= 0.8.2)
-  jquery-rails
+  jquery-rails (= 1.0.17)
   json
   launchy
   mysql2
@@ -299,11 +320,12 @@ DEPENDENCIES
   paperclip
   rack (= 1.3.3)
   rails (= 3.1.0)
+  rails_admin!
   remotipart
   rspec-rails
   ruby-debug19
   ruby_parser (= 2.0.4)
-  sass-rails (~> 3.1.0.rc.6)
+  sass-rails (~> 3.1.5)
   simplecov
   sprockets!
   state_machine
