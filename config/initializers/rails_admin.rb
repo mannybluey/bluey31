@@ -57,10 +57,10 @@ RailsAdmin.config do |config|
 
   #  ==> Included models
   # Add all excluded models here:
-  # config.excluded_models = [Aliment, BodyPart, Day, Meal, Plan, PlanItem, PlanItemImage, PlanItemSet, PlanType, User, UserGoal, UserImage, UserPain, UserProfile, UserType, UserWant]
+  # config.excluded_models = [Aliment, BodyPart, Day, Meal, Plan, PlanItem, PlanItemImage, PlanItemSet, PlanType, , Goal, Image, Pain, Profile, Type, Want]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [Aliment, BodyPart, Day, Meal, Plan, PlanItem, PlanItemImage, PlanItemSet, PlanType, User, UserGoal, UserImage, UserPain, UserProfile, UserType, UserWant]
+  # config.included_models = [Aliment, BodyPart, Day, Meal, Plan, PlanItem, PlanItemImage, PlanItemSet, PlanType, , Goal, Image, Pain, Profile, Type, Want]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -335,7 +335,9 @@ RailsAdmin.config do |config|
   #   update do; end
   # end
 
-  # config.model User do
+  config.model User do
+    label "Users"
+    object_label_method :email
   #   # Found associations:
   #     field :user_profile, :has_one_association 
   #     field :plans, :has_many_association 
@@ -361,9 +363,9 @@ RailsAdmin.config do |config|
   #   edit do; end
   #   create do; end
   #   update do; end
-  # end
+  end
 
-  # config.model UserGoal do
+  # config.model Goal do
   #   # Found associations:
   #     field :body_part, :belongs_to_association 
   #     field :user_profile, :belongs_to_association 
@@ -387,7 +389,7 @@ RailsAdmin.config do |config|
   #   update do; end
   # end
 
-  # config.model UserImage do
+  # config.model Image do
   #   # Found associations:
   #     field :user_profile, :belongs_to_association 
   #   # Found columns:
@@ -411,7 +413,7 @@ RailsAdmin.config do |config|
   #   update do; end
   # end
 
-  # config.model UserPain do
+  # config.model Pain do
   #   # Found associations:
   #     field :user_profile, :belongs_to_association 
   #     field :body_part, :belongs_to_association 
@@ -430,7 +432,7 @@ RailsAdmin.config do |config|
   #   update do; end
   # end
 
-  # config.model UserProfile do
+  # config.model Profile do
   #   # Found associations:
   #     field :user, :belongs_to_association 
   #     field :user_types, :has_and_belongs_to_many_association 
@@ -462,7 +464,7 @@ RailsAdmin.config do |config|
   #   update do; end
   # end
 
-  # config.model UserType do
+  # config.model Type do
   #   # Found associations:
 
   #   # Found columns:
@@ -479,7 +481,7 @@ RailsAdmin.config do |config|
   #   update do; end
   # end
 
-  # config.model UserWant do
+  # config.model Want do
   #   # Found associations:
 
   #   # Found columns:
