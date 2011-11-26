@@ -1,0 +1,14 @@
+- content_for :main_content do
+	#content
+		= form_tag  query_plan_day_meals_path(:plan_id => @plan, :day_id => @day), :remote => true do 
+
+			#error_messages{:style => "display: none;"}
+
+			%p.clear
+			= label_tag "Category"
+			= select_tag :kind, options_for_select(["Generic", "Brand"], :selected => @selected_kind)
+			%p
+			= label_tag "Aliment"
+			%br
+			= text_field_tag :aliment, nil, :class => 'large-size'
+			= submit_tag "Search"

@@ -1,0 +1,5 @@
+search_plan_day_meals 
+GET    /plans/:plan_id/days/:day_id/meals/search(.:format)   {:action=>"search", :controller=>"meals"}
+
+query_plan_day_meals 
+POST   /plans/:plan_id/days/:day_id/meals/query(.:format)    {:action=>"query", :controller=>"meals"}
