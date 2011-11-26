@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_one :user_profile,  :dependent => :destroy
   has_many :plans, :foreign_key => 'creator_id', :dependent => :destroy
+  has_and_belongs_to_many :roles
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable

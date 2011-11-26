@@ -6,7 +6,6 @@ gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
 gem 'rack', '1.3.3'
 
 gem 'mysql2'
-gem 'will_paginate', '~> 3.0.pre4'
 
 gem 'devise'
 gem 'cancan'
@@ -22,20 +21,23 @@ gem 'json'
 gem 'paper_trail'
 gem 'friendly_id'
 gem 'to_slug'
+gem 'kaminari'
 
 gem 'state_machine'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "~> 3.1.0.rc.6"
-  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'sass-rails', "~> 3.1.5"
+  gem 'coffee-rails', "~> 3.1"
   gem 'uglifier'
   gem 'compass', :git => 'git://github.com/chriseppstein/compass.git'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', "1.0.17"
 gem 'fancybox-rails'
+
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'

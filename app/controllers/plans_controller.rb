@@ -9,19 +9,16 @@ class PlansController < ApplicationController
   def index
     @selection = params[:selection]
     @order = ["created_at desc", "name asc"]
-    @page_number = params[:page].nil? ? 1 : params[:page].to_i
-    @total_pages  = 0
     if params[:selection].nil?
-      @plans = Plan.all_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+      @plans = Plan.all_for(current_user).order(@order).page(params[:page])
     else
       case @selection
       when 'exercise'
-        @plans = Plan.exercises_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+        @plans = Plan.exercises_for(current_user).order(@order).page(params[:page])
       when 'nutrition'
-        @plans = Plan.nutritions_for(current_user).order(@order).paginate(:page => @page_number, :per_page => Plan.per_page)
+        @plans = Plan.nutritions_for(current_user).order(@order).page(params[:page])
       end
     end
-    @total_pages = @plans.count / Plan.per_page + (@plans.count % Plan.per_page > 0 ? 1 : 0 ) if @plans.count > 0    
   end
 
   # GET /plans/exercises

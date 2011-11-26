@@ -223,35 +223,26 @@
 #paginationBar {
   float: right;
   height: 20px;
-  width: 375px;
-  margin-top: 5px;
-  .pagination-nav {
-    color: #414141;
-    margin: 0 0 0 15px;
-    ul {
-      margin: 0px;
-      line-height: 20px;
-      list-style-type: none; 
-      li {
-        float: left;
-        overflow: hidden;
-        margin: 0;
-        padding: 0 0 0 15px;
-        a {
-          text-shadow: none;
-          font-size: 14px;
-          font-weight: bold;
-          text-decoration: none;
-        &:hover { color: #000000; }
-        }}
-      li#entries {
-        @include border-radius(3px);
-        border: solid 1px #c1c1c1;
-        padding: 0;
-        p {padding: 0 5px 0 5px;}
-      }
+  color: #414141;
+  margin: 5px;
+  line-height: 20px;
+  list-style-type: none; 
+  span {
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 0 3px;
+    padding: 0 5px;
+    @include border-radius(3px);
+    border: solid 1px #c1c1c1;
+    a {
+      text-shadow: none;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    &:hover { color: #000000; }
     }
-  } 
+  }
 }
 
 .apple_pagination {
